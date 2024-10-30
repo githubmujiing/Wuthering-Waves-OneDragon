@@ -4,10 +4,20 @@ from typing import Optional, List
 from one_dragon.base.config.config_item import ConfigItem
 from one_dragon.base.config.yaml_config import YamlConfig
 
-
+'''# 尝试删除
 class CardNumEnum(Enum):
 
     DEFAULT = ConfigItem('默认数量')
+    NUM_1 = ConfigItem('1')
+    NUM_2 = ConfigItem('2')
+    NUM_3 = ConfigItem('3')
+    NUM_4 = ConfigItem('4')
+    NUM_5 = ConfigItem('5')
+'''
+
+class TeamEnum(Enum):
+
+    DEFAULT = ConfigItem('默认队伍')
     NUM_1 = ConfigItem('1')
     NUM_2 = ConfigItem('2')
     NUM_3 = ConfigItem('3')
@@ -19,15 +29,16 @@ class ChargePlanItem:
 
     def __init__(
             self,
-            tab_name: str = '训练',
-            category_name: str = '实战模拟室',
-            mission_type_name: str = '基础材料',
-            mission_name: str = '调查专项',
+            tab_name: str = '周期挑战',
+            category_name: str = '模拟领域',
+            mission_type_name: str = '共鸣促剂',
+            mission_name: str = '共鸣促剂',
             level: str = '默认等级',
             auto_battle_config: str = '击破站场-强攻速切',
             run_times: int = 0,
             plan_times: int = 1,
-            card_num: str = CardNumEnum.DEFAULT.value.value
+            # 尝试删除card_num: str = CardNumEnum.DEFAULT.value.value,
+            team: str = TeamEnum.DEFAULT.value.value
     ):
         self.tab_name: str = tab_name
         self.category_name: str = category_name
@@ -37,7 +48,8 @@ class ChargePlanItem:
         self.auto_battle_config: str = auto_battle_config
         self.run_times: int = run_times
         self.plan_times: int = plan_times
-        self.card_num: str = card_num  # 实战模拟室的卡片数量
+        # 尝试删除self.card_num: str = card_num  # 模拟领域的卡片数量
+        self.team: str = team
 
 
 class ChargePlanConfig(YamlConfig):
@@ -70,22 +82,24 @@ class ChargePlanConfig(YamlConfig):
                 'auto_battle_config': plan_item.auto_battle_config,
                 'run_times': plan_item.run_times,
                 'plan_times': plan_item.plan_times,
-                'card_num': plan_item.card_num
+                # 尝试删除'card_num': plan_item.card_num,
+                'team': plan_item.team,
             })
 
         YamlConfig.save(self)
 
     def add_plan(self) -> None:
         self.plan_list.append(ChargePlanItem(
-            '训练',
-            '实战模拟室',
-            '基础材料',
-            '调查专项',
+            '周期挑战',
+            '模拟领域',
+            '共鸣促剂',
+            '共鸣促剂',
             level='默认等级',
             auto_battle_config='击破站场-强攻速切',
             run_times=0,
             plan_times=1,
-            card_num=CardNumEnum.DEFAULT.value.value
+            # 尝试删除card_num=CardNumEnum.DEFAULT.value.value,
+            team=TeamEnum.DEFAULT.value.value
         ))
         self.save()
 

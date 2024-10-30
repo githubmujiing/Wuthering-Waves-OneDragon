@@ -6,19 +6,19 @@ from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
-from zzz_od.application.zzz_application import ZApplication
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_application import WApplication
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.back_to_normal_world import BackToNormalWorld
 from zzz_od.operation.open_menu import OpenMenu
 
 
-class RedemptionCodeApp(ZApplication):
+class RedemptionCodeApp(WApplication):
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         """
         每天自动接收邮件奖励
         """
-        ZApplication.__init__(
+        WApplication.__init__(
             self,
             ctx=ctx, app_id='redemption_code',
             op_name=gt('兑换码', 'ui'),
@@ -106,7 +106,7 @@ class RedemptionCodeApp(ZApplication):
 
 
 def __debug():
-    ctx = ZContext()
+    ctx = WContext()
     ctx.init_by_config()
     app = RedemptionCodeApp(ctx)
     app.execute()

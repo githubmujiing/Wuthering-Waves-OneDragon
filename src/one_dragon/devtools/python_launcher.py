@@ -116,7 +116,7 @@ def execute_python_script(app_path, log_folder, no_windows: bool):
         subprocess.Popen(["powershell", "-Command", powershell_command], creationflags=subprocess.CREATE_NO_WINDOW)
     else:
         subprocess.Popen(["powershell", "-Command", powershell_command])
-    print_message("绝区零一条龙 正在启动中，大约 5+ 秒...", "INFO")
+    print_message("鸣潮一条龙 正在启动中，大约 5+ 秒...", "INFO")
 
 def run_python(app_path, no_windows: bool = True):
     # 主函数

@@ -5,13 +5,13 @@ from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 
 
 class OpenGame(Operation):
 
-    def __init__(self, ctx: ZContext):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext):
+        self.ctx: WContext = ctx
         Operation.__init__(self, ctx, op_name=gt('打开游戏', 'ui'),
                            need_check_game_win=False)
 

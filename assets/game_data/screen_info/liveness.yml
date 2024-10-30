@@ -1,0 +1,92 @@
+screen_id: liveness
+screen_name: 活跃度
+pc_alt: false
+area_list:
+- area_name: 项目
+  pc_rect:
+  - 58
+  - 32
+  - 192
+  - 90
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取活跃度
+  pc_rect:
+  - 1538
+  - 160
+  - 1796
+  - 222
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取每日100
+  pc_rect:
+  - 1676
+  - 884
+  - 1764
+  - 958
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取每日80
+  pc_rect:
+  - 1444
+  - 890
+  - 1520
+  - 946
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取每日60
+  pc_rect:
+  - 1200
+  - 886
+  - 1288
+  - 950
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 活跃度
+  pc_rect:
+  - 386
+  - 894
+  - 524
+  - 952
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取每日40
+  pc_rect:
+  - 956
+  - 894
+  - 1044
+  - 948
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取每日20
+  pc_rect:
+  - 712
+  - 888
+  - 810
+  - 948
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

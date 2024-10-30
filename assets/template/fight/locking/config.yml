@@ -1,0 +1,8 @@
+sub_dir: fight
+template_id: locking
+template_name: 锁定状态
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 1362, 950
+- 1419, 1002

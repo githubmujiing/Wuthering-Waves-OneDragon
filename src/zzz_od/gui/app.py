@@ -10,11 +10,11 @@ try:
     from one_dragon.gui.view.code_interface import CodeInterface
     from one_dragon.gui.view.context_event_signal import ContextEventSignal
     from one_dragon.utils.i18_utils import gt
-    from zzz_od.context.zzz_context import ZContext
-    from zzz_od.gui.view.battle_assistant.battle_assistant_interface import BattleAssistantInterface
+    from zzz_od.context.zzz_context import WContext
+    # 尝试删除from zzz_od.gui.view.battle_assistant.battle_assistant_interface import BattleAssistantInterface
     from zzz_od.gui.view.devtools.app_devtools_interface import AppDevtoolsInterface
-    from zzz_od.gui.view.game_assistant.game_assistant import GameAssistantInterface
-    from zzz_od.gui.view.hollow_zero.hollow_zero_interface import HollowZeroInterface
+    # 尝试删除from zzz_od.gui.view.game_assistant.game_assistant import GameAssistantInterface
+    # 尝试删除from zzz_od.gui.view.hollow_zero.hollow_zero_interface import HollowZeroInterface
     from zzz_od.gui.view.home_interface import HomeInterface
     from zzz_od.gui.view.one_dragon.zzz_one_dragon_interface import ZOneDragonInterface
     from zzz_od.gui.view.setting.app_setting_interface import AppSettingInterface
@@ -25,9 +25,9 @@ try:
     # 定义应用程序的主窗口类
     class AppWindow(FluentWindowBase):
 
-        def __init__(self, ctx: ZContext, parent=None):
+        def __init__(self, ctx: WContext, parent=None):
             """初始化主窗口类，设置窗口标题和图标"""
-            self.ctx: ZContext = ctx
+            self.ctx: WContext = ctx
             FluentWindowBase.__init__(
                 self,
                 win_title='%s %s' % (
@@ -84,16 +84,16 @@ try:
             self.add_sub_interface(HomeInterface(self.ctx, parent=self))
 
             # 战斗助手
-            self.add_sub_interface(BattleAssistantInterface(self.ctx, parent=self))
+            # 尝试删除self.add_sub_interface(BattleAssistantInterface(self.ctx, parent=self))
 
             # 一条龙
             self.add_sub_interface(ZOneDragonInterface(self.ctx, parent=self))
 
             # 空洞
-            self.add_sub_interface(HollowZeroInterface(self.ctx, parent=self))
+            # 尝试删除self.add_sub_interface(HollowZeroInterface(self.ctx, parent=self))
 
             # 游戏助手
-            self.add_sub_interface(GameAssistantInterface(self.ctx, parent=self))
+            # 尝试删除self.add_sub_interface(GameAssistantInterface(self.ctx, parent=self))
 
             # 点赞
             self.add_sub_interface(LikeInterface(self.ctx, parent=self), position=NavigationItemPosition.BOTTOM)
@@ -140,7 +140,7 @@ if __name__ == '__main__':
         sys.exit(1)
     app = QApplication(sys.argv)
 
-    _ctx = ZContext()
+    _ctx = WContext()
 
     # 加载配置
     _ctx.init_by_config()

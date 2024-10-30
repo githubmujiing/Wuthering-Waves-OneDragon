@@ -1,0 +1,1104 @@
+2024-10-26 15:53:08,937 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001BADDEB4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 15:53:09,372 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 15:53:09,543 INFO MainThread DeviceManager:__init__ start
+2024-10-26 15:53:09,548 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 15:53:09,548 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 15:53:09,549 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 15:53:09,553 INFO MainThread DeviceManager:__init__ end
+2024-10-26 15:53:09,558 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 15:53:09,560 INFO RefreshAdb DeviceManager:first start use first or connected device {'address': '', 'imei': 'pc', 'device': 'windows', 'model': '', 'nick': '鸣潮  ', 'width': 0, 'height': 0, 'hwnd': '鸣潮  ', 'capture': 'windows', 'connected': True, 'full_path': 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe'}
+2024-10-26 15:53:09,560 INFO RefreshAdb DeviceManager:preferred device did change pc
+2024-10-26 15:53:09,566 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 15:53:09,566 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 15:53:09,641 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001BADDEB4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 15:53:09,834 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 15:53:09,877 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 15:53:09,889 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 15:53:09,889 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 15:53:09,889 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 15:53:10,043 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 15:53:12,318 INFO MainThread OK:do_init, end
+2024-10-26 15:53:12,347 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 15:53:17,368 INFO TaskExecutor CombatCheck:enter combat cost 5.021159 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 15:53:17,368 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 15:53:17,380 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184949398040771 0
+2024-10-26 15:53:17,394 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 15:53:17,402 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.937183141708374 0
+2024-10-26 15:53:17,407 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6093673706054688 0.937183141708374
+2024-10-26 15:53:17,410 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 15:53:17,412 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483602046966553 0
+2024-10-26 15:53:17,424 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 15:53:17,425 INFO TaskExecutor Yinlin:reset state
+2024-10-26 15:53:17,425 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 15:53:17,425 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 15:53:17,425 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 15:53:18,780 INFO TaskExecutor CombatCheck:set count_down to True  [04:5_0.98] 0.12%
+2024-10-26 15:53:20,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 15:53:20,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 15:53:20,001 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 15:53:20,278 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.276s
+2024-10-26 15:53:20,393 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11340999603271484 animated False
+2024-10-26 15:53:20,542 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:20,542 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 15:53:20,543 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 15:53:20,691 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 15:53:20,954 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con True
+2024-10-26 15:53:20,954 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0 target_low_con True
+2024-10-26 15:53:20,954 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 15:53:21,236 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.282s
+2024-10-26 15:53:22,334 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0969173908233643 animated False
+2024-10-26 15:53:22,545 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:22,545 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0 target_low_con False
+2024-10-26 15:53:22,545 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 15:53:22,703 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.157s
+2024-10-26 15:53:22,704 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:22,709 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:22,709 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:22,909 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:22,913 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:22,914 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:23,125 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:23,129 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:23,130 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:23,330 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:23,335 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:23,335 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:23,536 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:23,546 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con False
+2024-10-26 15:53:23,547 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:23,748 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:23,752 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0 target_low_con False
+2024-10-26 15:53:23,752 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:23,752 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 15:53:24,048 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.295s
+2024-10-26 15:53:27,415 INFO TaskExecutor Yinlin:click_liberation end 3.1266016960144043
+2024-10-26 15:53:27,417 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:28,335 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 0 -> 484  1
+2024-10-26 15:53:28,339 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 484 -> 484  1
+2024-10-26 15:53:28,339 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 15:53:28,340 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 15:53:28,340 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0 target_low_con False
+2024-10-26 15:53:28,340 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 15:53:28,364 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 484 -> 486  1
+2024-10-26 15:53:28,365 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 486 -> 486  1
+2024-10-26 15:53:28,488 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 15:53:28,600 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 15:53:28,600 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 15:53:32,630 INFO TaskExecutor Jinhsi:handle_intro end 4.029494285583496
+2024-10-26 15:53:32,633 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0 target_low_con True
+2024-10-26 15:53:32,634 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0 target_low_con True
+2024-10-26 15:53:32,634 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 15:53:32,781 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 15:53:32,784 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:33,488 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 15:53:33,488 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 15:53:33,488 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0 target_low_con False
+2024-10-26 15:53:33,489 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 15:53:33,888 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.399s
+2024-10-26 15:53:33,889 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 15:53:34,722 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 15:53:37,700 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 15:53:37,927 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.038043737411499
+2024-10-26 15:53:37,931 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.0 target_low_con True
+2024-10-26 15:53:37,931 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0 target_low_con True
+2024-10-26 15:53:37,932 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 15:53:38,085 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.152s
+2024-10-26 15:53:38,617 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x000001BAFE6ACAE0> 0.4 seconds
+2024-10-26 15:53:38,617 ERROR TaskExecutor Yinlin:clicked liberation but no effect 
+2024-10-26 15:53:38,618 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:39,321 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:39,321 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0 target_low_con False
+2024-10-26 15:53:39,321 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 15:53:39,467 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 15:53:39,470 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:40,239 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.0 target_low_con False
+2024-10-26 15:53:40,239 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:40,439 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:53:40,444 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.0 target_low_con False
+2024-10-26 15:53:40,444 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:53:40,444 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 15:53:40,742 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.297s
+2024-10-26 15:53:41,963 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 15:53:41,963 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 15:53:41,963 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 15:53:42,109 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 15:53:42,326 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11355066299438477 animated False
+2024-10-26 15:53:42,331 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.31069958847736623 target_low_con False
+2024-10-26 15:53:42,331 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 15:53:42,331 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 15:53:42,483 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.153s
+2024-10-26 15:53:42,486 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.31069958847736623 target_low_con True
+2024-10-26 15:53:42,487 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0 target_low_con True
+2024-10-26 15:53:42,487 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 15:53:43,522 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.034s
+2024-10-26 15:53:43,524 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:43,529 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.31069958847736623 target_low_con False
+2024-10-26 15:53:43,529 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0 target_low_con False
+2024-10-26 15:53:43,529 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 15:53:43,677 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 15:53:44,765 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0862624645233154 animated False
+2024-10-26 15:53:44,969 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 15:53:44,969 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0 target_low_con False
+2024-10-26 15:53:44,969 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 15:53:45,114 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.145s
+2024-10-26 15:53:45,118 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6831275720164609 target_low_con True
+2024-10-26 15:53:45,118 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 102 0 target_low_con True
+2024-10-26 15:53:45,118 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 15:53:45,267 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 15:53:48,455 INFO TaskExecutor ShoreKeeper:click_liberation end 2.9619407653808594
+2024-10-26 15:53:48,609 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.15386700630187988 animated False
+2024-10-26 15:53:48,613 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 0 -> 482  0
+2024-10-26 15:53:48,615 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 482 -> 482  0
+2024-10-26 15:53:48,615 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6831275720164609 target_low_con False
+2024-10-26 15:53:48,615 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 15:53:48,615 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 15:53:48,616 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 15:53:48,638 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 482 -> 482  0
+2024-10-26 15:53:48,638 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 482 -> 482  0
+2024-10-26 15:53:48,764 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 15:53:48,764 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.149s
+2024-10-26 15:53:48,765 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 15:53:52,927 INFO TaskExecutor Jinhsi:handle_intro end 4.162228345870972
+2024-10-26 15:53:52,931 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6831275720164609 target_low_con True
+2024-10-26 15:53:52,931 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 102 0 target_low_con True
+2024-10-26 15:53:52,932 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 15:53:53,084 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.152s
+2024-10-26 15:53:53,086 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:53,212 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6831275720164609 target_low_con False
+2024-10-26 15:53:53,212 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 15:53:53,213 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 15:53:53,213 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 15:53:54,155 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.941s
+2024-10-26 15:53:54,157 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 15:53:55,126 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 15:53:58,122 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 15:53:58,347 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.190127611160278
+2024-10-26 15:53:58,353 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 0 -> 463  0
+2024-10-26 15:53:58,356 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 463 -> 463  0
+2024-10-26 15:53:58,356 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6831275720164609 target_low_con True
+2024-10-26 15:53:58,356 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.0 target_low_con True
+2024-10-26 15:53:58,357 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro True
+2024-10-26 15:53:58,381 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 463 -> 478  0
+2024-10-26 15:53:58,382 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 478 -> 478  0
+2024-10-26 15:53:58,388 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 478 -> 478  0
+2024-10-26 15:53:58,389 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 478 -> 478  0
+2024-10-26 15:53:58,512 INFO TaskExecutor Jinhsi:switch_out at full con set current_con to 0
+2024-10-26 15:53:58,512 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.155s
+2024-10-26 15:53:58,514 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:53:58,517 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6831275720164609 target_low_con False
+2024-10-26 15:53:58,517 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0 target_low_con False
+2024-10-26 15:53:58,518 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 15:53:59,679 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.161s
+2024-10-26 15:53:59,794 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 0.11320972442626953 animated False
+2024-10-26 15:54:00,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:54:00,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.0 target_low_con False
+2024-10-26 15:54:00,201 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:54:00,203 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:54:00,203 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.0 target_low_con False
+2024-10-26 15:54:00,403 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:54:00,405 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:54:00,405 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.0 target_low_con False
+2024-10-26 15:54:00,617 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 15:54:00,619 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:54:00,620 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.0 target_low_con False
+2024-10-26 15:54:00,620 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 15:54:00,766 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 15:54:01,115 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.3470335006713867 animated False
+2024-10-26 15:54:01,819 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.7037037037037037 target_low_con False
+2024-10-26 15:54:01,819 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 15:54:01,820 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 15:54:01,966 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 15:54:03,181 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.2133562564849854 animated False
+2024-10-26 15:54:03,385 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 486 -> 497  1
+2024-10-26 15:54:03,387 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 497 -> 497  1
+2024-10-26 15:54:03,387 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 15:54:03,387 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 15:54:03,388 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.0 target_low_con False
+2024-10-26 15:54:03,388 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 15:54:03,411 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 497 -> 492  1
+2024-10-26 15:54:03,413 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 492 -> 492  1
+2024-10-26 15:54:03,416 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 492 -> 492  1
+2024-10-26 15:54:03,416 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 492 -> 492  1
+2024-10-26 15:54:03,541 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 15:54:03,541 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.153s
+2024-10-26 15:54:03,542 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 15:54:03,543 INFO TaskExecutor Jinhsi:handle_intro in cd switch 14.776871681213379
+2024-10-26 15:54:03,547 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con True
+2024-10-26 15:54:03,547 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0.0 target_low_con True
+2024-10-26 15:54:03,547 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 15:54:04,953 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.406s
+2024-10-26 15:54:08,350 INFO TaskExecutor Yinlin:click_liberation end 3.1701619625091553
+2024-10-26 15:54:08,351 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 15:54:09,256 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation False incarnation_cd True
+2024-10-26 15:54:09,256 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.0 target_low_con False
+2024-10-26 15:54:09,257 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.0 target_low_con False
+2024-10-26 15:54:09,257 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 15:54:09,516 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 15:54:09,517 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:10:59,820 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001D5ED424220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 16:11:00,432 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 16:11:00,641 INFO MainThread DeviceManager:__init__ start
+2024-10-26 16:11:00,645 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:11:00,645 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:11:00,646 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 16:11:00,651 INFO MainThread DeviceManager:__init__ end
+2024-10-26 16:11:00,656 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:11:00,660 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:11:00,660 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:11:00,735 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001D5ED424220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 16:11:00,858 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 16:11:00,876 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 16:11:00,916 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 16:11:00,916 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 16:11:00,916 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 16:11:01,015 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 16:11:01,018 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:11:01,018 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:11:01,018 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 16:11:03,558 INFO MainThread OK:do_init, end
+2024-10-26 16:11:03,592 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 16:11:08,722 INFO TaskExecutor CombatCheck:enter combat cost 5.129905 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 16:11:08,723 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 16:11:08,734 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184192419052124 0
+2024-10-26 16:11:08,746 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 16:11:08,754 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9396015405654907 0
+2024-10-26 16:11:08,765 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 16:11:08,770 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483523368835449 0
+2024-10-26 16:11:08,775 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6192409992218018 0.9483523368835449
+2024-10-26 16:11:08,777 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.6530023813247681 0.9483523368835449
+2024-10-26 16:11:08,779 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6694996356964111 0.9483523368835449
+2024-10-26 16:11:08,781 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6227389574050903 0.9483523368835449
+2024-10-26 16:11:08,786 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 16:11:08,787 INFO TaskExecutor Yinlin:reset state
+2024-10-26 16:11:08,787 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 16:11:08,787 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 16:11:08,787 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 16:11:09,979 INFO TaskExecutor CombatCheck:set count_down to True  [04:5_0.93] 0.14%
+2024-10-26 16:11:10,652 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0 target_low_con True
+2024-10-26 16:11:10,652 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con True
+2024-10-26 16:11:10,652 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 16:11:10,831 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.178s
+2024-10-26 16:11:12,067 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.1337101459503174 animated False
+2024-10-26 16:11:12,272 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:12,272 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 16:11:12,273 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:11:12,561 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.288s
+2024-10-26 16:11:12,798 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.23613953590393066 animated False
+2024-10-26 16:11:12,927 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.5528455284552846 target_low_con False
+2024-10-26 16:11:12,927 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:13,127 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:11:13,130 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.5528455284552846 target_low_con False
+2024-10-26 16:11:13,130 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:13,341 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:11:13,344 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.5528455284552846 target_low_con False
+2024-10-26 16:11:13,344 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:13,552 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:11:13,556 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 121 0.5528455284552846 target_low_con False
+2024-10-26 16:11:13,556 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:13,556 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:11:13,902 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.346s
+2024-10-26 16:11:15,223 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:15,223 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.5560165975103735 target_low_con False
+2024-10-26 16:11:15,223 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:11:15,423 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.199s
+2024-10-26 16:11:18,615 INFO TaskExecutor ShoreKeeper:click_liberation end 2.950618267059326
+2024-10-26 16:11:18,616 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:11:19,319 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 482 -> 496  0
+2024-10-26 16:11:19,320 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 496 -> 496  0
+2024-10-26 16:11:19,321 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6626016260162602 target_low_con False
+2024-10-26 16:11:19,321 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 16:11:19,321 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.2175732217573222 target_low_con False
+2024-10-26 16:11:19,321 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 16:11:19,344 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 496 -> 496  0
+2024-10-26 16:11:19,344 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 496 -> 496  0
+2024-10-26 16:11:19,471 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 16:11:19,472 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.150s
+2024-10-26 16:11:19,473 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:11:25,857 INFO TaskExecutor Jinhsi:click_liberation end 3.327676773071289
+2024-10-26 16:11:26,168 INFO TaskExecutor Jinhsi:handle_intro end 6.695162057876587
+2024-10-26 16:11:26,170 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6626016260162602 target_low_con True
+2024-10-26 16:11:26,171 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0 target_low_con True
+2024-10-26 16:11:26,171 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 16:11:26,317 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 16:11:26,319 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:11:27,025 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6626016260162602 target_low_con False
+2024-10-26 16:11:27,025 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 16:11:27,025 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.6589958158995816 target_low_con False
+2024-10-26 16:11:27,025 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 16:11:27,428 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.402s
+2024-10-26 16:11:27,429 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 16:11:28,450 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 16:11:31,506 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 16:11:31,618 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.189738512039185
+2024-10-26 16:11:31,622 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.91 almost full, sleep and check again
+2024-10-26 16:11:31,784 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6626016260162602 target_low_con True
+2024-10-26 16:11:31,784 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.0 target_low_con True
+2024-10-26 16:11:31,784 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 16:11:31,933 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 16:11:31,935 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:11:31,939 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6626016260162602 target_low_con False
+2024-10-26 16:11:31,939 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0.9205020920502092 target_low_con False
+2024-10-26 16:11:31,939 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:11:33,100 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.160s
+2024-10-26 16:11:36,424 INFO TaskExecutor Yinlin:click_liberation end 2.972567319869995
+2024-10-26 16:11:37,631 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.2063603401184082 animated False
+2024-10-26 16:11:37,836 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 492 -> 482  1
+2024-10-26 16:11:37,837 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 482 -> 482  1
+2024-10-26 16:11:37,837 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 16:11:37,837 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.9205020920502092 target_low_con False
+2024-10-26 16:11:37,837 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.0 target_low_con False
+2024-10-26 16:11:37,838 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 16:11:37,863 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 482 -> 478  1
+2024-10-26 16:11:37,864 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 478 -> 478  1
+2024-10-26 16:11:37,988 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 16:11:37,989 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.151s
+2024-10-26 16:11:37,989 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:11:43,752 INFO TaskExecutor Jinhsi:handle_intro end 5.763202428817749
+2024-10-26 16:11:43,754 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 478 -> 503  0
+2024-10-26 16:11:43,756 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 503 -> 503  0
+2024-10-26 16:11:43,757 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0 target_low_con True
+2024-10-26 16:11:43,757 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.0 target_low_con True
+2024-10-26 16:11:43,757 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro True
+2024-10-26 16:11:43,780 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 503 -> 502  0
+2024-10-26 16:11:43,781 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 502 -> 502  0
+2024-10-26 16:11:43,962 INFO TaskExecutor Jinhsi:switch_out at full con set current_con to 0
+2024-10-26 16:11:43,962 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.205s
+2024-10-26 16:11:44,540 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:11:45,483 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 16:11:45,484 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 16:11:45,484 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.0 target_low_con False
+2024-10-26 16:11:45,485 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 16:11:45,860 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.270s
+2024-10-26 16:11:45,860 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 16:11:47,144 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 16:12:20,720 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001B2537D4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 16:12:21,282 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 16:12:21,441 INFO MainThread DeviceManager:__init__ start
+2024-10-26 16:12:21,445 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:12:21,445 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:12:21,446 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 16:12:21,451 INFO MainThread DeviceManager:__init__ end
+2024-10-26 16:12:21,453 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:12:21,456 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:12:21,456 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:12:21,542 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000001B2537D4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 16:12:21,719 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 16:12:21,727 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 16:12:21,755 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 16:12:21,756 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 16:12:21,756 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 16:12:21,874 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 16:12:21,880 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 16:12:21,880 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 16:12:21,881 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 16:12:23,959 INFO MainThread OK:do_init, end
+2024-10-26 16:12:24,051 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 16:12:28,843 INFO TaskExecutor CombatCheck:enter combat cost 4.792893 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 16:12:28,846 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 16:12:28,869 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184929728507996 0
+2024-10-26 16:12:28,893 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 16:12:28,903 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9396081566810608 0
+2024-10-26 16:12:28,916 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 16:12:28,920 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483593702316284 0
+2024-10-26 16:12:28,975 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6087371706962585 0.9483593702316284
+2024-10-26 16:12:28,985 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.6163778901100159 0.9483593702316284
+2024-10-26 16:12:28,990 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6701335310935974 0.9483593702316284
+2024-10-26 16:12:28,991 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6368374228477478 0.9483593702316284
+2024-10-26 16:12:28,995 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 16:12:28,995 INFO TaskExecutor Yinlin:reset state
+2024-10-26 16:12:28,996 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 16:12:28,996 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 16:12:28,996 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 16:12:31,462 INFO TaskExecutor CombatCheck:set count_down to True  [04_0.97, 04:5_0.93, 53:81_0.90] 0.13%
+2024-10-26 16:12:32,260 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0 target_low_con True
+2024-10-26 16:12:32,261 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con True
+2024-10-26 16:12:32,261 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 16:12:32,438 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.176s
+2024-10-26 16:12:33,609 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0658650398254395 animated False
+2024-10-26 16:12:33,816 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:33,818 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 16:12:33,818 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:34,112 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.293s
+2024-10-26 16:12:34,342 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.2291126251220703 animated False
+2024-10-26 16:12:34,470 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.42677824267782427 target_low_con False
+2024-10-26 16:12:34,470 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:34,670 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:34,672 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.42677824267782427 target_low_con False
+2024-10-26 16:12:34,672 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:34,884 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:34,888 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.42677824267782427 target_low_con False
+2024-10-26 16:12:34,888 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:35,089 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:35,093 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 121 0.42677824267782427 target_low_con False
+2024-10-26 16:12:35,093 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:35,094 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:12:35,244 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.151s
+2024-10-26 16:12:36,474 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:36,474 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.40524193548387094 target_low_con False
+2024-10-26 16:12:36,474 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:36,621 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 16:12:36,624 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:36,626 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6171548117154811 target_low_con False
+2024-10-26 16:12:36,627 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:36,827 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:36,829 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6171548117154811 target_low_con False
+2024-10-26 16:12:36,830 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:37,041 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:37,043 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6171548117154811 target_low_con False
+2024-10-26 16:12:37,043 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:37,244 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:37,246 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6171548117154811 target_low_con False
+2024-10-26 16:12:37,246 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:37,448 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:37,450 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6171548117154811 target_low_con False
+2024-10-26 16:12:37,450 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:37,651 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:37,654 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6171548117154811 target_low_con False
+2024-10-26 16:12:37,654 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:37,655 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:12:37,805 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.150s
+2024-10-26 16:12:37,807 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:38,734 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:38,735 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.6028225806451613 target_low_con False
+2024-10-26 16:12:38,736 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:38,985 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 16:12:38,986 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:39,691 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.6778242677824268 target_low_con False
+2024-10-26 16:12:39,692 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:39,903 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:39,906 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6778242677824268 target_low_con False
+2024-10-26 16:12:39,907 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:39,907 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:12:40,307 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.399s
+2024-10-26 16:12:40,309 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:41,014 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:41,014 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.7580645161290323 target_low_con False
+2024-10-26 16:12:41,214 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:41,216 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:41,217 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.7580645161290323 target_low_con False
+2024-10-26 16:12:41,217 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:41,488 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.271s
+2024-10-26 16:12:41,491 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:41,495 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7343096234309623 target_low_con False
+2024-10-26 16:12:41,495 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:41,705 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:41,708 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.81 almost full, sleep and check again
+2024-10-26 16:12:41,863 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7343096234309623 target_low_con False
+2024-10-26 16:12:41,863 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:42,074 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:42,077 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.84 almost full, sleep and check again
+2024-10-26 16:12:42,231 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7343096234309623 target_low_con False
+2024-10-26 16:12:42,231 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:42,442 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:42,445 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.85 almost full, sleep and check again
+2024-10-26 16:12:42,598 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.7343096234309623 target_low_con False
+2024-10-26 16:12:42,598 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:42,598 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:12:42,743 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.145s
+2024-10-26 16:12:42,745 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:43,449 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:43,449 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.8508064516129032 target_low_con False
+2024-10-26 16:12:43,662 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:43,666 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:43,666 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.8508064516129032 target_low_con False
+2024-10-26 16:12:43,666 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:43,944 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.278s
+2024-10-26 16:12:43,974 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:43,978 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.88 almost full, sleep and check again
+2024-10-26 16:12:44,196 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7364016736401674 target_low_con False
+2024-10-26 16:12:44,196 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:44,396 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:44,399 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.86 almost full, sleep and check again
+2024-10-26 16:12:44,631 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7364016736401674 target_low_con False
+2024-10-26 16:12:44,631 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:44,832 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 16:12:44,870 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.88 almost full, sleep and check again
+2024-10-26 16:12:45,127 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.7364016736401674 target_low_con False
+2024-10-26 16:12:45,127 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:45,127 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 16:12:45,340 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.213s
+2024-10-26 16:12:46,505 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.1602210998535156 animated False
+2024-10-26 16:12:46,709 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 478 -> 481  1
+2024-10-26 16:12:46,711 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 481 -> 481  1
+2024-10-26 16:12:46,712 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 16:12:46,712 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.2549800796812749 target_low_con False
+2024-10-26 16:12:46,712 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.9173387096774194 target_low_con False
+2024-10-26 16:12:46,713 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 16:12:46,736 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 481 -> 481  1
+2024-10-26 16:12:46,736 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 481 -> 481  1
+2024-10-26 16:12:46,739 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 481 -> 481  1
+2024-10-26 16:12:46,740 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 481 -> 481  1
+2024-10-26 16:12:46,863 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 16:12:46,863 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.150s
+2024-10-26 16:12:46,863 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:12:51,083 INFO TaskExecutor Jinhsi:handle_intro end 4.219553470611572
+2024-10-26 16:12:51,085 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0 target_low_con True
+2024-10-26 16:12:51,085 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.9173387096774194 target_low_con True
+2024-10-26 16:12:51,085 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 16:12:51,230 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 16:12:51,661 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x000001B26E1FE3E0> 0.4 seconds
+2024-10-26 16:12:51,662 ERROR TaskExecutor Yinlin:clicked liberation but no effect 
+2024-10-26 16:12:51,662 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:12:52,368 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 16:12:52,368 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.4721115537848606 target_low_con False
+2024-10-26 16:12:52,368 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.9173387096774194 target_low_con False
+2024-10-26 16:12:52,368 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 16:12:52,514 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 16:12:52,515 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 16:12:53,388 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 16:12:56,466 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 16:12:56,591 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.076742649078369
+2024-10-26 16:12:56,593 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.0 target_low_con True
+2024-10-26 16:12:56,594 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.9173387096774194 target_low_con True
+2024-10-26 16:12:56,594 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 16:12:56,740 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 16:12:57,273 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x000001B26E54DEE0> 0.4 seconds
+2024-10-26 16:12:57,273 ERROR TaskExecutor Yinlin:clicked liberation but no effect 
+2024-10-26 16:12:58,489 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.7191235059760956 target_low_con False
+2024-10-26 16:12:58,489 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.9173387096774194 target_low_con False
+2024-10-26 16:12:58,489 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 16:12:58,637 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 16:13:01,799 INFO TaskExecutor ShoreKeeper:click_liberation end 2.849900722503662
+2024-10-26 16:13:01,916 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11617851257324219 animated False
+2024-10-26 16:13:02,743 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 496 -> 472  0
+2024-10-26 16:13:02,744 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 472 -> 472  0
+2024-10-26 16:13:02,744 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.32432432432432434 target_low_con False
+2024-10-26 16:13:02,745 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 16:13:02,745 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.7191235059760956 target_low_con False
+2024-10-26 16:13:02,745 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 16:13:02,769 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 472 -> 472  0
+2024-10-26 16:13:02,769 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 472 -> 472  0
+2024-10-26 16:13:02,771 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 472 -> 473  0
+2024-10-26 16:13:02,772 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 473 -> 473  0
+2024-10-26 16:13:02,895 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 16:13:02,895 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.150s
+2024-10-26 16:13:02,895 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:13:02,896 INFO TaskExecutor Jinhsi:handle_intro in cd switch 16.031402826309204
+2024-10-26 16:13:02,899 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.81 almost full, sleep and check again
+2024-10-26 16:13:03,054 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.32432432432432434 target_low_con True
+2024-10-26 16:13:03,054 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0 target_low_con True
+2024-10-26 16:13:03,054 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 16:13:04,332 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.278s
+2024-10-26 16:13:04,335 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 16:13:04,337 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.32432432432432434 target_low_con False
+2024-10-26 16:13:04,337 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation False incarnation_cd True
+2024-10-26 16:13:04,337 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.8306772908366534 target_low_con False
+2024-10-26 16:13:04,338 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 16:13:05,355 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.017s
+2024-10-26 16:13:05,357 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 16:13:09,475 INFO TaskExecutor Jinhsi:handle_intro end 4.118460416793823
+2024-10-26 16:13:09,478 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.97 almost full, sleep and check again
+2024-10-26 17:30:42,067 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x00000284066C4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:30:42,697 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 17:30:42,908 INFO MainThread DeviceManager:__init__ start
+2024-10-26 17:30:42,913 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:30:42,914 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:30:42,914 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 17:30:42,918 INFO MainThread DeviceManager:__init__ end
+2024-10-26 17:30:42,921 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:30:42,924 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:30:42,924 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:30:42,997 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x00000284066C4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:30:43,113 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 17:30:43,147 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 17:30:43,191 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 17:30:43,191 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 17:30:43,191 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 17:30:43,289 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:30:43,292 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:30:43,293 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:30:43,293 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:30:45,730 INFO MainThread OK:do_init, end
+2024-10-26 17:30:45,765 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 17:30:51,512 INFO TaskExecutor CombatCheck:enter combat cost 5.746778 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 17:30:51,513 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 17:30:51,528 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184876084327698 0
+2024-10-26 17:30:51,537 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 17:30:51,543 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9396522045135498 0
+2024-10-26 17:30:51,551 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 17:30:51,554 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483609199523926 0
+2024-10-26 17:30:51,563 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6240350008010864 0.9483609199523926
+2024-10-26 17:30:51,564 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.6372405886650085 0.9483609199523926
+2024-10-26 17:30:51,565 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6868793368339539 0.9483609199523926
+2024-10-26 17:30:51,566 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6439719796180725 0.9483609199523926
+2024-10-26 17:30:51,569 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 17:30:51,569 INFO TaskExecutor Yinlin:reset state
+2024-10-26 17:30:51,569 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 17:30:51,569 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 17:30:51,569 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 17:30:52,793 INFO TaskExecutor CombatCheck:set count_down to True  [04_0.98, 04:5_0.84] 0.12%
+2024-10-26 17:30:53,560 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.91 almost full, sleep and check again
+2024-10-26 17:30:53,715 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0 target_low_con True
+2024-10-26 17:30:53,715 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con True
+2024-10-26 17:30:53,715 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 17:30:54,106 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.391s
+2024-10-26 17:30:57,627 INFO TaskExecutor Yinlin:click_liberation end 3.273334503173828
+2024-10-26 17:30:58,636 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0083067417144775 animated False
+2024-10-26 17:30:58,841 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.97 almost full, sleep and check again
+2024-10-26 17:30:59,021 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:30:59,021 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 17:30:59,021 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:30:59,208 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.187s
+2024-10-26 17:30:59,540 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.22693896293640137 animated False
+2024-10-26 17:30:59,673 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.9792099792099792 target_low_con False
+2024-10-26 17:30:59,674 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:30:59,885 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:30:59,889 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.9792099792099792 target_low_con False
+2024-10-26 17:30:59,889 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:31:00,090 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:31:00,094 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.9792099792099792 target_low_con False
+2024-10-26 17:31:00,094 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:31:00,295 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:31:00,301 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.9792099792099792 target_low_con False
+2024-10-26 17:31:00,302 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:31:00,302 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:31:00,603 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.301s
+2024-10-26 17:31:00,609 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:31:01,514 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 481 -> 489  1
+2024-10-26 17:31:01,516 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 489 -> 489  1
+2024-10-26 17:31:01,517 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:31:01,517 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.9203187250996016 target_low_con False
+2024-10-26 17:31:01,517 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.3974630021141649 target_low_con False
+2024-10-26 17:31:01,517 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 17:31:01,541 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 489 -> 489  1
+2024-10-26 17:31:01,541 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 489 -> 489  1
+2024-10-26 17:31:01,771 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 17:31:01,874 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.253s
+2024-10-26 17:31:01,874 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:31:08,152 INFO TaskExecutor Jinhsi:click_liberation end 3.397732734680176
+2024-10-26 17:31:41,147 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x0000028ED5CD4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:31:41,581 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 17:31:41,704 INFO MainThread DeviceManager:__init__ start
+2024-10-26 17:31:41,708 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:31:41,708 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:31:41,709 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 17:31:41,713 INFO MainThread DeviceManager:__init__ end
+2024-10-26 17:31:41,716 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:31:41,719 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:31:41,720 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:31:41,771 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x0000028ED5CD4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:31:41,882 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 17:31:41,911 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 17:31:41,938 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 17:31:41,938 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 17:31:41,938 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 17:31:42,044 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:31:42,055 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:31:42,055 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:31:42,056 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:31:43,570 INFO MainThread OK:do_init, end
+2024-10-26 17:31:43,571 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 17:31:48,489 INFO TaskExecutor CombatCheck:enter combat cost 4.918258 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 17:31:48,490 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 17:31:48,501 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.8871937990188599 0
+2024-10-26 17:31:48,510 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 17:31:48,515 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9579065442085266 0
+2024-10-26 17:31:48,524 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 17:31:48,526 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9553080797195435 0
+2024-10-26 17:31:48,530 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6047419309616089 0.9553080797195435
+2024-10-26 17:31:48,531 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.6176422834396362 0.9553080797195435
+2024-10-26 17:31:48,533 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6772211194038391 0.9553080797195435
+2024-10-26 17:31:48,534 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6329017877578735 0.9553080797195435
+2024-10-26 17:31:48,538 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 17:31:48,538 INFO TaskExecutor Yinlin:reset state
+2024-10-26 17:31:48,538 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 17:31:48,538 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 17:31:48,538 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 17:31:49,606 INFO TaskExecutor CombatCheck:set count_down to True  [04:54:6_0.99] 0.14%
+2024-10-26 17:31:49,733 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 502 -> 468  0
+2024-10-26 17:31:49,734 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 468 -> 468  0
+2024-10-26 17:31:49,734 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0 target_low_con True
+2024-10-26 17:31:49,735 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con True
+2024-10-26 17:31:49,735 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro True
+2024-10-26 17:31:49,759 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 468 -> 468  0
+2024-10-26 17:31:49,759 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 468 -> 468  0
+2024-10-26 17:31:49,888 INFO TaskExecutor Jinhsi:switch_out at full con set current_con to 0
+2024-10-26 17:31:49,888 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.152s
+2024-10-26 17:31:52,090 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.698237657546997 animated False
+2024-10-26 17:31:52,294 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 17:31:52,294 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 17:31:52,294 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:31:52,548 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.253s
+2024-10-26 17:31:52,890 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.23726344108581543 animated False
+2024-10-26 17:31:53,038 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.85 almost full, sleep and check again
+2024-10-26 17:31:53,192 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.41922290388548056 target_low_con False
+2024-10-26 17:31:53,192 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 17:31:53,393 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:31:53,396 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.86 almost full, sleep and check again
+2024-10-26 17:31:53,552 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 121 0.41922290388548056 target_low_con False
+2024-10-26 17:31:53,552 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 17:31:53,554 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:31:53,706 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.152s
+2024-10-26 17:31:54,924 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0 target_low_con False
+2024-10-26 17:31:54,924 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.8477801268498943 target_low_con False
+2024-10-26 17:31:54,924 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:31:55,071 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.146s
+2024-10-26 17:31:58,437 INFO TaskExecutor ShoreKeeper:click_liberation end 3.1402716636657715
+2024-10-26 17:31:58,451 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.013462066650390625 animated False
+2024-10-26 17:31:58,454 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 473 -> 465  0
+2024-10-26 17:31:58,456 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 465 -> 465  0
+2024-10-26 17:31:58,457 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.6605316973415133 target_low_con False
+2024-10-26 17:31:58,457 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:31:58,458 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 17:31:58,458 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 17:31:58,483 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 465 -> 467  0
+2024-10-26 17:31:58,484 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 467 -> 467  0
+2024-10-26 17:31:58,489 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 467 -> 467  0
+2024-10-26 17:31:58,490 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 467 -> 467  0
+2024-10-26 17:31:58,633 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 17:31:58,634 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.174s
+2024-10-26 17:31:58,635 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:32:02,822 INFO TaskExecutor Jinhsi:handle_intro end 4.187158823013306
+2024-10-26 17:32:02,825 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6605316973415133 target_low_con True
+2024-10-26 17:32:02,825 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0 target_low_con True
+2024-10-26 17:32:02,826 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:32:02,972 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:32:02,975 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:32:02,979 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6605316973415133 target_low_con False
+2024-10-26 17:32:02,980 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 17:32:02,981 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.22863247863247863 target_low_con False
+2024-10-26 17:32:02,981 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 17:32:04,144 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.163s
+2024-10-26 17:32:04,146 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 17:32:04,884 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 17:32:07,977 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 17:32:08,225 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.0790393352508545
+2024-10-26 17:32:08,229 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6605316973415133 target_low_con True
+2024-10-26 17:32:08,229 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0.0 target_low_con True
+2024-10-26 17:32:08,229 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:32:08,376 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:32:08,377 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:32:09,083 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.6605316973415133 target_low_con False
+2024-10-26 17:32:09,083 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0.4829059829059829 target_low_con False
+2024-10-26 17:32:09,083 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:32:09,498 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.415s
+2024-10-26 17:32:12,836 INFO TaskExecutor Yinlin:click_liberation end 2.987334728240967
+2024-10-26 17:32:13,936 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.09916353225708 animated False
+2024-10-26 17:32:14,142 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 489 -> 486  1
+2024-10-26 17:32:14,143 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 486 -> 486  1
+2024-10-26 17:32:14,143 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:32:14,143 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.4829059829059829 target_low_con False
+2024-10-26 17:32:14,143 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.0 target_low_con False
+2024-10-26 17:32:14,144 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 17:32:14,269 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 486 -> 491  1
+2024-10-26 17:32:14,271 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 491 -> 491  1
+2024-10-26 17:32:14,294 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 17:32:14,294 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.150s
+2024-10-26 17:32:14,296 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:32:14,297 INFO TaskExecutor Jinhsi:handle_intro in cd switch 15.66080379486084
+2024-10-26 17:32:14,301 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0 target_low_con True
+2024-10-26 17:32:14,301 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.0 target_low_con True
+2024-10-26 17:32:14,301 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 17:35:50,589 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000002AD6B714220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:35:51,018 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 17:35:51,140 INFO MainThread DeviceManager:__init__ start
+2024-10-26 17:35:51,144 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:35:51,144 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:35:51,144 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 17:35:51,148 INFO MainThread DeviceManager:__init__ end
+2024-10-26 17:35:51,151 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:35:51,154 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:35:51,154 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:35:51,203 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x000002AD6B714220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:35:51,320 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 17:35:51,343 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 17:35:51,366 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 17:35:51,366 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 17:35:51,366 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 17:35:51,479 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:35:51,485 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:35:51,485 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:35:51,486 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:35:53,093 INFO MainThread OK:do_init, end
+2024-10-26 17:35:53,100 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 17:35:58,371 INFO TaskExecutor CombatCheck:enter combat cost 5.271737 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 17:35:58,373 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 17:35:58,389 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184380173683167 0
+2024-10-26 17:35:58,405 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 17:35:58,416 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9370278716087341 0
+2024-10-26 17:35:58,426 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 17:35:58,429 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483581781387329 0
+2024-10-26 17:35:58,437 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6090775728225708 0.9483581781387329
+2024-10-26 17:35:58,439 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.6059260368347168 0.9483581781387329
+2024-10-26 17:35:58,441 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6787073612213135 0.9483581781387329
+2024-10-26 17:35:58,443 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.6072876453399658 0.9483581781387329
+2024-10-26 17:35:58,447 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 17:35:58,448 INFO TaskExecutor Yinlin:reset state
+2024-10-26 17:35:58,448 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 17:35:58,449 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 17:35:58,449 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 17:35:59,562 INFO TaskExecutor CombatCheck:set count_down to True  [04_0.86, 4:54_0.83, 30_0.93] 0.14%
+2024-10-26 17:36:00,652 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0885047912597656 animated False
+2024-10-26 17:36:00,857 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 17:36:00,857 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 17:36:00,858 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:36:01,129 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.271s
+2024-10-26 17:36:01,241 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11239171028137207 animated False
+2024-10-26 17:36:02,186 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.32790224032586557 target_low_con False
+2024-10-26 17:36:02,187 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0 target_low_con False
+2024-10-26 17:36:02,187 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 17:36:02,527 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.339s
+2024-10-26 17:36:02,805 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.32790224032586557 target_low_con True
+2024-10-26 17:36:02,806 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.569593147751606 target_low_con True
+2024-10-26 17:36:02,806 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 17:36:03,101 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.295s
+2024-10-26 17:36:03,104 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:36:04,075 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:04,075 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -99 0.569593147751606 target_low_con False
+2024-10-26 17:36:04,076 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:36:04,357 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.166s
+2024-10-26 17:36:04,358 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:36:04,374 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.3645621181262729 target_low_con False
+2024-10-26 17:36:04,374 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:04,585 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:36:04,590 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.3645621181262729 target_low_con False
+2024-10-26 17:36:04,590 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:04,790 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:36:04,797 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.3645621181262729 target_low_con False
+2024-10-26 17:36:04,797 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:04,998 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:36:05,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.3645621181262729 target_low_con False
+2024-10-26 17:36:05,000 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:05,201 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:36:05,204 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.81 almost full, sleep and check again
+2024-10-26 17:36:05,358 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.3645621181262729 target_low_con False
+2024-10-26 17:36:05,359 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:05,359 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:36:05,644 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.285s
+2024-10-26 17:36:05,646 INFO TaskExecutor Yinlin:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:36:06,350 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:06,350 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.8201284796573876 target_low_con False
+2024-10-26 17:36:06,561 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:36:06,564 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:06,564 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 102 0.8201284796573876 target_low_con False
+2024-10-26 17:36:06,564 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:36:06,813 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.249s
+2024-10-26 17:36:10,010 INFO TaskExecutor ShoreKeeper:click_liberation end 3.072986364364624
+2024-10-26 17:36:10,011 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:36:10,139 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 467 -> 467  0
+2024-10-26 17:36:10,140 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 467 -> 467  0
+2024-10-26 17:36:10,140 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 121 0.5458248472505092 target_low_con False
+2024-10-26 17:36:10,140 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:36:10,140 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.5918803418803419 target_low_con False
+2024-10-26 17:36:10,140 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 17:36:10,164 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 467 -> 467  0
+2024-10-26 17:36:10,164 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 467 -> 467  0
+2024-10-26 17:36:10,289 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 17:36:10,289 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.149s
+2024-10-26 17:36:10,289 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:36:16,698 INFO TaskExecutor Jinhsi:click_liberation end 3.384530782699585
+2024-10-26 17:36:17,009 INFO TaskExecutor Jinhsi:handle_intro end 6.719664812088013
+2024-10-26 17:36:17,011 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 468 -> 489  0
+2024-10-26 17:36:17,012 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 489 -> 489  0
+2024-10-26 17:36:17,012 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 131 0.5458248472505092 target_low_con True
+2024-10-26 17:36:17,012 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 111 0 target_low_con True
+2024-10-26 17:36:17,013 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro True
+2024-10-26 17:36:17,038 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 489 -> 483  0
+2024-10-26 17:36:17,039 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 483 -> 483  0
+2024-10-26 17:36:17,162 INFO TaskExecutor Jinhsi:switch_out at full con set current_con to 0
+2024-10-26 17:36:17,162 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.149s
+2024-10-26 17:36:17,164 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:36:17,169 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 131 0.5458248472505092 target_low_con False
+2024-10-26 17:36:17,169 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 17:36:17,169 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0 target_low_con False
+2024-10-26 17:36:17,169 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 17:36:18,328 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.159s
+2024-10-26 17:36:18,329 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 17:36:19,272 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 17:36:22,350 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 17:36:22,705 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.3760998249053955
+2024-10-26 17:36:22,709 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 131 0.5458248472505092 target_low_con True
+2024-10-26 17:36:22,709 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.0 target_low_con True
+2024-10-26 17:36:22,709 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:36:22,857 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:36:22,971 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.1134185791015625 animated False
+2024-10-26 17:36:22,978 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 131 0.5458248472505092 target_low_con False
+2024-10-26 17:36:22,978 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0.2360248447204969 target_low_con False
+2024-10-26 17:36:22,978 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:36:23,125 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:36:26,536 INFO TaskExecutor Yinlin:click_liberation end 3.1817140579223633
+2024-10-26 17:36:27,741 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0.2360248447204969 target_low_con False
+2024-10-26 17:36:27,741 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 103 0.24411134903640258 target_low_con False
+2024-10-26 17:36:27,741 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro False
+2024-10-26 17:36:27,888 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:36:27,892 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.7637474541751528 target_low_con True
+2024-10-26 17:36:27,892 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 103 0.24411134903640258 target_low_con True
+2024-10-26 17:36:27,892 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:36:28,164 INFO TaskExecutor BaseCombatTask:not in team while switching chars_Jinhsi_to_ShoreKeeper 0.25029921531677246
+2024-10-26 17:36:30,267 INFO TaskExecutor TaskExecutor:wait_until timeout <function FindFeature.wait_feature.<locals>.<lambda> at 0x000002AD06831120> 2 seconds
+2024-10-26 17:36:30,289 INFO TaskExecutor BaseCombatTask:not in team while switching chars_Jinhsi_to_ShoreKeeper 2.375221014022827
+2024-10-26 17:36:32,418 INFO TaskExecutor TaskExecutor:wait_until timeout <function FindFeature.wait_feature.<locals>.<lambda> at 0x000002AD06830FE0> 2 seconds
+2024-10-26 17:36:32,451 INFO TaskExecutor BaseCombatTask:switch_next_char end 4.558s
+2024-10-26 17:36:33,019 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x000002AD061B9260> 0.4 seconds
+2024-10-26 17:36:33,019 ERROR TaskExecutor ShoreKeeper:clicked liberation but no effect 
+2024-10-26 17:36:33,134 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11418533325195312 animated False
+2024-10-26 17:36:33,139 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 131 0.7637474541751528 target_low_con False
+2024-10-26 17:36:33,139 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0.2318840579710145 target_low_con False
+2024-10-26 17:36:33,139 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:36:33,290 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.151s
+2024-10-26 17:36:33,724 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x000002AD061BBE20> 0.4 seconds
+2024-10-26 17:36:33,724 ERROR TaskExecutor Yinlin:clicked liberation but no effect 
+2024-10-26 17:36:34,827 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.1015615463256836 animated False
+2024-10-26 17:36:35,030 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 491 -> 490  1
+2024-10-26 17:36:35,031 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 490 -> 490  1
+2024-10-26 17:36:35,031 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:36:35,031 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.2318840579710145 target_low_con False
+2024-10-26 17:36:35,031 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.6402569593147751 target_low_con False
+2024-10-26 17:36:35,031 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 17:36:35,056 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 490 -> 490  1
+2024-10-26 17:36:35,057 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 490 -> 490  1
+2024-10-26 17:36:35,179 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 17:36:35,179 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 17:36:35,179 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:37:07,165 INFO MainThread OK:AutoHelper init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x00000296E6DD4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:37:07,590 INFO MainThread OK:SetProcessDpiAwareness 0
+2024-10-26 17:37:07,708 INFO MainThread DeviceManager:__init__ start
+2024-10-26 17:37:07,711 INFO MainThread HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:37:07,711 INFO MainThread HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:37:07,712 INFO MainThread HwndWindow:do_update_window_size changed,visible:True x:0 y:0 window:1920x1080 self.window:1920x1080 real:0x0
+2024-10-26 17:37:07,715 INFO MainThread DeviceManager:__init__ end
+2024-10-26 17:37:07,718 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:37:07,721 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:37:07,721 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:37:07,770 INFO MainThread OK:do_init, config: {'debug': False, 'use_gui': False, 'config_folder': 'configs', 'gui_icon': 'icon.png', 'ocr': {'lib': 'rapidocr_openvino'}, 'start_timeout': 120, 'wait_until_before_delay': 2, 'template_matching': {'coco_feature_json': 'assets\\result.json', 'default_horizontal_variance': 0.002, 'default_vertical_variance': 0.002, 'default_threshold': 0.8}, 'windows': {'exe': 'Client-Win64-Shipping.exe', 'calculate_pc_exe_path': <function calculate_pc_exe_path at 0x00000296E6DD4220>, 'hwnd_class': 'UnrealWindow', 'interaction': 'PostMessage', 'can_bit_blt': True, 'bit_blt_render_full': True, 'check_hdr': False, 'force_no_hdr': False, 'check_night_light': True, 'force_no_night_light': True, 'require_bg': True}, 'supported_resolution': {'ratio': '16:9', 'min_size': (1280, 720)}, 'analytics': {'report_url': 'http://111.231.71.225/report'}, 'git_update': {'sources': [{'name': 'Global', 'git_url': 'https://github.com/ok-oldking/ok-wuthering-waves.git', 'pip_url': 'https://pypi.org/simple/'}, {'name': '清华大学', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': 'China', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://pypi.tuna.tsinghua.edu.cn/simple'}, {'name': '腾讯云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.cloud.tencent.com/pypi/simple'}, {'name': '阿里云', 'git_url': 'https://e.coding.net/g-frfh1513/ok-wuthering-waves/ok-wuthering-waves.git', 'pip_url': 'https://mirrors.aliyun.com/pypi/simple'}]}, 'links': {'default': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'Download OK-WW from https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'faq': 'https://github.com/ok-oldking/ok-wuthering-waves#FAQ'}, 'zh_CN': {'github': 'https://github.com/ok-oldking/ok-wuthering-waves', 'share': 'OK-WW 腾讯频道下载: https://pd.qq.com/s/75758wrmp 夸克网盘下载：https://pan.quark.cn/s/75b55ef72a34 GitHub下载: https://github.com/ok-oldking/ok-wuthering-waves/releases/latest', 'qq_group': 'https://qm.qq.com/q/ufUCrCEq6A', 'qq_channel': 'https://pd.qq.com/s/1t9xeti1z', 'faq': 'https://gitee.com/ok-olding/ok-wuthering-waves/blob/master/README_cn.md#%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E8%AF%B7%E6%A3%80%E6%9F%A5'}}, 'about': '\n    <h3>OK-WW</h3>\n    <p>GitHub <a href="https://github.com/ok-oldking/ok-wuthering-waves">https://github.com/ok-oldking/ok-wuthering-waves</></p>\n    <p>Report a BUG <a href="https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D">https://github.com/ok-oldking/ok-wuthering-waves/issues/new?assignees=ok-oldking&labels=bug&projects=&template=%E6%8A%A5%E5%91%8Abug-.md&title=%5BBUG%5D</></p>\n    <p>QQ群:<a href="https://qm.qq.com/q/qMezq2IDGU">970523295</a></p>\n    <p>QQ频道:<a href="https://pd.qq.com/s/75758wrmp">OK-WW</a></p>\n    <p style="color:red;">\n    <strong>本软件是免费开源的。</strong> 如果你被收费，请立即退款。请访问QQ频道或GitHub下载最新的官方版本。\n    </p>\n    <p style="color:red;">\n        <strong>本软件仅供个人使用，用于学习Python编程、计算机视觉、UI自动化等。</strong> 请勿将其用于任何营利性或商业用途。\n    </p>\n    <p style="color:red;">\n        <strong>使用本软件可能会导致账号被封。</strong> 请在了解风险后再使用。\n    </p>\n', 'screenshots_folder': 'screenshots', 'gui_title': 'OK-WW', 'log_file': 'logs/ok-ww.log', 'error_log_file': 'logs/ok-ww_error.log', 'launcher_log_file': 'logs/launcher.log', 'launcher_error_log_file': 'logs/launcher_error.log', 'version': 'v5.0.11', 'onetime_tasks': [['src.task.IllusiveRealmTask', 'IllusiveRealmTask'], ['src.task.FarmEchoTask', 'FarmEchoTask'], ['src.task.FarmWorldBossTask', 'FarmWorldBossTask'], ['src.task.DiscardEchoTask', 'DiscardEchoTask'], ['src.task.DiagnosisTask', 'DiagnosisTask']], 'trigger_tasks': [['src.task.AutoCombatTask', 'AutoCombatTask'], ['src.task.AutoPickTask', 'AutoPickTask'], ['src.task.SkipDialogTask', 'AutoDialogTask'], ['src.task.MultiplayerAutoCombatTask', 'MultiplayerAutoCombatTask'], ['src.task.MouseResetTask', 'MouseResetTask']]}
+2024-10-26 17:37:07,880 INFO RefreshAdb WindowsGraphicsCaptureMethod:init windows capture
+2024-10-26 17:37:07,903 INFO MainThread MouseResetTask:start mouse reset
+2024-10-26 17:37:07,931 INFO TaskExecutor TaskExecutor:start execute
+2024-10-26 17:37:07,931 INFO MainThread OK:init ocr {'lib': 'rapidocr_openvino'}
+2024-10-26 17:37:07,931 INFO TaskExecutor TaskExecutor:executor is paused sleep
+2024-10-26 17:37:08,074 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:37:08,081 INFO RefreshAdb HwndWindow:find_hwnd [(198400, 'D:\\Game\\Wuthering Waves\\Wuthering Waves Game\\Client\\Binaries\\Win64\\Client-Win64-Shipping.exe', 1920, 1080, 0, 0, '鸣潮  ')]
+2024-10-26 17:37:08,081 INFO RefreshAdb HwndWindow:found hwnd 198400 D:\Game\Wuthering Waves\Wuthering Waves Game\Client\Binaries\Win64\Client-Win64-Shipping.exe UnrealWindow real:0,0,0,0
+2024-10-26 17:37:08,082 INFO RefreshAdb DeviceManager:capture method <class 'ok.capture.windows.WindowsGraphicsCaptureMethod.WindowsGraphicsCaptureMethod'>
+2024-10-26 17:37:09,691 INFO MainThread OK:do_init, end
+2024-10-26 17:37:09,777 INFO TaskExecutor FeatureSet:FeatureSet: Width and height changed from 0x0 to 1920x1080
+2024-10-26 17:37:14,623 INFO TaskExecutor CombatCheck:enter combat cost 4.847306 boss_lv_template:False boss_health_box:None has_count_down:False
+2024-10-26 17:37:14,626 INFO TaskExecutor AutoCombatTask:load chars
+2024-10-26 17:37:14,637 INFO TaskExecutor AutoCombatTask:found char char_yinlin 0.9184306263923645 0
+2024-10-26 17:37:14,655 INFO TaskExecutor BaseCombatTask:update char1 to Yinlin <class 'src.char.Yinlin.Yinlin'> True
+2024-10-26 17:37:14,667 INFO TaskExecutor AutoCombatTask:found char char_jinhsi 0.9395840167999268 0
+2024-10-26 17:37:14,676 INFO TaskExecutor BaseCombatTask:update char2 to Jinhsi
+2024-10-26 17:37:14,679 INFO TaskExecutor AutoCombatTask:found char char_shorekeeper 0.9483596086502075 0
+2024-10-26 17:37:14,685 INFO TaskExecutor AutoCombatTask:found char char_chixia 0.6025446057319641 0.9483596086502075
+2024-10-26 17:37:14,686 INFO TaskExecutor AutoCombatTask:found char char_baizhi 0.628585934638977 0.9483596086502075
+2024-10-26 17:37:14,688 INFO TaskExecutor AutoCombatTask:found char char_jiyan 0.6804099678993225 0.9483596086502075
+2024-10-26 17:37:14,689 INFO TaskExecutor AutoCombatTask:found char char_mortefi 0.632228434085846 0.9483596086502075
+2024-10-26 17:37:14,694 INFO TaskExecutor BaseCombatTask:update char3 to ShoreKeeper
+2024-10-26 17:37:14,694 INFO TaskExecutor Yinlin:reset state
+2024-10-26 17:37:14,694 INFO TaskExecutor Jinhsi:reset state
+2024-10-26 17:37:14,694 INFO TaskExecutor ShoreKeeper:reset state
+2024-10-26 17:37:14,695 INFO TaskExecutor AutoCombatTask:load chars success [Yinlin, Jinhsi, ShoreKeeper]
+2024-10-26 17:37:15,933 INFO TaskExecutor CombatCheck:set count_down to True  [04_0.97, 04:54:50_0.88] 0.14%
+2024-10-26 17:37:16,084 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0 target_low_con True
+2024-10-26 17:37:16,084 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con True
+2024-10-26 17:37:16,084 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> Yinlin has_intro False
+2024-10-26 17:37:16,233 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.149s
+2024-10-26 17:37:17,586 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.2223849296569824 animated False
+2024-10-26 17:37:17,839 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.44306418219461696 target_low_con False
+2024-10-26 17:37:17,839 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0 target_low_con False
+2024-10-26 17:37:17,839 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:37:18,217 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.377s
+2024-10-26 17:37:18,453 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.23343133926391602 animated False
+2024-10-26 17:37:18,762 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 467 -> 477  0
+2024-10-26 17:37:18,764 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 477 -> 477  0
+2024-10-26 17:37:18,764 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.3183673469387755 target_low_con False
+2024-10-26 17:37:18,764 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:37:18,764 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.44306418219461696 target_low_con False
+2024-10-26 17:37:18,765 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro True
+2024-10-26 17:37:18,793 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 477 -> 477  0
+2024-10-26 17:37:18,794 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 477 -> 477  0
+2024-10-26 17:37:18,919 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 477 -> 470  0
+2024-10-26 17:37:18,920 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 470 -> 470  0
+2024-10-26 17:37:18,921 INFO TaskExecutor ShoreKeeper:switch_out at full con set current_con to 0
+2024-10-26 17:37:18,921 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.156s
+2024-10-26 17:37:18,921 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:37:23,139 INFO TaskExecutor Jinhsi:handle_intro end 4.216916799545288
+2024-10-26 17:37:23,141 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.3183673469387755 target_low_con True
+2024-10-26 17:37:23,142 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0 target_low_con True
+2024-10-26 17:37:23,142 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:37:23,389 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.248s
+2024-10-26 17:37:23,391 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:37:23,393 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.3183673469387755 target_low_con False
+2024-10-26 17:37:23,393 INFO TaskExecutor Jinhsi:switch priority max because has_intro False incarnation True incarnation_cd False
+2024-10-26 17:37:23,394 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.6645962732919255 target_low_con False
+2024-10-26 17:37:23,394 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 17:37:24,328 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.934s
+2024-10-26 17:37:24,328 INFO TaskExecutor Jinhsi:handle_incarnation click_resonance start
+2024-10-26 17:37:25,555 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation start animation
+2024-10-26 17:37:28,543 INFO TaskExecutor Jinhsi:Jinhsi handle_incarnation done
+2024-10-26 17:37:28,655 INFO TaskExecutor Jinhsi:handle_incarnation  click_resonance end 4.327397584915161
+2024-10-26 17:37:28,759 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.93 almost full, sleep and check again
+2024-10-26 17:37:28,914 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.3183673469387755 target_low_con True
+2024-10-26 17:37:28,914 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 1 0.0 target_low_con True
+2024-10-26 17:37:28,914 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:37:29,062 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 17:37:29,177 INFO TaskExecutor ShoreKeeper:click_resonance end clicked True duration 0.11326313018798828 animated False
+2024-10-26 17:37:29,180 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 111 0.3183673469387755 target_low_con False
+2024-10-26 17:37:29,181 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -1000 0.927536231884058 target_low_con False
+2024-10-26 17:37:29,181 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:37:30,227 INFO TaskExecutor BaseCombatTask:switch_next_char end 1.046s
+2024-10-26 17:37:30,268 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 0.03839540481567383 animated False
+2024-10-26 17:37:30,472 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:30,472 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.2553191489361702 target_low_con False
+2024-10-26 17:37:30,683 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:37:30,685 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:30,685 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.2553191489361702 target_low_con False
+2024-10-26 17:37:30,886 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:37:30,888 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:30,888 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.2553191489361702 target_low_con False
+2024-10-26 17:37:31,089 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:37:31,091 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:31,091 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.2553191489361702 target_low_con False
+2024-10-26 17:37:31,292 WARNING TaskExecutor BaseCombatTask:can't find next char to switch to, performing too fast add a normal attack
+2024-10-26 17:37:31,297 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:31,297 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 102 0.2553191489361702 target_low_con False
+2024-10-26 17:37:31,297 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:37:31,754 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.456s
+2024-10-26 17:37:34,777 INFO TaskExecutor ShoreKeeper:click_liberation end 2.566375255584717
+2024-10-26 17:37:34,778 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:37:34,781 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 101 0.37755102040816324 target_low_con False
+2024-10-26 17:37:34,781 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi -999999999 0.927536231884058 target_low_con False
+2024-10-26 17:37:34,782 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:37:34,928 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:37:38,311 INFO TaskExecutor Yinlin:click_liberation end 3.1579647064208984
+2024-10-26 17:37:39,408 INFO TaskExecutor Yinlin:click_resonance end clicked True duration 1.0958588123321533 animated False
+2024-10-26 17:37:39,642 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.94 almost full, sleep and check again
+2024-10-26 17:37:39,796 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0.927536231884058 target_low_con False
+2024-10-26 17:37:39,796 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper 112 0.5659574468085107 target_low_con False
+2024-10-26 17:37:39,796 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> ShoreKeeper has_intro False
+2024-10-26 17:37:39,933 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.136s
+2024-10-26 17:37:39,935 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:37:40,061 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.9244897959183673 target_low_con False
+2024-10-26 17:37:40,061 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0.927536231884058 target_low_con False
+2024-10-26 17:37:40,061 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Jinhsi has_intro False
+2024-10-26 17:37:40,210 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 17:37:40,213 INFO TaskExecutor BaseCombatTask:switch_next_char current_con 0.95 almost full, sleep and check again
+2024-10-26 17:37:40,366 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin -1000 0.9244897959183673 target_low_con True
+2024-10-26 17:37:40,366 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -1000 0.5723404255319149 target_low_con True
+2024-10-26 17:37:40,367 INFO TaskExecutor BaseCombatTask:switch_next_char Jinhsi -> ShoreKeeper has_intro False
+2024-10-26 17:37:40,671 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 483 -> 467  0
+2024-10-26 17:37:40,672 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 467 -> 467  0
+2024-10-26 17:37:40,801 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 467 -> 495  0
+2024-10-26 17:37:40,803 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 495 -> 495  0
+2024-10-26 17:37:40,807 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 495 -> 495  0
+2024-10-26 17:37:40,807 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 495 -> 495  0
+2024-10-26 17:37:40,931 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.564s
+2024-10-26 17:37:41,361 INFO TaskExecutor TaskExecutor:wait_until timeout <function BaseChar.click_liberation.<locals>.<lambda> at 0x00000296824DCE00> 0.4 seconds
+2024-10-26 17:37:41,362 ERROR TaskExecutor ShoreKeeper:clicked liberation but no effect 
+2024-10-26 17:37:41,363 INFO TaskExecutor ShoreKeeper:click_resonance end clicked False duration 0 animated False
+2024-10-26 17:37:42,095 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Yinlin 121 0.9244897959183673 target_low_con False
+2024-10-26 17:37:42,096 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 110 0.9565217391304348 target_low_con False
+2024-10-26 17:37:42,096 INFO TaskExecutor BaseCombatTask:switch_next_char ShoreKeeper -> Yinlin has_intro False
+2024-10-26 17:37:42,244 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.148s
+2024-10-26 17:37:43,462 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 490 -> 503  1
+2024-10-26 17:37:43,463 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 503 -> 503  1
+2024-10-26 17:37:43,463 INFO TaskExecutor Jinhsi:switch priority max because has_intro True incarnation False incarnation_cd False
+2024-10-26 17:37:43,464 INFO TaskExecutor BaseCombatTask:switch_next_char priority: Jinhsi 9999999999 0.9565217391304348 target_low_con False
+2024-10-26 17:37:43,464 INFO TaskExecutor BaseCombatTask:switch_next_char priority: ShoreKeeper -999999999 0.6468085106382979 target_low_con False
+2024-10-26 17:37:43,464 INFO TaskExecutor BaseCombatTask:switch_next_char Yinlin -> Jinhsi has_intro True
+2024-10-26 17:37:43,488 INFO TaskExecutor AutoCombatTask:is_con_full found a full ring 503 -> 503  1
+2024-10-26 17:37:43,488 INFO TaskExecutor AutoCombatTask:is_con_full2 found a full ring 503 -> 503  1
+2024-10-26 17:37:43,610 INFO TaskExecutor Yinlin:switch_out at full con set current_con to 0
+2024-10-26 17:37:43,611 INFO TaskExecutor BaseCombatTask:switch_next_char end 0.147s
+2024-10-26 17:37:43,611 INFO TaskExecutor Jinhsi:handle_intro start
+2024-10-26 17:37:49,862 INFO TaskExecutor Jinhsi:click_liberation end 3.3161909580230713

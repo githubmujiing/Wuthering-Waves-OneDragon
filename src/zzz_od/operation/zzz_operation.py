@@ -2,20 +2,20 @@ from typing import Optional, Callable
 
 from one_dragon.base.operation.operation import Operation
 from one_dragon.base.operation.operation_base import OperationResult
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.enter_game.open_and_enter_game import OpenAndEnterGame
 
 
-class ZOperation(Operation):
+class WOperation(Operation):
 
-    def __init__(self, ctx: ZContext,
+    def __init__(self, ctx: WContext,
                  node_max_retry_times: int = 3,
                  op_name: str = '',
                  timeout_seconds: float = -1,
                  op_callback: Optional[Callable[[OperationResult], None]] = None,
                  need_check_game_win: bool = True
                  ):
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
         op_to_enter_game = OpenAndEnterGame(ctx)
         Operation.__init__(self,
                            ctx=ctx,

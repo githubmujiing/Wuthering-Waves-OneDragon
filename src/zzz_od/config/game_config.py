@@ -97,9 +97,9 @@ class GameConfig(YamlConfig):
         游戏窗口名称 只有区服有关
         """
         if self.game_region == GameRegionEnum.CN.value.value:
-            return '绝区零'
+            return '鸣潮  '
         else:
-            return 'ZenlessZoneZero'
+            return 'WutheringWaves'
 
     @property
     def key_normal_attack(self) -> str:

@@ -18,6 +18,7 @@ class InstanceSettingCard(MultiPushSettingCard):
     active = Signal(int)
     login = Signal(int)
     delete = Signal(int)
+    save = Signal(int)
 
     def __init__(self, instance: OneDragonInstance):
         self.instance: OneDragonInstance = instance
@@ -42,14 +43,16 @@ class InstanceSettingCard(MultiPushSettingCard):
         self.active_btn = PushButton(text='启用')
         self.active_btn.clicked.connect(self._on_active_clicked)
         self.active_btn.setDisabled(self.instance.active)
-        self.login_btn = PushButton(text='登录')
+        self.login_btn = PushButton(text='切换选中账号')
         self.login_btn.clicked.connect(self._on_login_clicked)
+        self.save_btn = PushButton(text='保存当前账号')        # 创建“保存当前账号”按钮
+        self.save_btn.clicked.connect(self._on_save_clicked)  # 连接点击事件到相应方法
         self.delete_btn = ToolButton(FluentIcon.DELETE, parent=None)
         self.delete_btn.clicked.connect(self._on_delete_clicked)
 
         MultiPushSettingCard.__init__(
             self,
-            btn_list=[self.instance_name_input, self.run_opt, self.active_btn, self.login_btn, self.delete_btn],
+            btn_list=[self.instance_name_input, self.run_opt, self.active_btn, self.save_btn, self.login_btn, self.delete_btn],
             title='%02d' % self.instance.idx,
             icon=FluentIcon.PEOPLE,
         )
@@ -77,6 +80,12 @@ class InstanceSettingCard(MultiPushSettingCard):
 
     def _on_login_clicked(self) -> None:
         self.login.emit(self.instance.idx)
+
+    def _on_save_clicked(self) -> None:
+        # 处理保存账号的逻辑
+        self.save.emit(self.instance.idx)
+        print("当前账号已保存")
+        # 可以在这里添加保存账号的具体实现
 
     def _on_delete_clicked(self) -> None:
         self.delete.emit(self.instance.idx)
@@ -129,7 +138,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
             text='说明',
             icon=FluentIcon.INFO,
             title='注意',
-            content='新实例需要点击启用后到各模块进行设置，各实例之间的设置是独立的。'
+            content='新实例需要点击启用后到各模块进行设置，各实例之间的设置是独立的'
         )
         self.content_widget.add_widget(guide_opt)
 
@@ -140,6 +149,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
             instance_card.changed.connect(self._on_instance_changed)
             instance_card.active.connect(self._on_instance_active)
             instance_card.login.connect(self._on_instance_login)
+            instance_card.save.connect(self._on_instance_save)
             instance_card.delete.connect(self._on_instance_delete)
 
         self.add_btn = PrimaryPushButton(text='新增')
@@ -163,6 +173,9 @@ class SettingInstanceInterface(VerticalScrollInterface):
 
     def _on_instance_login(self, idx: int) -> None:
         log.error('未配置登录操作')
+
+    def _on_instance_save(self, idx: int) -> None:
+        log.error('未配置保存操作')
 
     def _on_instance_delete(self, idx: int) -> None:
         if len(self.ctx.one_dragon_config.instance_list) <= 1:

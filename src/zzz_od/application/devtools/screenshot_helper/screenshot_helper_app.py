@@ -8,19 +8,19 @@ from one_dragon.base.operation.operation_node import OperationNode
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils import debug_utils
 from one_dragon.utils.i18_utils import gt
-from zzz_od.application.zzz_application import ZApplication
-from zzz_od.auto_battle import auto_battle_utils
-from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_application import WApplication
+# 尝试删除from zzz_od.auto_battle import auto_battle_utils
+# 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
+from zzz_od.context.zzz_context import WContext
 
 
-class ScreenshotHelperApp(ZApplication):
+class ScreenshotHelperApp(WApplication):
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         """
         按闪避的时候自动截图 用于保存素材训练模型
         """
-        ZApplication.__init__(
+        WApplication.__init__(
             self,
             ctx=ctx, app_id='screenshot_helper',
             op_name=gt('闪避截图', 'ui')
@@ -29,7 +29,7 @@ class ScreenshotHelperApp(ZApplication):
         self.to_save_screenshot: bool = False  # 去保存截图 由按键触发
         self.last_save_screenshot_time: float = 0  # 上次保存截图时间
 
-        self.auto_op: Optional[AutoBattleOperator] = None
+        # 尝试删除self.auto_op: Optional[AutoBattleOperator] = None
 
     def add_edges_and_nodes(self) -> None:
         """
@@ -56,8 +56,7 @@ class ScreenshotHelperApp(ZApplication):
         self.ctx.listen_event(ContextKeyboardEventEnum.PRESS.value, self._on_key_press)
 
     def init_context(self) -> OperationRoundResult:
-        auto_battle_utils.load_auto_op(self, 'dodge',
-                                       self.ctx.battle_assistant_config.dodge_assistant_config)
+        # 尝试删除auto_battle_utils.load_auto_op(self, 'dodge',self.ctx.battle_assistant_config.dodge_assistant_config)
         return self.round_success()
 
     def repeat_screenshot(self) -> OperationRoundResult:
@@ -68,8 +67,9 @@ class ScreenshotHelperApp(ZApplication):
         screen = self.screenshot()
 
         if self.ctx.screenshot_helper_config.dodge_detect:
-            if self.auto_op.auto_battle_context.dodge_context.check_dodge_flash(screen, now):
-                debug_utils.save_debug_image(screen, prefix='dodge_wrong')
+            # 尝试删除if self.auto_op.auto_battle_context.dodge_context.check_dodge_flash(screen, now):
+        # 尝试删除debug_utils.save_debug_image(screen, prefix='dodge_wrong')
+            pass # 尝试删除
 
         if self.to_save_screenshot:
             return self.round_success()

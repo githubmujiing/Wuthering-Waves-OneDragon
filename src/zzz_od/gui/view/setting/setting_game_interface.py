@@ -13,13 +13,13 @@ from one_dragon.gui.component.setting_card.text_setting_card import TextSettingC
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
 from zzz_od.config.game_config import GameRegionEnum, GamepadTypeEnum
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 
 
 class SettingGameInterface(VerticalScrollInterface):
 
-    def __init__(self, ctx: ZContext, parent=None):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext, parent=None):
+        self.ctx: WContext = ctx
 
         VerticalScrollInterface.__init__(
             self,
@@ -27,7 +27,7 @@ class SettingGameInterface(VerticalScrollInterface):
             content_widget=None, parent=parent,
             nav_text_cn='游戏设置'
         )
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
 
     def get_content_widget(self) -> QWidget:
         content_widget = ColumnWidget()
@@ -49,11 +49,12 @@ class SettingGameInterface(VerticalScrollInterface):
         self.game_region_opt = ComboBoxSettingCard(icon=FluentIcon.HOME, title='游戏区服', options_enum=GameRegionEnum)
         basic_group.addSettingCard(self.game_region_opt)
 
-        self.game_account_opt = TextSettingCard(icon=FluentIcon.PEOPLE, title='账号')
+        self.game_account_opt = TextSettingCard(icon=FluentIcon.PEOPLE, title='uid',
+                                                content='游戏内特征码，非必要')
         basic_group.addSettingCard(self.game_account_opt)
 
-        self.game_password_opt = TextSettingCard(icon=FluentIcon.EXPRESSIVE_INPUT_ENTRY, title='密码',
-                                                 content='放心不会盗你的号 异地登陆需要验证')
+        self.game_password_opt = TextSettingCard(icon=FluentIcon.EXPRESSIVE_INPUT_ENTRY, title='手机号',
+                                                 content='需要带星号，如：134****7673')
         basic_group.addSettingCard(self.game_password_opt)
 
         return basic_group
@@ -388,7 +389,7 @@ class SettingGameInterface(VerticalScrollInterface):
         self.ctx.init_by_config()
 
     def _on_game_path_clicked(self) -> None:
-        file_path, _ = QFileDialog.getOpenFileName(self, gt('选择你的 ZenlessZoneZero.exe'), filter="Exe (*.exe)")
+        file_path, _ = QFileDialog.getOpenFileName(self, gt('选择你的 WutheringWaves.exe'), filter="Exe (*.exe)")
         if file_path is not None and file_path.endswith('.exe'):
             log.info('选择路径 %s', file_path)
             self._on_game_path_chosen(os.path.normpath(file_path))

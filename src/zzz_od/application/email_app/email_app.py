@@ -2,18 +2,18 @@ from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
-from zzz_od.application.zzz_application import ZApplication
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_application import WApplication
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.open_menu import OpenMenu
 
 
-class EmailApp(ZApplication):
+class EmailApp(WApplication):
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         """
         每天自动接收邮件奖励
         """
-        ZApplication.__init__(
+        WApplication.__init__(
             self,
             ctx=ctx, app_id='email',
             op_name=gt('邮件', 'ui'),
@@ -36,20 +36,17 @@ class EmailApp(ZApplication):
     @operation_node(name='点击邮件')
     def click_email(self) -> OperationRoundResult:
         screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('菜单', '底部列表')
-        return self.round_by_ocr_and_click(screen, '邮件', area=area,
-                                           success_wait=1, retry_wait=1)
+        return self.round_by_click_area('菜单', '邮件', success_wait=1, retry_wait=1)
 
     @node_from(from_name='点击邮件')
     @operation_node(name='全部领取')
     def click_get_all(self) -> OperationRoundResult:
         """
         邮件画面 点击全部领取
-        就算时灰色的也能识别到
         :return:
         """
         screen = self.screenshot()
-        return self.round_by_find_and_click_area(screen, '邮件', '全部领取', success_wait=1, retry_wait=1)
+        return self.round_by_click_area('邮件', '全部领取', success_wait=1, retry_wait=1)
 
     @node_from(from_name='全部领取')
     @operation_node(name='确认')

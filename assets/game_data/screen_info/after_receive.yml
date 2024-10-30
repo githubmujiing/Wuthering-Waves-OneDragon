@@ -1,0 +1,26 @@
+screen_id: after_receive
+screen_name: 领取之后
+pc_alt: false
+area_list:
+- area_name: 退出副本
+  pc_rect:
+  - 556
+  - 892
+  - 864
+  - 956
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 重新挑战
+  pc_rect:
+  - 1060
+  - 886
+  - 1362
+  - 958
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

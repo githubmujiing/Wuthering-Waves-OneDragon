@@ -670,6 +670,7 @@ class Operation(OperationBase):
                                ):
         """
         在目标区域内 找到对应文本 并进行点击
+        似乎无法识别点击阿拉伯数字
         :param screen: 游戏画面
         :param target_cn: 目标文本
         :param area: 区域
@@ -715,7 +716,7 @@ class Operation(OperationBase):
         if area is not None:
             to_click = to_click + area.left_top
 
-        click = self.ctx.controller.click(to_click)
+        click = self.ctx.controller.click(to_click, pc_alt=area.pc_alt)
         if click:
             return self.round_success(target_cn, wait=success_wait, wait_round_time=success_wait_round)
         else:

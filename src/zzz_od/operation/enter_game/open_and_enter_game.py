@@ -3,14 +3,14 @@ from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import OperationNode, operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.enter_game.open_game import OpenGame
 
 
 class OpenAndEnterGame(Operation):
 
-    def __init__(self, ctx: ZContext):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext):
+        self.ctx: WContext = ctx
         Operation.__init__(self, ctx, op_name=gt('打开并登录游戏', 'ui'),
                            need_check_game_win=False)
 

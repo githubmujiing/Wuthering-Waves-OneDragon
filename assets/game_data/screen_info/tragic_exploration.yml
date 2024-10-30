@@ -1,0 +1,59 @@
+screen_id: tragic_exploration
+screen_name: 惨象探寻
+pc_alt: false
+area_list:
+- area_name: 名称
+  pc_rect:
+  - 278
+  - 138
+  - 800
+  - 818
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 探测
+  pc_rect:
+  - 1564
+  - 958
+  - 1848
+  - 1012
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 剩余吸收次数
+  pc_rect:
+  - 1772
+  - 704
+  - 1830
+  - 741
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 拖拽1
+  pc_rect:
+  - 500
+  - 800
+  - 500
+  - 800
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 拖拽2
+  pc_rect:
+  - 488
+  - 386
+  - 488
+  - 386
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

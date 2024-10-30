@@ -1,0 +1,136 @@
+screen_id: fight
+screen_name: 战斗
+pc_alt: true
+area_list:
+- area_name: 锁定状态
+  pc_rect:
+  - 1352
+  - 940
+  - 1429
+  - 1012
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: fight
+  template_id: locking
+  template_match_threshold: 0.7
+- area_name: 锁定框
+  pc_rect:
+  - 1352
+  - 940
+  - 1429
+  - 1012
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: fight
+  template_id: lock
+  template_match_threshold: 0.7
+- area_name: 挑战成功
+  pc_rect:
+  - 836
+  - 242
+  - 1078
+  - 326
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: fight
+  template_id: success
+  template_match_threshold: 0.7
+- area_name: 弹窗左选
+  pc_rect:
+  - 462
+  - 644
+  - 768
+  - 708
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 弹窗右选
+  pc_rect:
+  - 1136
+  - 642
+  - 1442
+  - 710
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 弹窗标题
+  pc_rect:
+  - 420
+  - 318
+  - 798
+  - 398
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 弹窗内容
+  pc_rect:
+  - 476
+  - 418
+  - 1436
+  - 608
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 退出副本
+  pc_rect:
+  - 552
+  - 886
+  - 862
+  - 958
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 重新挑战
+  pc_rect:
+  - 1058
+  - 892
+  - 1366
+  - 960
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: boss名
+  pc_rect:
+  - 722
+  - 12
+  - 1185
+  - 56
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 领取后选择
+  pc_rect:
+  - 552
+  - 886
+  - 1366
+  - 960
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 补充结晶波片
+  pc_rect:
+  - 328
+  - 180
+  - 574
+  - 252
+  text: 补充结晶波片
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

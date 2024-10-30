@@ -1,0 +1,48 @@
+screen_id: cycle_challenge
+screen_name: 周期挑战
+pc_alt: false
+area_list:
+- area_name: 副本类型
+  pc_rect:
+  - 182
+  - 124
+  - 682
+  - 928
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 副本名称
+  pc_rect:
+  - 702
+  - 186
+  - 1166
+  - 956
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 拖拽1
+  pc_rect:
+  - 1082
+  - 778
+  - 1082
+  - 778
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 拖拽2
+  pc_rect:
+  - 1090
+  - 326
+  - 1090
+  - 326
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

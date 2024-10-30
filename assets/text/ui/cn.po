@@ -5,14 +5,14 @@ msgstr ""
 
 # ZZZ-OD
 msgid "ZenlessZoneZero"
-msgstr "绝区零"
+msgstr "鸣潮"
 
 # ZZZ-OD UI
 msgid "ZenlessZoneZero-OneDragon"
-msgstr "绝区零 一条龙"
+msgstr "鸣潮 一条龙"
 
 msgid "ZenlessZoneZero-OneDragon-installer"
-msgstr "绝区零 一条龙 安装器"
+msgstr "鸣潮 一条龙 安装器"
 
 msgid "设置"
 msgstr "设置/Settings"

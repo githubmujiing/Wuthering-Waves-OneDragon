@@ -1,0 +1,92 @@
+screen_id: team
+screen_name: 编队
+pc_alt: false
+area_list:
+- area_name: 延奏技能详情
+  pc_rect:
+  - 1300
+  - 36
+  - 1476
+  - 94
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 出战
+  pc_rect:
+  - 1482
+  - 952
+  - 1816
+  - 1018
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: '1'
+  pc_rect:
+  - 42
+  - 156
+  - 104
+  - 216
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: '2'
+  pc_rect:
+  - 50
+  - 302
+  - 102
+  - 348
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: '3'
+  pc_rect:
+  - 46
+  - 442
+  - 98
+  - 478
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: '4'
+  pc_rect:
+  - 48
+  - 572
+  - 102
+  - 608
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: '5'
+  pc_rect:
+  - 44
+  - 706
+  - 106
+  - 748
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 编队
+  pc_rect:
+  - 46
+  - 30
+  - 94
+  - 100
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: team
+  template_id: team
+  template_match_threshold: 0.7

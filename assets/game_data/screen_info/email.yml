@@ -4,10 +4,10 @@ pc_alt: false
 area_list:
 - area_name: 全部领取
   pc_rect:
-  - 120
-  - 1008
-  - 294
-  - 1054
+  - 116
+  - 946
+  - 374
+  - 1010
   text: 全部领取
   lcs_percent: 0.1
   template_sub_dir: ''

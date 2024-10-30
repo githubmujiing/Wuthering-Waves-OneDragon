@@ -1,0 +1,8 @@
+sub_dir: team
+template_id: team
+template_name: 编队
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 46, 30
+- 94, 100

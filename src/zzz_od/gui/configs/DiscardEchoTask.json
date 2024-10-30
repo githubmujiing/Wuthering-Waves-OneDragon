@@ -1,0 +1,79 @@
+{
+    "Keep 1C HP": [
+        "Rejuvenating Glow"
+    ],
+    "Keep 1C DEF": [],
+    "Keep 1C ATK": [
+        "Freezing Frost",
+        "Molten Rift",
+        "Void Thunder",
+        "Sierra Gale",
+        "Celestial Light",
+        "Sun-sinking Eclipse",
+        "Rejuvenating Glow",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C HP": [],
+    "Keep 3C DEF": [],
+    "Keep 3C ATK": [],
+    "Keep 3C Aero DMG": [
+        "Sierra Gale",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Fusion DMG": [
+        "Molten Rift",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Electro DMG": [
+        "Void Thunder",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Spectro DMG": [
+        "Celestial Light",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Havoc DMG": [
+        "Sun-sinking Eclipse",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Glacio DMG": [
+        "Freezing Frost",
+        "Moonlit Clouds"
+    ],
+    "Keep 3C Energy Regen": [
+        "Freezing Frost",
+        "Molten Rift",
+        "Void Thunder",
+        "Sierra Gale",
+        "Celestial Light",
+        "Sun-sinking Eclipse",
+        "Rejuvenating Glow",
+        "Moonlit Clouds"
+    ],
+    "Keep 4C Crit": [
+        "Freezing Frost",
+        "Molten Rift",
+        "Void Thunder",
+        "Sierra Gale",
+        "Celestial Light",
+        "Sun-sinking Eclipse",
+        "Rejuvenating Glow",
+        "Moonlit Clouds"
+    ],
+    "Keep 4C Crit DMG": [
+        "Freezing Frost",
+        "Molten Rift",
+        "Void Thunder",
+        "Sierra Gale",
+        "Celestial Light",
+        "Sun-sinking Eclipse",
+        "Rejuvenating Glow",
+        "Moonlit Clouds"
+    ],
+    "Keep 4C Healing": [
+        "Moonlit Clouds"
+    ],
+    "Keep 4C HP": [],
+    "Keep 4C DEF": [],
+    "Keep 4C ATK": []
+}

@@ -13,14 +13,14 @@ from one_dragon.gui.component.setting_card.text_setting_card import TextSettingC
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
 from zzz_od.config.game_config import GameRegionEnum, GamepadTypeEnum
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 from zzz_od.game_data.agent import AgentEnum
 
 
 class ZOneDragonSettingInterface(VerticalScrollInterface):
 
-    def __init__(self, ctx: ZContext, parent=None):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext, parent=None):
+        self.ctx: WContext = ctx
 
         VerticalScrollInterface.__init__(
             self,
@@ -28,7 +28,7 @@ class ZOneDragonSettingInterface(VerticalScrollInterface):
             content_widget=None, parent=parent,
             nav_text_cn='其他设置'
         )
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
 
     def get_content_widget(self) -> QWidget:
         content_widget = ColumnWidget()

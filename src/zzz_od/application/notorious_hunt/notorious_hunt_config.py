@@ -26,6 +26,7 @@ class NotoriousHuntConfig(YamlConfig):
         )
 
         self.plan_list: List[ChargePlanItem] = []
+        self.loop = self.get('loop', True)
 
         if 'plan_list' in self.data:
             for plan_item in self.data.get('plan_list', []):
@@ -43,16 +44,17 @@ class NotoriousHuntConfig(YamlConfig):
         默认的周本计划
         """
         return [
-            ChargePlanItem('挑战', '恶名狩猎', '初生死路屠夫', None),
-            ChargePlanItem('挑战', '恶名狩猎', '未知复合侵蚀体', None),
-            ChargePlanItem('挑战', '恶名狩猎', '冥宁芙·双子', None),
-            ChargePlanItem('挑战', '恶名狩猎', '「霸主侵蚀体·庞培」', None)
+            ChargePlanItem('周期挑战', '战歌重奏', '无序边境·余烬', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '无冠者之像·心脏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '战歌重奏·命定的纷争', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '鸣钟之龟', '')
         ]
 
     def save(self):
         self.data = {}
         plan_list = []
         self.data['plan_list'] = plan_list
+        self.data['loop'] = self.loop
 
         for plan_item in self.plan_list:
             plan_list.append({

@@ -185,7 +185,7 @@ class CompendiumService:
     def get_charge_plan_category_list(self) -> List[ConfigItem]:
         category_config_list: List[ConfigItem] = []
 
-        category_list = self.get_category_list_data('训练')
+        category_list = self.get_category_list_data('周期挑战')
         for category_item in category_list:
             category_config_list.append(ConfigItem(
                 label=category_item.category_name,
@@ -197,7 +197,7 @@ class CompendiumService:
     def get_charge_plan_mission_type_list(self, category_name: str) -> List[ConfigItem]:
         config_list: List[ConfigItem] = []
 
-        mission_type_list = self.get_mission_type_list_data('训练', category_name)
+        mission_type_list = self.get_mission_type_list_data('周期挑战', category_name)
         for mission_type_item in mission_type_list:
             config_list.append(ConfigItem(
                 label=mission_type_item.mission_type_name_display,
@@ -209,7 +209,7 @@ class CompendiumService:
     def get_charge_plan_mission_list(self, category_name: str, mission_type: str) -> List[ConfigItem]:
         config_list: List[ConfigItem] = []
 
-        mission_list = self.get_mission_list_data('训练', category_name, mission_type)
+        mission_list = self.get_mission_list_data('周期挑战', category_name, mission_type)
         for mission_item in mission_list:
             config_list.append(ConfigItem(
                 label=mission_item.mission_name_display,

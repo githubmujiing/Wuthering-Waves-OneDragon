@@ -4,77 +4,66 @@ pc_alt: false
 area_list:
 - area_name: 返回
   pc_rect:
-  - 82
-  - 13
-  - 150
-  - 90
+  - 1776
+  - 34
+  - 1840
+  - 94
   text: ''
-  lcs_percent: 0.1
+  lcs_percent: 0.5
   template_sub_dir: menu
   template_id: back
   template_match_threshold: 0.7
+- area_name: 中部列表
+  pc_rect:
+  - 890
+  - 164
+  - 1735
+  - 885
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: menu
+  template_id: email
+  template_match_threshold: 0.7
 - area_name: 邮件
   pc_rect:
-  - 934
-  - 544
-  - 990
-  - 572
-  text: 邮件
+  - 1202
+  - 1002
+  - 1264
+  - 1054
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 登出
+  pc_rect:
+  - 36
+  - 1004
+  - 104
+  - 1065
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 右刷
+  pc_rect:
+  - 1772
+  - 500
+  - 1810
+  - 538
+  text: ''
   lcs_percent: 0.5
   template_sub_dir: ''
   template_id: ''
   template_match_threshold: 0.7
 - area_name: 底部列表
   pc_rect:
-  - 270
-  - 924
-  - 1634
-  - 1058
+  - 4
+  - 994
+  - 1906
+  - 1064
   text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 更多登出确认
-  pc_rect:
-  - 1036
-  - 604
-  - 1226
-  - 652
-  text: 确认
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 更多功能区域
-  pc_rect:
-  - 474
-  - 280
-  - 1440
-  - 904
-  text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 兑换码输入框
-  pc_rect:
-  - 718
-  - 536
-  - 1198
-  - 610
-  text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 兑换码兑换
-  pc_rect:
-  - 1030
-  - 688
-  - 1218
-  - 742
-  text: 兑换
   lcs_percent: 0.5
   template_sub_dir: ''
   template_id: ''

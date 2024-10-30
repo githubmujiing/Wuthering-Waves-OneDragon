@@ -10,13 +10,13 @@ from one_dragon.gui.component.setting_card.combo_box_setting_card import ComboBo
 from one_dragon.gui.component.setting_card.text_setting_card import TextSettingCard
 from one_dragon.utils.i18_utils import gt
 from zzz_od.config.yolo_config import ZZZ_MODEL_DOWNLOAD_URL, get_flash_classifier_opts, get_hollow_zero_event_opts
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 from zzz_od.gui.view.setting.yolo_model_card import ModelDownloadSettingCard
 
 
 class SettingYoloInterface(VerticalScrollInterface):
 
-    def __init__(self, ctx: ZContext, parent=None):
+    def __init__(self, ctx: WContext, parent=None):
         VerticalScrollInterface.__init__(
             self,
             object_name='setting_yolo_interface',
@@ -24,7 +24,7 @@ class SettingYoloInterface(VerticalScrollInterface):
             nav_text_cn='模型选择'
         )
 
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
 
     def get_content_widget(self) -> QWidget:
         content_widget = ColumnWidget()

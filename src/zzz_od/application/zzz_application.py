@@ -3,13 +3,13 @@ from typing import Optional, Callable
 from one_dragon.base.operation.application_base import Application
 from one_dragon.base.operation.application_run_record import AppRunRecord
 from one_dragon.base.operation.operation_base import OperationResult
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.enter_game.open_and_enter_game import OpenAndEnterGame
 
 
-class ZApplication(Application):
+class WApplication(Application):
 
-    def __init__(self, ctx: ZContext, app_id: str,
+    def __init__(self, ctx: WContext, app_id: str,
                  node_max_retry_times: int = 1,
                  op_name: str = None,
                  timeout_seconds: float = -1,
@@ -21,7 +21,7 @@ class ZApplication(Application):
                  need_ocr: bool = True,
                  retry_in_od: bool = False
                  ):
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
         op_to_enter_game = OpenAndEnterGame(ctx)
         Application.__init__(self,
                              ctx=ctx, app_id=app_id,

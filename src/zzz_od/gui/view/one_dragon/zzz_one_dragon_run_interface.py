@@ -1,13 +1,13 @@
 from one_dragon.base.operation.one_dragon_app import OneDragonApp
 from one_dragon.gui.view.one_dragon.one_dragon_run_interface import OneDragonRunInterface
-from zzz_od.application.zzz_one_dragon_app import ZOneDragonApp
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_one_dragon_app import WOneDragonApp
+from zzz_od.context.zzz_context import WContext
 
 
 class ZOneDragonRunInterface(OneDragonRunInterface):
 
-    def __init__(self, ctx: ZContext, parent=None):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext, parent=None):
+        self.ctx: WContext = ctx
         OneDragonRunInterface.__init__(
             self,
             ctx=ctx,
@@ -16,4 +16,4 @@ class ZOneDragonRunInterface(OneDragonRunInterface):
         )
 
     def get_one_dragon_app(self) -> OneDragonApp:
-        return ZOneDragonApp(self.ctx)
+        return WOneDragonApp(self.ctx)

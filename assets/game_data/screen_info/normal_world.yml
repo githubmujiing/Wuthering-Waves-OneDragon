@@ -2,23 +2,23 @@ screen_id: normal_world
 screen_name: 大世界
 pc_alt: true
 area_list:
-- area_name: 信息
+- area_name: 多人游戏
   pc_rect:
-  - 1728
-  - 918
-  - 1826
-  - 1016
+  - 10
+  - 27
+  - 57
+  - 75
   text: ''
   lcs_percent: 0.1
   template_sub_dir: normal_world
-  template_id: message
+  template_id: online
   template_match_threshold: 0.7
 - area_name: 菜单
   pc_rect:
-  - 100
-  - 54
-  - 162
-  - 94
+  - 1818
+  - 36
+  - 1842
+  - 64
   text: ''
   lcs_percent: 0.1
   template_sub_dir: ''
@@ -26,56 +26,45 @@ area_list:
   template_match_threshold: 0.7
 - area_name: 地图
   pc_rect:
-  - 1728
-  - 778
-  - 1826
-  - 876
+  - 64
+  - 46
+  - 190
+  - 184
   text: ''
   lcs_percent: 0.1
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 索拉指南
+  pc_rect:
+  - 1472
+  - 36
+  - 1498
+  - 66
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 交互框
+  pc_rect:
+  - 1276
+  - 512
+  - 1608
+  - 744
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 任务
+  pc_rect:
+  - 0
+  - 188
+  - 68
+  - 266
+  text: ''
+  lcs_percent: 0.5
   template_sub_dir: normal_world
-  template_id: map
-  template_match_threshold: 0.7
-- area_name: 快捷手册
-  pc_rect:
-  - 1530
-  - 44
-  - 1584
-  - 102
-  text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 好感度标题
-  pc_rect:
-  - 892
-  - 798
-  - 1042
-  - 836
-  text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 好感度选项
-  pc_rect:
-  - 1420
-  - 552
-  - 1918
-  - 804
-  text: ''
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
-  template_match_threshold: 0.7
-- area_name: 对话框取消
-  pc_rect:
-  - 726
-  - 600
-  - 918
-  - 652
-  text: 取消
-  lcs_percent: 0.5
-  template_sub_dir: ''
-  template_id: ''
+  template_id: task
   template_match_threshold: 0.7

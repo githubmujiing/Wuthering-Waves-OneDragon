@@ -7,16 +7,16 @@ from one_dragon.gui.component.setting_card.switch_setting_card import SwitchSett
 from one_dragon.gui.component.setting_card.text_setting_card import TextSettingCard
 from one_dragon.gui.view.app_run_interface import AppRunInterface
 from zzz_od.application.devtools.screenshot_helper.screenshot_helper_app import ScreenshotHelperApp
-from zzz_od.application.zzz_application import ZApplication
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_application import WApplication
+from zzz_od.context.zzz_context import WContext
 
 
 class DevtoolsScreenshotHelperInterface(AppRunInterface):
 
     def __init__(self,
-                 ctx: ZContext,
+                 ctx: WContext,
                  parent=None):
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
 
         AppRunInterface.__init__(
             self,
@@ -60,7 +60,7 @@ class DevtoolsScreenshotHelperInterface(AppRunInterface):
         self.key_save_opt.setValue(str(self.ctx.screenshot_helper_config.key_save))
         self.dodge_detect_opt.setValue(self.ctx.screenshot_helper_config.dodge_detect)
 
-    def get_app(self) -> ZApplication:
+    def get_app(self) -> WApplication:
         return ScreenshotHelperApp(self.ctx)
 
     def _on_frequency_changed(self, value: str) -> None:

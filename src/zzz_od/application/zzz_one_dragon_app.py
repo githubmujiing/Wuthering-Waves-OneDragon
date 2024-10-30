@@ -2,54 +2,54 @@ from typing import List
 
 from one_dragon.base.operation.one_dragon_app import OneDragonApp
 from zzz_od.application.charge_plan.charge_plan_app import ChargePlanApp
-from zzz_od.application.city_fund.city_fund_app import CityFundApp
-from zzz_od.application.coffee.coffee_app import CoffeeApp
+from zzz_od.application.Arrange_radio.Arrange_radio_app import ArrangeRadioApp
+# 尝试删除from zzz_od.application.coffee.coffee_app import CoffeeApp
 from zzz_od.application.email_app.email_app import EmailApp
 from zzz_od.application.engagement_reward.engagement_reward_app import EngagementRewardApp
-from zzz_od.application.hollow_zero.hollow_zero_app import HollowZeroApp
-from zzz_od.application.life_on_line.life_on_line_app import LifeOnLineApp
+# 尝试删除from zzz_od.application.hollow_zero.hollow_zero_app import HollowZeroApp
+# 尝试删除from zzz_od.application.life_on_line.life_on_line_app import LifeOnLineApp
 from zzz_od.application.notorious_hunt.notorious_hunt_app import NotoriousHuntApp
-from zzz_od.application.random_play.random_play_app import RandomPlayApp
+# 尝试删除from zzz_od.application.random_play.random_play_app import RandomPlayApp
 from zzz_od.application.redemption_code.redemption_code_app import RedemptionCodeApp
-from zzz_od.application.scratch_card.scratch_card_app import ScratchCardApp
+# 尝试删除from zzz_od.application.scratch_card.scratch_card_app import ScratchCardApp
 from zzz_od.application.weekly_schedule.weekly_schedule_app import WeeklyScheduleApp
-from zzz_od.application.zzz_application import ZApplication
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.application.zzz_application import WApplication
+from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.enter_game.open_and_enter_game import OpenAndEnterGame
 from zzz_od.operation.enter_game.switch_account import SwitchAccount
 
 
-class ZOneDragonApp(OneDragonApp, ZApplication):
+class WOneDragonApp(OneDragonApp, WApplication):
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         app_id = 'zzz_one_dragon'
         op_to_enter_game = OpenAndEnterGame(ctx)
         op_to_switch_account = SwitchAccount(ctx)
 
-        ZApplication.__init__(self, ctx, app_id)
+        WApplication.__init__(self, ctx, app_id)
         OneDragonApp.__init__(self, ctx, app_id,
                               op_to_enter_game=op_to_enter_game,
                               op_to_switch_account=op_to_switch_account)
 
-    def get_app_list(self) -> List[ZApplication]:
+    def get_app_list(self) -> List[WApplication]:
         return [
             RedemptionCodeApp(self.ctx),
             WeeklyScheduleApp(self.ctx),
             EmailApp(self.ctx),
-            RandomPlayApp(self.ctx),
-            ScratchCardApp(self.ctx),
-            CoffeeApp(self.ctx),
-            ChargePlanApp(self.ctx),
+            # 尝试删除RandomPlayApp(self.ctx),
+            # 尝试删除ScratchCardApp(self.ctx),
+            # 尝试删除CoffeeApp(self.ctx),
             NotoriousHuntApp(self.ctx),
+            ChargePlanApp(self.ctx),
             EngagementRewardApp(self.ctx),
-            HollowZeroApp(self.ctx),
-            CityFundApp(self.ctx),
-            LifeOnLineApp(self.ctx),
+            # 尝试删除HollowZeroApp(self.ctx),
+            ArrangeRadioApp(self.ctx),
+            # 尝试删除LifeOnLineApp(self.ctx),
         ]
 
 
 def __debug():
-    ctx = ZContext()
+    ctx = WContext()
     ctx.init_by_config()
 
     if ctx.env_config.auto_update:
@@ -57,7 +57,7 @@ def __debug():
         log.info('开始自动更新...')
         ctx.git_service.fetch_latest_code()
 
-    app = ZOneDragonApp(ctx)
+    app = WOneDragonApp(ctx)
     app.execute()
 
     from one_dragon.base.config.one_dragon_config import AfterDoneOpEnum

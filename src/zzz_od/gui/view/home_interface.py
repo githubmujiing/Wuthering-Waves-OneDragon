@@ -8,7 +8,7 @@ from one_dragon.gui.component.interface.vertical_scroll_interface import Vertica
 from one_dragon.gui.component.link_card import LinkCardView
 from one_dragon.utils import os_utils
 from one_dragon.utils.i18_utils import gt
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 
 # 常量定义
 CORNER_RADIUS = 20  # 圆角半径
@@ -137,7 +137,7 @@ class BannerWidget(QWidget):
         # 准备绘制副标题文字
         small_font = QFont("Microsoft YaHei", 16, QFont.Weight.Bold)
         painter.setFont(small_font)
-        small_text = "绝区零一条龙小助手 "
+        small_text = "鸣潮一条龙小助手 "
         small_text_rect = painter.fontMetrics().boundingRect(small_text)
 
         # 直接定位到主标题的下方
@@ -154,7 +154,7 @@ class BannerWidget(QWidget):
 class CheckCodeRunner(QThread):
     need_update = Signal(bool)
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         super().__init__()
         self.ctx = ctx
 
@@ -172,7 +172,7 @@ class CheckCodeRunner(QThread):
 class CheckModelRunner(QThread):
     need_update = Signal(bool)
 
-    def __init__(self, ctx: ZContext):
+    def __init__(self, ctx: WContext):
         super().__init__()
         self.ctx = ctx
 
@@ -187,7 +187,7 @@ class CheckModelRunner(QThread):
 class HomeInterface(VerticalScrollInterface):
     """主页界面"""
 
-    def __init__(self, ctx: ZContext, parent=None):
+    def __init__(self, ctx: WContext, parent=None):
         content_widget = QWidget()
         content_layout = QVBoxLayout(content_widget)
 
@@ -206,7 +206,7 @@ class HomeInterface(VerticalScrollInterface):
             content_widget=content_widget, object_name='home_interface',
             nav_text_cn='主页', nav_icon=FluentIcon.HOME
         )
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
 
         self._check_code_runner = CheckCodeRunner(self.ctx)
         self._check_code_runner.need_update.connect(self._need_to_update_code)

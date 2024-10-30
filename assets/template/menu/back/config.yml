@@ -4,5 +4,5 @@ template_name: 菜单-返回
 template_shape: rectangle
 auto_mask: true
 point_list:
-- 92, 23
-- 140, 80
+- 1786, 44
+- 1830, 84

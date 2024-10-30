@@ -1,0 +1,8 @@
+sub_dir: fight
+template_id: success
+template_name: 挑战成功
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 846, 252
+- 1068, 316

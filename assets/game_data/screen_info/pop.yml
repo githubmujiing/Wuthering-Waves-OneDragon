@@ -1,0 +1,70 @@
+screen_id: pop
+screen_name: 弹窗
+pc_alt: false
+area_list:
+- area_name: 标题
+  pc_rect:
+  - 416
+  - 316
+  - 1034
+  - 404
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 内容
+  pc_rect:
+  - 420
+  - 406
+  - 1450
+  - 610
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 左选项
+  pc_rect:
+  - 462
+  - 638
+  - 770
+  - 706
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 右选项
+  pc_rect:
+  - 1136
+  - 640
+  - 1444
+  - 714
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 关闭
+  pc_rect:
+  - 1406
+  - 322
+  - 1470
+  - 392
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 选项
+  pc_rect:
+  - 462
+  - 638
+  - 1444
+  - 714
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

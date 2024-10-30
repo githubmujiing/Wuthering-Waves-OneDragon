@@ -126,7 +126,7 @@ def detach_from_window_thread(current_id, target_id):
 
 def main():
     # 查找目标窗口
-    hwnd = find_window(None, "绝区零")  # 替换为你的窗口名称
+    hwnd = find_window(None, "鸣潮 ")  # 替换为你的窗口名称
     if not hwnd:
         print("Window not found.")
         return

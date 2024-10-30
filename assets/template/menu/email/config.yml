@@ -1,0 +1,8 @@
+sub_dir: menu
+template_id: email
+template_name: 菜单-邮件
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 1202, 1002
+- 1264, 1054

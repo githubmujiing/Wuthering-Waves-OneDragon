@@ -6,31 +6,31 @@ from typing import Optional
 from one_dragon.gui.component.column_widget import ColumnWidget
 from one_dragon.gui.component.interface.vertical_scroll_interface import VerticalScrollInterface
 from one_dragon.gui.component.setting_card.multi_push_setting_card import MultiPushSettingCard
-from zzz_od.application.battle_assistant.auto_battle_config import get_auto_battle_op_config_list
+# 尝试删除from zzz_od.application.battle_assistant.auto_battle_config import get_auto_battle_op_config_list
 from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 from zzz_od.application.notorious_hunt.notorious_hunt_config import NotoriousHuntLevelEnum
-from zzz_od.context.zzz_context import ZContext
+from zzz_od.context.zzz_context import WContext
 
 
 class ChargePlanCard(MultiPushSettingCard):
 
     changed = Signal(int, ChargePlanItem)
 
-    def __init__(self, ctx: ZContext,
+    def __init__(self, ctx: WContext,
                  idx: int, plan: ChargePlanItem):
-        self.ctx: ZContext = ctx
+        self.ctx: WContext = ctx
         self.idx: int = idx
         self.plan: ChargePlanItem = plan
 
         self.mission_type_combo_box = ComboBox()
-        self.mission_type_combo_box.setDisabled(True)
+        self.mission_type_combo_box.setDisabled(True)# 不可选
         self._init_mission_type_combo_box()
 
         self.level_combo_box = ComboBox()
         self._init_level_combo_box()
 
-        self.auto_battle_combo_box = ComboBox()
-        self._init_auto_battle_box()
+        # 尝试删除self.auto_battle_combo_box = ComboBox()
+        # 尝试删除self._init_auto_battle_box()
 
         run_times_label = CaptionLabel(text='已运行次数')
         self.run_times_input = LineEdit()
@@ -49,7 +49,7 @@ class ChargePlanCard(MultiPushSettingCard):
             btn_list=[
                 self.mission_type_combo_box,
                 self.level_combo_box,
-                self.auto_battle_combo_box,
+                # 尝试删除self.auto_battle_combo_box,
                 run_times_label,
                 self.run_times_input,
                 plan_times_label,
@@ -62,19 +62,23 @@ class ChargePlanCard(MultiPushSettingCard):
             self.mission_type_combo_box.currentIndexChanged.disconnect(self._on_mission_type_changed)
         except Exception:
             pass
-
+        # print(f'self.plan.category_name: {self.plan.category_name}')
         config_list = self.ctx.compendium_service.get_notorious_hunt_plan_mission_type_list(self.plan.category_name)
         self.mission_type_combo_box.clear()
+        # print(f'config_list: {config_list}')
+        if not config_list:  # 如果 config_list 为空
+            self.mission_type_combo_box.addItem(text='按顺序的鸟窗哥，无妄者，角，龟', userData=None) # 暂时先设置一下
+            self.mission_type_combo_box.setCurrentIndex(0)  # 设置当前选中项为第一项
 
         target_text: Optional[str] = None
         for config in config_list:
-            self.mission_type_combo_box.addItem(text=config.ui_text, userData=config.value)
+            self.mission_type_combo_box.addItem(text=config.ui_text, userData=config.value)# 不知道为什么config.ui_text为空，无法正常显示
             if config.value == self.plan.mission_type_name:
                 target_text = config.ui_text
 
         if target_text is None:
             self.mission_type_combo_box.setCurrentIndex(0)
-            self.plan.mission_type_name = self.mission_type_combo_box.itemData(0)
+            # 阻止修改self.plan.mission_type_name = self.mission_type_combo_box.itemData(0)
         else:
             self.mission_type_combo_box.setText(target_text)
 
@@ -103,6 +107,7 @@ class ChargePlanCard(MultiPushSettingCard):
 
         self.level_combo_box.currentIndexChanged.connect(self._on_level_changed)
 
+    '''# 尝试删除
     def _init_auto_battle_box(self) -> None:
         try:
             self.auto_battle_combo_box.currentIndexChanged.disconnect(self._on_auto_battle_changed)
@@ -125,10 +130,11 @@ class ChargePlanCard(MultiPushSettingCard):
             self.auto_battle_combo_box.setText(target_text)
 
         self.auto_battle_combo_box.currentIndexChanged.connect(self._on_auto_battle_changed)
+    '''
 
     def _on_mission_type_changed(self, idx: int) -> None:
         mission_type_name = self.mission_type_combo_box.itemData(idx)
-        self.plan.mission_type_name = mission_type_name
+        # 阻止修改self.plan.mission_type_name = mission_type_name
 
         self._emit_value()
 
@@ -138,11 +144,13 @@ class ChargePlanCard(MultiPushSettingCard):
 
         self._emit_value()
 
+    '''# 尝试删除
     def _on_auto_battle_changed(self, idx: int) -> None:
         auto_battle = self.auto_battle_combo_box.itemData(idx)
         self.plan.auto_battle_config = auto_battle
 
         self._emit_value()
+    '''
 
     def _on_run_times_changed(self) -> None:
         self.plan.run_times = int(self.run_times_input.text())
@@ -158,14 +166,14 @@ class ChargePlanCard(MultiPushSettingCard):
 
 class NotoriousHuntPlanInterface(VerticalScrollInterface):
 
-    def __init__(self, ctx: ZContext, parent=None):
-        self.ctx: ZContext = ctx
+    def __init__(self, ctx: WContext, parent=None):
+        self.ctx: WContext = ctx
 
         VerticalScrollInterface.__init__(
             self,
             object_name='zzz_notorious_hunt_plan_interface',
             content_widget=None, parent=parent,
-            nav_text_cn='恶名狩猎计划'
+            nav_text_cn='周本计划'
         )
 
     def get_content_widget(self) -> QWidget:
