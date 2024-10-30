@@ -1,0 +1,10 @@
+{
+    "_enabled": true,
+    "Pick Up White List": [
+        "吸收",
+        "Absorb"
+    ],
+    "Pick Up Black List": [
+        "开始合成"
+    ]
+}
