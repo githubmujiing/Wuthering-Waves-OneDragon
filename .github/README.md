@@ -41,6 +41,7 @@
 ## 快速开始
 
 使用虚拟环境，依赖文件是requirements-prod.txt。
+使用pip install -r requirements-prod.txt
 
 需要先下载ok-ww项目文件放到3rdparty文件夹里，下载已打包的可执行文件
 
