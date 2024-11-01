@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QSpacerItem, QSizePolicy, QHBoxLayout
 from qfluentwidgets import ProgressBar, IndeterminateProgressBar, SettingCardGroup, \
     FluentIcon
 
@@ -7,6 +7,7 @@ from one_dragon.gui.component.interface.vertical_scroll_interface import Vertica
 from one_dragon.gui.component.log_display_card import LogDisplayCard
 from one_dragon.gui.install_card.all_install_card import AllInstallCard
 from one_dragon.gui.install_card.code_install_card import CodeInstallCard
+from one_dragon.gui.install_card.ok_ww_install_card import OkWWInstallCard
 from one_dragon.gui.install_card.git_install_card import GitInstallCard
 from one_dragon.gui.install_card.python_install_card import PythonInstallCard
 from one_dragon.gui.install_card.venv_install_card import VenvInstallCard
@@ -37,9 +38,9 @@ class InstallerInterface(VerticalScrollInterface):
         self.git_opt = GitInstallCard(self.ctx)
         self.git_opt.progress_changed.connect(self.update_progress)
 
-        self.code_opt = CodeInstallCard(self.ctx)
-        self.code_opt.progress_changed.connect(self.update_progress)
-        self.code_opt.finished.connect(self._on_code_updated)
+        # 暂停使用self.code_opt = CodeInstallCard(self.ctx)
+        # 暂停使用self.code_opt.progress_changed.connect(self.update_progress)
+        # 暂停使用self.code_opt.finished.connect(self._on_code_updated)
 
         self.python_opt = PythonInstallCard(self.ctx)
         self.python_opt.progress_changed.connect(self.update_progress)
@@ -47,12 +48,28 @@ class InstallerInterface(VerticalScrollInterface):
         self.venv_opt = VenvInstallCard(self.ctx)
         self.venv_opt.progress_changed.connect(self.update_progress)
 
-        self.all_opt = AllInstallCard(self.ctx, [self.git_opt, self.code_opt, self.python_opt, self.venv_opt])
+        self.all_opt = AllInstallCard(self.ctx, [self.git_opt, self.python_opt, self.venv_opt])# 暂停使用self.code_opt,
+
+        '''# 暂停使用
+        # 添加 ok_ww_opt 选项
+        self.ok_ww_opt = OkWWInstallCard(self.ctx)
+        self.download_ok_ww_button = QPushButton("下载ok-ww")
+        self.download_ok_ww_button.clicked.connect(self.ok_ww_opt.start_download)
+        self.download_ok_ww_button.setFixedSize(120, 40)  # 例如，宽度为 120，高度为 40
+        # 创建水平布局以将按钮靠右
+        button_layout = QHBoxLayout()
+        button_layout.addStretch()  # 添加弹性空间，将按钮推到右侧
+        button_layout.addWidget(self.download_ok_ww_button)
+        # 设置按钮的样式（背景色和文本颜色）
+        self.download_ok_ww_button.setStyleSheet("background-color: #4CAF50; color: white;")  # 绿色背景，白色文本
+        # 将按钮布局添加到主垂直布局
+        v_layout.addLayout(button_layout)
+        '''
 
         update_group = SettingCardGroup(gt('运行环境', 'ui'))
         update_group.addSettingCard(self.all_opt)
         update_group.addSettingCard(self.git_opt)
-        update_group.addSettingCard(self.code_opt)
+        # 暂停使用update_group.addSettingCard(self.code_opt)
         update_group.addSettingCard(self.python_opt)
         update_group.addSettingCard(self.venv_opt)
 
@@ -71,7 +88,7 @@ class InstallerInterface(VerticalScrollInterface):
         """
         VerticalScrollInterface.on_interface_shown(self)
         self.git_opt.check_and_update_display()
-        self.code_opt.check_and_update_display()
+        # 暂停使用self.code_opt.check_and_update_display()
         self.python_opt.check_and_update_display()
         self.venv_opt.check_and_update_display()
         self.log_card.set_update_log(True)

@@ -1,0 +1,8 @@
+sub_dir: normal_world
+template_id: online
+template_name: 大世界-多人游戏
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 10, 27
+- 57, 75

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "GPU(Nvidia RTX >= 2000)",
+    "requires_cuda": "12.3",
+    "entry": "main_gpu.py",
+    "install_dependencies": [
+      "paddlepaddle-gpu==3.0.0b1 -i https://www.paddlepaddle.org.cn/packages/stable/cu123/",
+      "PySide6-Fluent-Widgets>=1.5.5 --no-deps",
+      "paddleocr==2.8.1 ok-script==0.0.290 pycaw psutil setuptools WMI>=1.5.1 typing-extensions>=4.11.0 numpy==1.26.4 opencv-contrib-python>=4.10.0.84"
+    ],
+    "uninstall_dependencies": "rapidocr_openvino openvino",
+    "target_size": 6070947351
+  },
+  {
+    "name": "CPU",
+    "entry": "main.py",
+    "install_dependencies": [
+      "PySide6-Fluent-Widgets>=1.5.5 --no-deps",
+      "rapidocr-openvino ok-script==0.0.290 pycaw psutil WMI>=1.5.1 typing-extensions>=4.11.0 numpy==1.26.4 opencv-contrib-python>=4.10.0.84"
+    ],
+    "uninstall_dependencies": "paddleocr",
+    "target_size": 616621272
+  }
+]

@@ -1,0 +1,8 @@
+sub_dir: normal_world
+template_id: sympathizer
+template_name: 大世界-共鸣者
+template_shape: circle
+auto_mask: true
+point_list:
+- 1740, 50
+- 1746, 32

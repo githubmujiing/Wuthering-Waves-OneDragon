@@ -1,0 +1,8 @@
+sub_dir: ''
+template_id: ''
+template_name: ''
+template_shape: circle
+auto_mask: true
+point_list:
+- 33, 51
+- 43, 29

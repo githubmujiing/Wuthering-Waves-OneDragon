@@ -30,7 +30,8 @@ def start_okww_auto():
         # 等待 3 秒
         time.sleep(3)
         # 启动外部程序
-        exe_path = os.path.join('..', '..', '..', '3rdparty', 'ok-ww', 'ok-ww.exe')
+        # exe_path = os.path.join('..', '..', '..', '3rdparty', 'ok-ww', 'ok-ww.exe')# 使用idea启动
+        exe_path = os.path.join('3rdparty', 'ok-ww', 'ok-ww.exe')# 使用打包后的laucher
         subprocess.Popen([exe_path], cwd=os.path.dirname(exe_path))
         time.sleep(5)
         # 监控名为 "OK-WW 启动器" 的窗口
@@ -51,8 +52,14 @@ def start_okww_auto():
 def kill_okww_auto():
     close_windows_with_title("OK-WW")
 
+def just_open():
+    close_windows_with_title("OK-WW")
+    time.sleep(3)
+    exe_path = os.path.join('3rdparty', 'ok-ww', 'ok-ww.exe')# 使用打包后的laucher
+    subprocess.Popen([exe_path], cwd=os.path.dirname(exe_path))
+
 # 使用示例
 if __name__ == "__main__":
     current_directory = os.getcwd()
     print(f"当前工作目录: {current_directory}")
-    kill_okww_auto()
+    start_okww_auto()

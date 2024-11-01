@@ -294,7 +294,7 @@ class GitService:
         if len(diff_result.strip()) == 0:
             return True, ''
         else:
-            return False, '与远程分支不一致'
+            return False, '不要用这个更新'# '与远程分支不一致'
 
     def get_requirement_time(self) -> Optional[str]:
         """

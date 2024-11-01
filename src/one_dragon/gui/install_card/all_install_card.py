@@ -6,6 +6,7 @@ from one_dragon.gui.install_card.base_install_card import BaseInstallCard
 from one_dragon.utils import app_utils
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
+from zzz_od.operation.control_okww_auto import just_open
 
 
 class AllInstallCard(BaseInstallCard):
@@ -29,7 +30,7 @@ class AllInstallCard(BaseInstallCard):
             self,
             ctx=ctx,
             title_cn='全部',
-            content_cn='请先查看安装指南再继续',
+            content_cn='ok-ww在3rdparty文件夹需要去打开进行初始化',
             install_method=self.install_all,
             install_btn_text_cn='一键安装',
             left_widgets=[guide_btn, self.run_btn]

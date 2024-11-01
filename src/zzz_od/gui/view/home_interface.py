@@ -49,7 +49,7 @@ class BannerWidget(QWidget):
             FluentIcon.GITHUB,
             gt('仓库地址', 'ui'),
             gt('如果本项目有帮助到您~\n不妨给项目点一个Star⭐', 'ui'),
-            "https://github.com/DoctorReid/ZenlessZoneZero-OneDragon"
+            "https://github.com/githubmujiing/Wuthering-Waves-OneDragon"
         )
 
     def load_banner_image(self):

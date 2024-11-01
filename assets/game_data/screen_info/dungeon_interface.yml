@@ -1,0 +1,92 @@
+screen_id: dungeon_interface
+screen_name: 副本界面
+pc_alt: false
+area_list:
+- area_name: 单人挑战
+  pc_rect:
+  - 1566
+  - 948
+  - 1858
+  - 1016
+  text: 单人挑战
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 剩余体力
+  pc_rect:
+  - 1520
+  - 43
+  - 1586
+  - 83
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 等级区域
+  pc_rect:
+  - 120
+  - 152
+  - 496
+  - 642
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 结晶波片不足
+  pc_rect:
+  - 428
+  - 400
+  - 1480
+  - 628
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 确认
+  pc_rect:
+  - 1136
+  - 640
+  - 1440
+  - 712
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 取消
+  pc_rect:
+  - 458
+  - 636
+  - 768
+  - 710
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 需要体力
+  pc_rect:
+  - 1646
+  - 888
+  - 1684
+  - 914
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 获取次数
+  pc_rect:
+  - 265
+  - 97
+  - 282
+  - 122
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

@@ -1,0 +1,70 @@
+screen_id: solaguidetab
+screen_name: 索拉指南tab
+pc_alt: false
+area_list:
+- area_name: 活跃度
+  pc_rect:
+  - 74
+  - 174
+  - 74
+  - 174
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 周期挑战
+  pc_rect:
+  - 76
+  - 316
+  - 76
+  - 316
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 强者之路
+  pc_rect:
+  - 74
+  - 448
+  - 74
+  - 448
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 残像探寻
+  pc_rect:
+  - 76
+  - 580
+  - 76
+  - 580
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 漂泊日志
+  pc_rect:
+  - 76
+  - 714
+  - 76
+  - 714
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 当前tab
+  pc_rect:
+  - 90
+  - 46
+  - 234
+  - 100
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

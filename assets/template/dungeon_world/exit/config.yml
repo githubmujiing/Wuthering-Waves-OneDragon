@@ -1,0 +1,8 @@
+sub_dir: dungeon_world
+template_id: exit
+template_name: 退出
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 10, 12
+- 52, 66

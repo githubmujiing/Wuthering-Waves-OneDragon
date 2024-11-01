@@ -1,0 +1,15 @@
+screen_id: talk
+screen_name: 对话
+pc_alt: false
+area_list:
+- area_name: 跳过
+  pc_rect:
+  - 74
+  - 38
+  - 220
+  - 96
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

@@ -1,0 +1,8 @@
+sub_dir: normal_world
+template_id: task
+template_name: 任务
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 8, 198
+- 58, 256
