@@ -36,7 +36,7 @@ class OpenMenu(WOperation):
         if result.is_success:
             return self.round_success()
 
-        result = self.round_by_find_area(screen, '大世界', '任务')
+        result = self.round_by_find_area(screen, '大世界', '多人游戏')
         if result.is_success:
             return self.round_success(result.status)
 
@@ -48,7 +48,7 @@ class OpenMenu(WOperation):
         op = BackToNormalWorld(self.ctx)
         return self.round_by_op_result(op.execute())
 
-    @node_from(from_name='画面识别', status='任务')
+    @node_from(from_name='画面识别', status='多人游戏')
     @node_from(from_name='返回大世界')
     @operation_node(name='点击菜单')
     def click_menu(self) -> OperationRoundResult:
