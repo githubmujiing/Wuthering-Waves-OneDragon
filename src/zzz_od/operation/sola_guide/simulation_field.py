@@ -163,6 +163,7 @@ class SimulationField(WOperation):
         op = MonitorBottleBySuccess(self.ctx)
         return self.round_by_op_result(op.execute())
 
+    @node_from(from_name='领取奖励', success=False)
     @node_from(from_name='监控战斗结束')
     @operation_node(name='寻找奖励交互')
     def after_battle(self) -> OperationRoundResult:
@@ -176,10 +177,13 @@ class SimulationField(WOperation):
         time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', '弹窗右选')
-        result = self.round_by_ocr_and_click(screen, '确认', area, success_wait=4)
-        self.can_run_times -= 1
-        self.ctx.charge_plan_config.add_plan_run_times(self.plan)
-        return self.round_success()
+        op = self.round_by_ocr_and_click(screen, '确认', area, success_wait=4)
+        if op.is_success:
+            self.can_run_times -= 1
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            return self.round_success()
+        else:
+            return self.round_fail()
 
     @node_from(from_name='领取奖励')
     @operation_node(name='判断下一次')
