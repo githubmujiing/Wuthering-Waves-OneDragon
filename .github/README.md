@@ -40,10 +40,13 @@
 
 ## 快速开始
 
-使用虚拟环境，依赖文件是requirements-prod.txt。
-使用pip install -r requirements-prod.txt
+运行Installer.exe。安装所需程序，然后打开3rdparty/ok-ww，运行ok-ww.exe。
+确保初始化完成，在实时触发界面，只开启自动战斗。
 
-需要先下载ok-ww项目文件放到3rdparty文件夹里，下载已打包的可执行文件
+然后运行Launcher.exe。
+
+注意需要将游戏中按键设置好，ok-ww与OneDragon分别设置。推荐默认。
+将游戏中控制-移动镜头修正关闭
 
 ## 免责声明
 

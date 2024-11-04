@@ -8,7 +8,7 @@
         - mission_type_name: "能源核心"
           mission_type_name_display: "武器经验"
         - mission_type_name: "贝币"
-          mission_type_name_display: "贝币刷不了"
+          mission_type_name_display: "贝币"
     - category_name: "凝素领域"
       mission_type_list:
         - mission_type_name: "熔毁废都"

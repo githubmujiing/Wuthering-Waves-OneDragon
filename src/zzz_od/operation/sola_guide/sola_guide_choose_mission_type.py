@@ -34,6 +34,8 @@ class SolaGuideChooseMissionType(WOperation):
 
     @operation_node(name='选择副本', is_start_node=True, node_max_retry_times=10)
     def choose_tab(self) -> OperationRoundResult:
+        if self.mission_type_name == '贝币':
+            self.mission_type_name = '共鸣促剂'
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('周期挑战', '副本名称')
         part = cv2_utils.crop_image_only(screen, area.rect)
@@ -122,7 +124,7 @@ def __debug():
     ctx.init_by_config()
     ctx.ocr.init_model()
     ctx.start_running()
-    op = SolaGuideChooseMissionType(ctx, '无常凶鹭')
+    op = SolaGuideChooseMissionType(ctx, '贝币')
     op.execute()
 
 

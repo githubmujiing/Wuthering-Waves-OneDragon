@@ -58,6 +58,8 @@ class NotoriousHunt(WOperation):
     def move_forward(self) -> OperationRoundResult:
         if self.plan.mission_type_name == '战歌重奏·命定的纷争':
             self.ctx.controller.move_w(press=True, press_time=1, release=True)
+        elif self.plan.mission_type_name == '无冠者之像·心脏':
+            self.ctx.controller.move_w(press=True, press_time=0.7, release=True)
         else:
             self.ctx.controller.move_w(press=True, press_time=1.7, release=True)
         return self.round_success()
