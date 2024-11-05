@@ -31,7 +31,7 @@ class BackToNormalWorld(WOperation):
         """
         screen = self.screenshot()
 
-        result = self.round_by_find_area(screen, '大世界', '多人游戏')
+        result = self.round_by_find_area(screen, '大世界', '任务')
 
         if result.is_success:
             return self.round_success()

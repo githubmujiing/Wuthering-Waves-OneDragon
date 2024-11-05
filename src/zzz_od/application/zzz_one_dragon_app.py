@@ -11,6 +11,7 @@ from zzz_od.application.engagement_reward.engagement_reward_app import Engagemen
 from zzz_od.application.notorious_hunt.notorious_hunt_app import NotoriousHuntApp
 # 尝试删除from zzz_od.application.random_play.random_play_app import RandomPlayApp
 from zzz_od.application.redemption_code.redemption_code_app import RedemptionCodeApp
+from zzz_od.application.take_a_echo.take_a_echo import TakeAEcho
 # 尝试删除from zzz_od.application.scratch_card.scratch_card_app import ScratchCardApp
 from zzz_od.application.weekly_schedule.weekly_schedule_app import WeeklyScheduleApp
 from zzz_od.application.zzz_application import WApplication
@@ -35,6 +36,7 @@ class WOneDragonApp(OneDragonApp, WApplication):
         return [
             RedemptionCodeApp(self.ctx),
             WeeklyScheduleApp(self.ctx),
+            TakeAEcho(self.ctx),
             EmailApp(self.ctx),
             # 尝试删除RandomPlayApp(self.ctx),
             # 尝试删除ScratchCardApp(self.ctx),

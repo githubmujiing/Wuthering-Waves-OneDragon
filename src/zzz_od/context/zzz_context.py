@@ -76,6 +76,7 @@ class WContext(OneDragonContext):
         # 尝试删除from zzz_od.application.coffee.coffee_config import CoffeeConfig
         # 尝试删除from zzz_od.application.coffee.coffee_run_record import CoffeeRunRecord
         from zzz_od.application.devtools.screenshot_helper.screenshot_helper_config import ScreenshotHelperConfig
+        from zzz_od.application.take_a_echo.take_a_echo_run_record import TakeAEchoRunRecord
         from zzz_od.application.email_app.email_run_record import EmailRunRecord
         from zzz_od.application.engagement_reward.engagement_reward_run_record import EngagementRewardRunRecord
         # 尝试删除from zzz_od.application.hollow_zero.hollow_zero_config import HollowZeroConfig
@@ -108,6 +109,8 @@ class WContext(OneDragonContext):
 
         # 运行记录
         game_refresh_hour_offset = self.game_config.game_refresh_hour_offset
+        self.take_a_echo_run_record: TakeAEchoRunRecord = TakeAEchoRunRecord(self.current_instance_idx, game_refresh_hour_offset)
+        self.take_a_echo_run_record.check_and_update_status()
         self.email_run_record: EmailRunRecord = EmailRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.email_run_record.check_and_update_status()
         # 尝试删除self.random_play_run_record: RandomPlayRunRecord = RandomPlayRunRecord(self.current_instance_idx, game_refresh_hour_offset)
