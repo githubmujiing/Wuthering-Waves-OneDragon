@@ -165,13 +165,21 @@ class NotoriousHunt(WOperation):
         op = MonitorBottleBySuccess(self.ctx)
         return self.round_by_op_result(op.execute())
 
+    @node_from(from_name='监控战斗结束', status='全员死亡')
+    @operation_node(name='全员死亡')
+    def death(self) -> OperationRoundResult:
+        return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
+
     @node_from(from_name='领取奖励', success=False)
     @node_from(from_name='监控战斗结束')
-    @operation_node(name='寻找奖励交互')
+    @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '领取', 10)
-        return self.round_by_op_result(op.execute())
+        op = SearchInteract(self.ctx, '领取', 8)
+        result = self.round_by_op_result(op.execute())
+        if not result.is_success:
+            return self.round_retry()
+        return result
 
     @node_from(from_name='寻找奖励交互')
     @operation_node(name='领取奖励')

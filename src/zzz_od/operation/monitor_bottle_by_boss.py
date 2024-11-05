@@ -34,7 +34,14 @@ class MonitorBottleByBoss(WOperation):
                 break
             screen = self.screenshot()
             area = self.ctx.screen_loader.get_area('战斗', 'boss名')
+            area_fail = self.ctx.screen_loader.get_area('战斗', '领取后选择')
             result = self.round_by_ocr(screen, self.boss, area=area, success_wait=0.5, retry_wait=0.5)
+            result_fail = self.round_by_ocr_and_click(screen, '退出副本', area=area_fail, success_wait=1)
+            if result_fail.is_success:
+                return self.round_success(status='全员死亡')
+            result_fail = self.round_by_ocr_and_click(screen, '复苏', area=area_fail, success_wait=1)
+            if result_fail.is_success:
+                return self.round_success(status='全员死亡')
             if result.is_success:
                 count = 0
             else:

@@ -39,6 +39,13 @@ class MonitorBottleBySuccess(WOperation):
                 break
             screen = self.screenshot()
             result = self.round_by_ocr(screen, '挑战成功', area=area, retry_wait=0.1)
+            area_fail = self.ctx.screen_loader.get_area('战斗', '领取后选择')
+            result_fail = self.round_by_ocr_and_click(screen, '退出副本', area=area_fail, success_wait=1)
+            if result_fail.is_success:
+                return self.round_success(status='全员死亡')
+            result_fail = self.round_by_ocr_and_click(screen, '复苏', area=area_fail, success_wait=1)
+            if result_fail.is_success:
+                return self.round_success(status='全员死亡')
             lock += 1
             if lock % 40 == 0:
                 self.ctx.controller.lock()

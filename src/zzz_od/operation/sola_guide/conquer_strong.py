@@ -69,6 +69,11 @@ class ConquerStrong(WOperation):
         op = MonitorBottleByBoss(self.ctx, self.plan.mission_type_name)
         return self.round_by_op_result(op.execute())
 
+    @node_from(from_name='监控战斗结束', status='全员死亡')
+    @operation_node(name='全员死亡')
+    def death(self) -> OperationRoundResult:
+        return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
+
     @node_from(from_name='监控战斗结束')
     @operation_node(name='传送回来')
     def tp_back(self) -> OperationRoundResult:

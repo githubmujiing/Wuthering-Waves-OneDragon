@@ -11,10 +11,13 @@ import time
 
 class SearchInteract(WOperation):
 
+    lOOP_END: bool = False
+
     def __init__(self, ctx: WContext, find_text: str = '启动', circles: int = 5):
         WOperation.__init__(self, ctx, op_name=gt('寻找并交互', 'ui'))
         self.find_text = find_text
         self.circles = circles
+        SearchInteract.lOOP_END = False
 
     @operation_node(name='画面识别', is_start_node=True)
     def start(self):
@@ -29,6 +32,8 @@ class SearchInteract(WOperation):
             screen = self.screenshot()
             area = self.ctx.screen_loader.get_area('大世界', '交互框')
             result = self.round_by_ocr_and_click(screen, self.find_text, area)
+            if SearchInteract.lOOP_END == True:
+                return self.round_fail(status='找不到')
         stop_event.set()  # 设置停止事件
         thread_a.join()  # 等待线程A结束
         if result.is_success:
@@ -46,15 +51,16 @@ class SearchInteract(WOperation):
             self.ctx.controller.move_w(press=True, press_time=length, release=True)
             if stop_event.is_set():
                 return  # 如果已设置停止标志，则返回
-            length += 1  # 每圈步长增加
+            length += 0.7  # 每圈步长增加
             self.ctx.controller.move_a(press=True, press_time=length, release=True)
             if stop_event.is_set():
                 return  # 如果已设置停止标志，则返回
             self.ctx.controller.move_s(press=True, press_time=length, release=True)
             if stop_event.is_set():
                 return  # 如果已设置停止标志，则返回
-            length += 1  # 每圈步长增加
-        return '找不到'
+            length += 0.7  # 每圈步长增加
+        print('循环结束')
+        SearchInteract.lOOP_END = True
 
 
 
@@ -124,7 +130,7 @@ def __debug_op():
     ctx = WContext()
     ctx.init_by_config()
     ctx.ocr.init_model()
-    op = SearchInteract(ctx, '激活', 4)
+    op = SearchInteract(ctx, '领取', 2)
     ctx.start_running()
     op.execute()
 
