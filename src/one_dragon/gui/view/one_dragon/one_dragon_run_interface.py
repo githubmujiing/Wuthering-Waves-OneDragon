@@ -18,6 +18,7 @@ from one_dragon.gui.view.context_event_signal import ContextEventSignal
 from one_dragon.utils import cmd_utils
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
+from zzz_od.operation.control_okww_auto import kill_okww_auto
 
 
 class OneDragonRunInterface(VerticalScrollInterface):
@@ -235,6 +236,7 @@ class OneDragonRunInterface(VerticalScrollInterface):
                 cmd_utils.shutdown_sys(60)
             elif self.ctx.one_dragon_config.after_done == AfterDoneOpEnum.CLOSE_GAME.value.value:
                 self.ctx.controller.close_game()
+                kill_okww_auto()
 
     def _on_app_state_changed(self, event) -> None:
         for app_card in self._app_run_cards:

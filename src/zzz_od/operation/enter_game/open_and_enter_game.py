@@ -1,3 +1,5 @@
+import time
+
 from one_dragon.base.operation.operation import Operation
 from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import OperationNode, operation_node
@@ -11,6 +13,7 @@ class OpenAndEnterGame(Operation):
 
     def __init__(self, ctx: WContext):
         self.ctx: WContext = ctx
+        self.restarts_times = 0
         Operation.__init__(self, ctx, op_name=gt('打开并登录游戏', 'ui'),
                            need_check_game_win=False)
 
@@ -30,6 +33,7 @@ class OpenAndEnterGame(Operation):
         enter_game = OperationNode('进入游戏', self.enter_game)
         self.add_edge(open_game, enter_game)
 
+    @node_from(from_name='关闭游戏', status='重新启动')
     @operation_node(name='打开游戏', is_start_node=True)
     def open_game(self) -> OperationRoundResult:
         """
@@ -55,3 +59,13 @@ class OpenAndEnterGame(Operation):
         from zzz_od.operation.enter_game.enter_game import EnterGame
         op = EnterGame(self.ctx)
         return self.round_by_op_result(op.execute())
+
+    @node_from(from_name='进入游戏', status='重新启动')
+    @operation_node(name='关闭游戏')
+    def kill_game(self) -> OperationRoundResult:
+        self.ctx.controller.close_game()
+        time.sleep(5)
+        if self.restarts_times > 10:
+            return self.round_fail(status='启动失败')
+        self.restarts_times += 1
+        return self.round_success(status='重新启动')

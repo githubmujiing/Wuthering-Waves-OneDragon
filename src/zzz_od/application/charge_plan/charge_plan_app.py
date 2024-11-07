@@ -112,9 +112,11 @@ class ChargePlanApp(WApplication):
         op = BackToNormalWorld(self.ctx)
         return self.round_by_op_result(op.execute())
 
+    '''
     @node_from(from_name='返回大世界')
     @operation_node(name='关闭自动战斗')
     def close_auto(self) -> OperationRoundResult:
         kill_okww_auto()
         time.sleep(2)
         return self.round_success()
+    '''

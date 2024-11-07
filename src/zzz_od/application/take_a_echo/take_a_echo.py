@@ -71,9 +71,9 @@ class TakeAEcho(WApplication):
         time.sleep(7)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '等级区域')
-        result = self.round_by_ocr_and_click(screen, '推荐等级70', area, success_wait=1, retry_wait_round=2)
+        # result = self.round_by_ocr_and_click(screen, '推荐等级70', area, success_wait=1, retry_wait_round=2)
         result1 = self.round_by_click_area('副本界面', '单人挑战', success_wait=3, retry_wait_round=1)
-        if not result.is_success:
+        if not result1.is_success:
             return self.round_retry()
         return result1
 
@@ -127,12 +127,14 @@ class TakeAEcho(WApplication):
         op = BackToNormalWorld(self.ctx)
         return self.round_by_op_result(op.execute())
 
+    '''
     @node_from(from_name='返回大世界')
     @operation_node(name='关闭自动战斗')
     def close_auto(self) -> OperationRoundResult:
         kill_okww_auto()
         time.sleep(2)
         return self.round_success()
+    '''
 
     '''
     def _on_pause(self, e=None):
