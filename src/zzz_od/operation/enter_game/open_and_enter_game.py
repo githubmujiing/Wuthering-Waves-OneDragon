@@ -60,6 +60,7 @@ class OpenAndEnterGame(Operation):
         op = EnterGame(self.ctx)
         return self.round_by_op_result(op.execute())
 
+    @node_from(from_name='进入游戏', success=False)
     @node_from(from_name='进入游戏', status='重新启动')
     @operation_node(name='关闭游戏')
     def kill_game(self) -> OperationRoundResult:

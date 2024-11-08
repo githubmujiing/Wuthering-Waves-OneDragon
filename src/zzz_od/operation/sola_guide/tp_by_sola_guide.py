@@ -60,10 +60,10 @@ class TransportBySolaGuide(WOperation):
     @operation_node(name='等待传送加载完毕', node_max_retry_times=60)
     def wait_for_tp_complete(self) -> OperationRoundResult:
         screen = self.screenshot()
-        result = self.round_by_find_area(screen, '大世界', '任务')
+        result = self.round_by_find_area(screen, '大世界', '多人游戏')
         while not result.is_success:
             screen = self.screenshot()
-            result = self.round_by_find_area(screen, '大世界', '任务', retry_wait=1)
+            result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
         if result.is_success:
             return self.round_success()
 

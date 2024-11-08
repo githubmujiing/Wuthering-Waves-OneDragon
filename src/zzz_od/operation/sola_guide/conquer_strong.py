@@ -86,10 +86,10 @@ class ConquerStrong(WOperation):
         self.round_by_click_area('地图传送', '传送', success_wait=2)
         #等待地图加载
         screen = self.screenshot()
-        result = self.round_by_find_area(screen, '大世界', '任务')
+        result = self.round_by_find_area(screen, '大世界', '多人游戏')
         while not result.is_success:
             screen = self.screenshot()
-            result = self.round_by_find_area(screen, '大世界', '任务', retry_wait=1)
+            result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
         if result.is_success:
             return self.round_success()
 
