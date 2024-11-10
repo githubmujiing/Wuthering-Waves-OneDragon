@@ -2,6 +2,7 @@ from typing import Optional
 
 from one_dragon.base.operation.one_dragon_context import OneDragonContext
 from one_dragon.utils import i18_utils
+from zzz_od.application.kill_nutao.kill_nutao_run_recrd import KillNutaoRunRecord
 
 
 class WContext(OneDragonContext):
@@ -111,6 +112,8 @@ class WContext(OneDragonContext):
         game_refresh_hour_offset = self.game_config.game_refresh_hour_offset
         self.take_a_echo_run_record: TakeAEchoRunRecord = TakeAEchoRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.take_a_echo_run_record.check_and_update_status()
+        self.kill_nutao_run_record: KillNutaoRunRecord = KillNutaoRunRecord(self.current_instance_idx, game_refresh_hour_offset)
+        self.kill_nutao_run_record.check_and_update_status()
         self.email_run_record: EmailRunRecord = EmailRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.email_run_record.check_and_update_status()
         # 尝试删除self.random_play_run_record: RandomPlayRunRecord = RandomPlayRunRecord(self.current_instance_idx, game_refresh_hour_offset)

@@ -112,7 +112,7 @@ class TakeAEcho(WApplication):
     def again(self) -> OperationRoundResult:
         time.sleep(2)
         self.round_by_click_area('副本大世界', '退出', success_wait=2)
-        area = self.ctx.screen_loader.get_area('战斗', '重新挑战')
+        area = self.ctx.screen_loader.get_area('弹窗', '选项')
         screen = self.screenshot()
         return self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=5, retry_wait_round=1)
 

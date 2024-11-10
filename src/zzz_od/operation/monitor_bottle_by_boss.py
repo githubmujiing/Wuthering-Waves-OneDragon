@@ -27,7 +27,7 @@ class MonitorBottleByBoss(WOperation):
 
         count = 0
         start_time = datetime.now()
-        while count < 20:
+        while count < 30:
             current_time = datetime.now()
             if current_time - start_time >= timedelta(minutes=5):
                 print('超时')

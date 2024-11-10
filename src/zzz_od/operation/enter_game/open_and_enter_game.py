@@ -33,6 +33,7 @@ class OpenAndEnterGame(Operation):
         enter_game = OperationNode('进入游戏', self.enter_game)
         self.add_edge(open_game, enter_game)
 
+    @node_from(from_name='等待游戏打开', success=False)
     @node_from(from_name='关闭游戏', status='重新启动')
     @operation_node(name='打开游戏', is_start_node=True)
     def open_game(self) -> OperationRoundResult:

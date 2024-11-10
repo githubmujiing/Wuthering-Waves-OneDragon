@@ -6,6 +6,7 @@ from zzz_od.application.Arrange_radio.Arrange_radio_app import ArrangeRadioApp
 # 尝试删除from zzz_od.application.coffee.coffee_app import CoffeeApp
 from zzz_od.application.email_app.email_app import EmailApp
 from zzz_od.application.engagement_reward.engagement_reward_app import EngagementRewardApp
+from zzz_od.application.kill_nutao.kill_nutao import KillNutao
 # 尝试删除from zzz_od.application.hollow_zero.hollow_zero_app import HollowZeroApp
 # 尝试删除from zzz_od.application.life_on_line.life_on_line_app import LifeOnLineApp
 from zzz_od.application.notorious_hunt.notorious_hunt_app import NotoriousHuntApp
@@ -37,6 +38,7 @@ class WOneDragonApp(OneDragonApp, WApplication):
             RedemptionCodeApp(self.ctx),
             WeeklyScheduleApp(self.ctx),
             TakeAEcho(self.ctx),
+            KillNutao(self.ctx),
             EmailApp(self.ctx),
             # 尝试删除RandomPlayApp(self.ctx),
             # 尝试删除ScratchCardApp(self.ctx),

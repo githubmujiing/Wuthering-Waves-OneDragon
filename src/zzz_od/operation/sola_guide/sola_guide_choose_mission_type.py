@@ -116,6 +116,7 @@ class SolaGuideChooseMissionType(WOperation):
     @operation_node(name='确认')
     def confirm(self) -> OperationRoundResult:
         screen = self.screenshot()
+        self.round_by_click_area('地图传送', '确认', success_wait=1, retry_wait=1)
         return self.round_by_click_area('地图传送', '确认', success_wait=1, retry_wait=1)
 
 
