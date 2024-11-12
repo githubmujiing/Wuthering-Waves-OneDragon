@@ -57,6 +57,14 @@ class SettingGameInterface(VerticalScrollInterface):
                                                  content='需要带星号，如：134****7673')
         basic_group.addSettingCard(self.game_password_opt)
 
+        self.wechat_notification_opt = TextSettingCard(
+            icon=FluentIcon.MESSAGE,  # 或 FluentIcon.CHAT 等
+            title='企业微信通知',
+            content='群组机器人webhook地址'
+        )
+        basic_group.addSettingCard(self.wechat_notification_opt)
+
+
         return basic_group
 
     def _get_key_group(self) -> QWidget:
@@ -275,6 +283,7 @@ class SettingGameInterface(VerticalScrollInterface):
         self.game_region_opt.value_changed.disconnect(self._on_game_region_changed)
         self.game_account_opt.value_changed.disconnect(self._on_game_account_changed)
         self.game_password_opt.value_changed.disconnect(self._on_game_password_changed)
+        self.wechat_notification_opt.value_changed.disconnect(self._on_wechat_notification_changed)
 
         game_region = get_config_item_from_enum(GameRegionEnum, self.ctx.game_config.game_region)
         if game_region is not None:
@@ -282,6 +291,7 @@ class SettingGameInterface(VerticalScrollInterface):
         self.game_path_opt.setContent(self.ctx.game_config.game_path)
         self.game_account_opt.setValue(self.ctx.game_config.account)
         self.game_password_opt.setValue(self.ctx.game_config.password)
+        self.wechat_notification_opt.setValue(self.ctx.game_config.wechat_notification)
 
         self.key_normal_attack_opt.setValue(self.ctx.game_config.key_normal_attack)
         self.key_dodge_opt.setValue(self.ctx.game_config.key_dodge)
@@ -304,6 +314,7 @@ class SettingGameInterface(VerticalScrollInterface):
         self.game_region_opt.value_changed.connect(self._on_game_region_changed)
         self.game_account_opt.value_changed.connect(self._on_game_account_changed)
         self.game_password_opt.value_changed.connect(self._on_game_password_changed)
+        self.wechat_notification_opt.value_changed.connect(self._on_wechat_notification_changed)
 
     def _update_gamepad_part(self) -> None:
         """
@@ -403,6 +414,9 @@ class SettingGameInterface(VerticalScrollInterface):
 
     def _on_game_password_changed(self, value: str) -> None:
         self.ctx.game_config.password = value
+
+    def _on_wechat_notification_changed(self, value: str) -> None:
+        self.ctx.game_config.wechat_notification = value
 
     def _on_key_normal_attack_changed(self, key: str) -> None:
         self.ctx.game_config.key_normal_attack = key

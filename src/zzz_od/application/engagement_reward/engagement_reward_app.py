@@ -8,6 +8,7 @@ from one_dragon.utils.i18_utils import gt
 from zzz_od.application.zzz_application import WApplication
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.back_to_normal_world import BackToNormalWorld
+from zzz_od.operation.report_message.report_message import report_activity
 from zzz_od.operation.sola_guide.sola_guide_choose_tab import SolaGuideChooseTab
 from zzz_od.operation.sola_guide.opens_sola_guide import OpenSolaGuide
 
@@ -89,6 +90,13 @@ class EngagementRewardApp(WApplication):
         return self.round_success()
 
     @node_from(from_name='领取奖励')
+    @operation_node(name='发送消息')
+    def report_activity(self) -> OperationRoundResult:
+        account = self.ctx.current_instance_name
+        report_activity(account, self.ctx.game_config.wechat_notification, self.liveness)
+        return self.round_success()
+
+    @node_from(from_name='发送消息')
     @operation_node(name='完成后返回大世界')
     def back_afterwards(self) -> OperationRoundResult:
         op = BackToNormalWorld(self.ctx)

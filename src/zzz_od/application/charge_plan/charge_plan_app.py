@@ -7,11 +7,13 @@ from typing import ClassVar, Optional
 from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
+from one_dragon.utils import cv2_utils, str_utils
 from one_dragon.utils.i18_utils import gt
 from zzz_od.application.zzz_application import WApplication
 from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.back_to_normal_world import BackToNormalWorld
+from zzz_od.operation.report_message.report_message import state_of_charge
 from zzz_od.operation.sola_guide.coagulation_field import CoagulationField
 from zzz_od.operation.sola_guide.simulation_field import SimulationField
 from zzz_od.operation.sola_guide.conquer_strong import ConquerStrong
@@ -111,6 +113,25 @@ class ChargePlanApp(WApplication):
     def back_to_world(self) -> OperationRoundResult:
         op = BackToNormalWorld(self.ctx)
         return self.round_by_op_result(op.execute())
+
+    @node_from(from_name='返回大世界')
+    @operation_node(name='检查并发送体力')
+    def report_charge(self) -> OperationRoundResult:
+        BackToNormalWorld(self.ctx)
+        time.sleep(2)
+        self.round_by_click_area('大世界', '地图', success_wait=2)
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('副本界面', '剩余体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        charge_left = str_utils.get_positive_digits(ocr_result, None)
+        if charge_left is None:
+            return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
+        account = self.ctx.current_instance_name
+        state_of_charge(account, self.ctx.game_config.wechat_notification, charge_left)
+        return self.round_success()
+
+
 
     '''
     @node_from(from_name='返回大世界')

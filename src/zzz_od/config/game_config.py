@@ -76,6 +76,14 @@ class GameConfig(YamlConfig):
         self.update('password', new_value)
 
     @property
+    def wechat_notification(self) -> str:
+        return self.get('wechat_notification', '')
+
+    @wechat_notification.setter
+    def wechat_notification(self, new_value: str) -> None:
+        self.update('wechat_notification', new_value)
+
+    @property
     def game_region(self) -> str:
         return self.get('game_region', GameRegionEnum.CN.value.value)
 
