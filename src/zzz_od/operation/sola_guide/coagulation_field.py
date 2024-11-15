@@ -38,7 +38,10 @@ class CoagulationField(WOperation):
             )
         )
 
-        self.charge_left = None
+        self.double_charge_consume: Optional[int] = None
+        self.single_charge_consume: Optional[int] = None
+        self.charge_left: Optional[int] = None
+        self.charge_need: Optional[int] = None
         self.plan: ChargePlanItem = plan
 
     def handle_init(self) -> None:
@@ -89,14 +92,14 @@ class CoagulationField(WOperation):
         if self.charge_need > self.charge_left:
             print("执行返回")
             return self.round_success(CoagulationField.STATUS_CHARGE_NOT_ENOUGH)
-
+        '''
         self.can_run_times = self.charge_left // self.charge_need
         max_need_run_times = self.plan.plan_times - self.plan.run_times
         print(f"max_need_run_times: {max_need_run_times}")
         print(f"self.can_run_times: {self.can_run_times}")
         if self.can_run_times > max_need_run_times:
             self.can_run_times = max_need_run_times
-
+        '''
         return self.round_success(CoagulationField.STATUS_CHARGE_ENOUGH)
     '''
     @node_from(from_name='识别电量', status=STATUS_CHARGE_ENOUGH)
@@ -165,10 +168,10 @@ class CoagulationField(WOperation):
     def death(self) -> OperationRoundResult:
         return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
 
-    @node_from(from_name='领取奖励', success=False)
+    @node_from(from_name='识别体力以便领取奖励', success=False)
     @node_from(from_name='监控战斗结束')
-    @operation_node(name='寻找奖励交互', node_max_retry_times=5)
-    def after_battle(self) -> OperationRoundResult:
+    @operation_node(name='寻找奖励交互', node_max_retry_times=3)
+    def search_interact(self) -> OperationRoundResult:
         time.sleep(2)
         op = SearchInteract(self.ctx, '领取', 5)
         result = self.round_by_op_result(op.execute())
@@ -177,26 +180,60 @@ class CoagulationField(WOperation):
         return result
 
     @node_from(from_name='寻找奖励交互')
+    @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
+    def click_start_for_reward(self) -> OperationRoundResult:
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('副本界面', '领取时剩余体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.charge_left = str_utils.get_positive_digits(ocr_result, None)
+        print(f"剩余体力: {self.charge_left}")
+        if self.charge_left is None:
+            return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
+
+        area = self.ctx.screen_loader.get_area('弹窗', '单倍耗体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.single_charge_consume = str_utils.get_positive_digits(ocr_result, None)
+        print(f"单倍耗体力: {self.single_charge_consume}")
+        if self.single_charge_consume is None:
+            return self.round_retry(status='识别 %s 失败' % '单倍耗体力', wait=1)
+
+        area = self.ctx.screen_loader.get_area('弹窗', '双倍耗体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.double_charge_consume = str_utils.get_positive_digits(ocr_result, None)
+        print(f"双倍耗体力: {self.double_charge_consume}")
+        if self.double_charge_consume is None:
+            return self.round_retry(status='识别 %s 失败' % '双倍耗体力', wait=1)
+        return self.round_success()
+
+    @node_from(from_name='识别体力以便领取奖励')
     @operation_node(name='领取奖励')
     def reward(self) -> OperationRoundResult:
         time.sleep(2)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('战斗', '弹窗右选')
-        op = self.round_by_ocr_and_click(screen, '确认', area, success_wait=4)
-        if op.is_success:
-            self.can_run_times -= 1
+        if self.charge_left >= self.double_charge_consume:
+            self.round_by_click_area('弹窗', '双倍耗体力')
+            self.charge_left -= self.double_charge_consume
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            return self.round_success()
+        elif self.charge_left >= self.single_charge_consume:
+            self.round_by_click_area('弹窗', '单倍耗体力')
+            self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
         else:
-            return self.round_fail()
+            return self.round_success(CoagulationField.STATUS_CHARGE_NOT_ENOUGH)
 
     @node_from(from_name='领取奖励')
     @operation_node(name='判断下一次')
     def check_next(self) -> OperationRoundResult:
         screen = self.screenshot()
-        if self.can_run_times == 0:
-            area = self.ctx.screen_loader.get_area('战斗', '退出副本')
-            return self.round_by_ocr_and_click(screen, '退出副本', area, success_wait=5, retry_wait_round=1)
+        if self.charge_left < self.single_charge_consume:
+            time.sleep(5)
+            self.round_by_click_area('战斗', '退出副本', success_wait=5)
+            return self.round_success(status=CoagulationField.STATUS_CHARGE_NOT_ENOUGH)
         else:
             area = self.ctx.screen_loader.get_area('战斗', '重新挑战')
             return self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=5, retry_wait_round=1)

@@ -14,6 +14,7 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
+from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.zzz_operation import WOperation
 
 
@@ -49,10 +50,11 @@ class SilentCleanup(WOperation):
 
         # 尝试删除self.auto_op: Optional[AutoBattleOperator] = None
 
-    @node_from(from_name='领取奖励再来一次或结束', status='确定')
+    @node_from(from_name='判断下一次', status='体力充足')
     @operation_node(name='激活', is_start_node=True, node_max_retry_times=30)
     def wait_entry_load(self) -> OperationRoundResult:
         time.sleep(2)
+        self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
         result = self.round_by_ocr_and_click(screen, '激活', area=area, success_wait=0.5, retry_wait_round=0.5)
@@ -80,7 +82,7 @@ class SilentCleanup(WOperation):
         self.round_by_click_area('地图传送', '中间', success_wait=1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, '借位信标', area=area, success_wait=1)
+        self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area=area, success_wait=1)
         self.round_by_click_area('地图传送', '传送', success_wait=2)
         #等待地图加载
         screen = self.screenshot()
@@ -89,40 +91,72 @@ class SilentCleanup(WOperation):
             screen = self.screenshot()
             result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
         if result.is_success:
+            self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
+            time.sleep(2)
+            screen = self.screenshot()
+            area = self.ctx.screen_loader.get_area('大世界', '交互框')
+            self.round_by_ocr_and_click(screen, '领取', area, success_wait=3)
             return self.round_success()
 
     @node_from(from_name='传送回来')
-    @operation_node(name='领取奖励再来一次或结束', node_max_retry_times=8)
+    @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
+    def check_charge_for_reward(self) -> OperationRoundResult:
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('副本界面', '领取时剩余体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.charge_left = str_utils.get_positive_digits(ocr_result, None)
+        print(f"剩余体力: {self.charge_left}")
+        if self.charge_left is None:
+            return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
+
+        area = self.ctx.screen_loader.get_area('弹窗', '单倍耗体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.single_charge_consume = str_utils.get_positive_digits(ocr_result, None)
+        print(f"单倍耗体力: {self.single_charge_consume}")
+        if self.single_charge_consume is None:
+            return self.round_retry(status='识别 %s 失败' % '单倍耗体力', wait=1)
+
+        area = self.ctx.screen_loader.get_area('弹窗', '双倍耗体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.double_charge_consume = str_utils.get_positive_digits(ocr_result, None)
+        print(f"双倍耗体力: {self.double_charge_consume}")
+        if self.double_charge_consume is None:
+            return self.round_retry(status='识别 %s 失败' % '双倍耗体力', wait=1)
+        return self.round_success()
+
+    @node_from(from_name='识别体力以便领取奖励')
+    @operation_node(name='领取奖励')
     def reward(self) -> OperationRoundResult:
         time.sleep(2)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, '领取', area, success_wait=3)
-
-        screen = self.screenshot()
-        area_c = self.ctx.screen_loader.get_area('战斗', '弹窗右选')
-        result_c = self.round_by_ocr(screen, '确认', area_c)
-
-        area_f = self.ctx.screen_loader.get_area('战斗', '补充结晶波片')
-        result_f = self.round_by_ocr(screen, '补充结晶波片', area_f)
-
-        if result_c.is_success:
-            self.round_by_ocr_and_click(screen, '确认', area_c, success_wait=4)
-            screen = self.screenshot()
-            area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
-            result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=4)
-
+        if self.charge_left >= self.double_charge_consume:
+            self.round_by_click_area('弹窗', '双倍耗体力')
+            self.charge_left -= self.double_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
-            print(f"计算后的已刷次数{self.plan.run_times}")
-            print(f"计划次数{self.plan.plan_times}")
-            if self.plan.plan_times <= self.plan.run_times:
-                return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
-
-            return result
-        elif result_f.is_success:
-            return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            return self.round_success()
+        elif self.charge_left >= self.single_charge_consume:
+            self.round_by_click_area('弹窗', '单倍耗体力')
+            self.charge_left -= self.single_charge_consume
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            return self.round_success()
         else:
+            return self.round_success(SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
+
+    @node_from(from_name='领取奖励')
+    @operation_node(name='判断下一次', node_max_retry_times=10)
+    def check_next(self) -> OperationRoundResult:
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
+        result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=5, retry_wait_round=1)
+        if not result.is_success:
             return self.round_retry()
+        if self.charge_left < self.single_charge_consume:
+            return self.round_success(status=SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
+        else:
+            return self.round_success(status=SilentCleanup.STATUS_CHARGE_ENOUGH)
 
 
     def _on_pause(self, e=None):

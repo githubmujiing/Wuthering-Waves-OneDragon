@@ -25,7 +25,7 @@ class KillNutao(WApplication):
         WApplication.__init__(
             self,
             ctx=ctx, app_id='kill_nutao',
-            op_name=gt('杀一次无归的谬误，无须借位', 'ui'),
+            op_name=gt('杀一次无归的谬误', 'ui'),
             run_record=ctx.kill_nutao_run_record
         )
 
@@ -43,13 +43,16 @@ class KillNutao(WApplication):
 
     @node_from(from_name='监控战斗结束', status='全员死亡')
     @node_from(from_name='启动自动战斗')
-    @operation_node(name='传送')
+    @operation_node(name='传送', node_max_retry_times=3)
     def transport(self) -> OperationRoundResult:
         op = TransportBySolaGuide(self.ctx,
                                   "周期演算",
                                   '讨伐强敌',
                                   "无归的谬误")
-        return self.round_by_op_result(op.execute())
+        result = self.round_by_op_result(op.execute())
+        if result.is_success:
+            return result
+        return self.round_retry()
 
     @node_from(from_name='传送')
     @operation_node(name='是否可以战斗')
@@ -65,7 +68,7 @@ class KillNutao(WApplication):
     @node_from(from_name='是否可以战斗', success=False)
     @operation_node(name='向前走')
     def move_forward(self) -> OperationRoundResult:
-        self.ctx.controller.move_w(press=True, press_time=14.5, release=True)
+        self.ctx.controller.move_w(press=True, press_time=9, release=True)
         return self.round_success()
 
     @node_from(from_name='是否可以战斗', status='无归的谬误')
@@ -74,6 +77,14 @@ class KillNutao(WApplication):
     def monitor_battle(self) -> OperationRoundResult:
         op = MonitorBottleByBoss(self.ctx, boss='无归的谬误')
         return self.round_by_op_result(op.execute())
+
+    @node_from(from_name='监控战斗结束')
+    @operation_node(name='获得声骇如果有')
+    def take_echo(self) -> OperationRoundResult:
+        time.sleep(2)
+        op = SearchInteract(self.ctx, '吸收', 3)
+        self.round_by_op_result(op.execute())
+        return self.round_success()
 
 
     '''

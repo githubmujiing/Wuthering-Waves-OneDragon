@@ -13,6 +13,7 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
+from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
 from zzz_od.operation.zzz_operation import WOperation
 
@@ -51,8 +52,19 @@ class ConquerStrong(WOperation):
 
         #self.ctx.charge_plan_config.add_plan_run_times(self.plan)
 
+    @operation_node(name='向前走', is_start_node=True)
+    def forw(self) -> OperationRoundResult:
+        if self.plan.mission_type_name == '无冠者':
+            self.ctx.controller.move_w(press=True, press_time=7.15, release=True)
+            op = SearchInteract(self.ctx, '声弦', 5)
+            return self.round_by_op_result(op.execute())
+        else:
+            self.ctx.controller.move_w(press=True, press_time=9, release=True)
+        return self.round_success()
+
+    @node_from(from_name='向前走')
     @node_from(from_name='领取奖励再来一次或结束', status='确定')
-    @operation_node(name='等待boss加载', is_start_node=True, node_max_retry_times=420)
+    @operation_node(name='等待boss加载', node_max_retry_times=420)
     def wait_entry_load(self) -> OperationRoundResult:
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', 'boss名')
@@ -75,6 +87,7 @@ class ConquerStrong(WOperation):
         return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
 
     @node_from(from_name='监控战斗结束')
+    @node_from(from_name='领取奖励再来一次或结束', success=False)
     @operation_node(name='传送回来')
     def tp_back(self) -> OperationRoundResult:
         time.sleep(2)
@@ -82,7 +95,7 @@ class ConquerStrong(WOperation):
         self.round_by_click_area('地图传送', '中间', success_wait=1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, '借位信标', area=area, success_wait=1)
+        self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area=area, success_wait=1)
         self.round_by_click_area('地图传送', '传送', success_wait=2)
         #等待地图加载
         screen = self.screenshot()
@@ -94,13 +107,21 @@ class ConquerStrong(WOperation):
             return self.round_success()
 
     @node_from(from_name='传送回来')
+    @operation_node(name='寻找奖励交互', node_max_retry_times=3)
+    def interact(self) -> OperationRoundResult:
+        time.sleep(1)
+        self.ctx.controller.move_w(press=True, press_time=9, release=True)
+        op = SearchInteract(self.ctx, '领取', 5)
+        result = self.round_by_op_result(op.execute())
+        if result.is_success:
+            return self.round_success()
+        else:
+            return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
+
+    @node_from(from_name='寻找奖励交互')
     @operation_node(name='领取奖励再来一次或结束', node_max_retry_times=8)
     def reward(self) -> OperationRoundResult:
         time.sleep(2)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, '领取', area, success_wait=3)
-
         screen = self.screenshot()
         area_c = self.ctx.screen_loader.get_area('战斗', '弹窗右选')
         result_c = self.round_by_ocr(screen, '确认', area_c)

@@ -1,5 +1,5 @@
 import os
-from PySide6.QtWidgets import QWidget, QFileDialog
+from PySide6.QtWidgets import QWidget, QFileDialog, QPushButton
 from qfluentwidgets import SettingCardGroup, FluentIcon, PushSettingCard
 
 from one_dragon.base.config.config_item import get_config_item_from_enum
@@ -63,7 +63,13 @@ class SettingGameInterface(VerticalScrollInterface):
             content='群组机器人webhook地址'
         )
         basic_group.addSettingCard(self.wechat_notification_opt)
-
+        # 添加“测试”按钮
+        self.test_button_opt = PushSettingCard(icon=FluentIcon.FOLDER, title='测试微信通知', text='点击测试')
+        self.test_button_opt.clicked.connect(self._on_test_button_clicked)
+        basic_group.addSettingCard(self.test_button_opt)
+        self.wechat_notification_opt.value_changed.disconnect(self._on_wechat_notification_changed)
+        self.wechat_notification_opt.setValue(self.ctx.game_config.wechat_notification)
+        self.wechat_notification_opt.value_changed.connect(self._on_wechat_notification_changed)
 
         return basic_group
 
@@ -417,6 +423,13 @@ class SettingGameInterface(VerticalScrollInterface):
 
     def _on_wechat_notification_changed(self, value: str) -> None:
         self.ctx.game_config.wechat_notification = value
+
+    def _on_test_button_clicked(self):
+        # 获取 webhook 地址
+        webhook = self.ctx.game_config.wechat_notification
+        # 调用 report_message.py 中的 test_webhook 方法
+        from zzz_od.operation.report_message.report_message import test_webhook
+        test_webhook(webhook)
 
     def _on_key_normal_attack_changed(self, key: str) -> None:
         self.ctx.game_config.key_normal_attack = key

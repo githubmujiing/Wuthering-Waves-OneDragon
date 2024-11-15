@@ -74,7 +74,7 @@ class NotoriousHunt(WOperation):
         return self.round_success()
 
     @node_from(from_name='交互')
-    @operation_node(name='识别体力')
+    @operation_node(name='识别体力', node_max_retry_times=30)
     def check_charge(self) -> OperationRoundResult:
         time.sleep(10)
         screen = self.screenshot()

@@ -36,10 +36,6 @@ class OpenMenu(WOperation):
         if result.is_success:
             return self.round_success()
 
-        result = self.round_by_find_area(screen, '大世界', '多人游戏')
-        if result.is_success:
-            return self.round_success(result.status)
-
         return self.round_fail()
 
     @node_from(from_name='画面识别', success=False)

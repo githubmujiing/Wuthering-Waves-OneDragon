@@ -95,7 +95,7 @@ class ChargePlanCard(MultiLineSettingCard):
                 target_category_text = category.ui_text
 
         # 添加自定义标签
-        self.category_combo_box.addItem("讨伐强敌和无音清剿需要在中心点放置借位信标", userData="custom_category")
+        # self.category_combo_box.addItem("讨伐强敌和无音清剿需要在中心点放置借位信标", userData="custom_category")
         # 设置当前项为目标项（若存在），否则保持默认
         if target_category_text:
             self.category_combo_box.setCurrentText(target_category_text)

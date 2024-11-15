@@ -3,6 +3,7 @@ from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
 from zzz_od.context.zzz_context import WContext
+from zzz_od.operation.back_to_normal_world import BackToNormalWorld
 from zzz_od.operation.sola_guide.sola_guide_choose_category import SolaGuideChooseCategory
 from zzz_od.operation.sola_guide.sola_guide_choose_mission_type import SolaGuideChooseMissionType
 from zzz_od.operation.sola_guide.sola_guide_choose_tab import SolaGuideChooseTab
@@ -59,13 +60,14 @@ class TransportBySolaGuide(WOperation):
     @node_from(from_name='选择副本分类')
     @operation_node(name='等待传送加载完毕', node_max_retry_times=60)
     def wait_for_tp_complete(self) -> OperationRoundResult:
+        op = BackToNormalWorld(self.ctx)
+        self.round_by_op_result(op.execute())
         screen = self.screenshot()
-        result = self.round_by_find_area(screen, '大世界', '多人游戏')
-        while not result.is_success:
-            screen = self.screenshot()
-            result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
+        result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait_round=1)
         if result.is_success:
-            return self.round_success()
+            return result
+        else:
+            return self.round_retry()
 
 
 

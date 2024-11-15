@@ -48,7 +48,10 @@ class TakeAEcho(WApplication):
                                   "周期演算",
                                   '战歌重奏',
                                   "无冠者之像·心脏")
-        return self.round_by_op_result(op.execute())
+        result = self.round_by_op_result(op.execute())
+        if result.is_success:
+            return result
+        return self.round_retry()
 
     @node_from(from_name='传送')
     @operation_node(name='向前走')

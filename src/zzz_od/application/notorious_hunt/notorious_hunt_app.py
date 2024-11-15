@@ -50,7 +50,7 @@ class NotoriousHuntApp(WApplication):
     @node_from(from_name='副本boss')
     @node_from(from_name='龟龟')
     @node_from(from_name='启动自动战斗')
-    @operation_node(name='换队与传送')
+    @operation_node(name='换队与传送', node_max_retry_times=5)
     def transport(self) -> OperationRoundResult:
         if not self.ctx.notorious_hunt_config.loop and self.ctx.notorious_hunt_config.all_plan_finished():
             return self.round_success(NotoriousHuntApp.STATUS_ROUND_FINISHED)
@@ -67,7 +67,10 @@ class NotoriousHuntApp(WApplication):
                                   next_plan.tab_name,
                                   next_plan.category_name,
                                   next_plan.mission_type_name)
-        return self.round_by_op_result(op.execute())
+        result = self.round_by_op_result(op.execute())
+        if result.is_success:
+            return result
+        return self.round_retry()
 
     @node_from(from_name='换队与传送')
     @operation_node(name='识别副本分类')

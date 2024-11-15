@@ -58,7 +58,7 @@ def state_of_charge(account, webhook, charge):
 
 def test_webhook(webhook):
     # 测试消息内容
-    test_message = "这是一条测试消息"
+    test_message = "这是一条来自鸣潮一条龙的测试消息"
     # 构造发送内容
     mHeader = {'Content-Type': 'application/json; charset=UTF-8'}
     mBody = {
