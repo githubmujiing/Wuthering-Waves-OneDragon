@@ -48,7 +48,7 @@ class BackToNormalWorld(WOperation):
         # 判断在副本大世界的情况
         result = self.round_by_find_area(screen, '副本大世界', '退出')
         if result.is_success:
-            self.round_by_click_area('副本大世界', '退出', success_wait=2)
+            self.round_by_click_area('副本大世界', '退出', success_wait=1)
             screen = self.screenshot()
             area = self.ctx.screen_loader.get_area('副本大世界', '确认')
             self.round_by_ocr_and_click(screen, '确认', area=area)
@@ -77,7 +77,8 @@ class BackToNormalWorld(WOperation):
             return self.round_retry(wait=1)
 
         # 都没成功就点返回
-        self.round_by_click_area('菜单', '返回')
+        self.round_by_click_area('菜单', '返回', success_wait=1)
+        self.round_by_click_area('弹窗', '关闭', success_wait=1)
         return self.round_retry(wait_round_time=1)
 
 

@@ -56,7 +56,7 @@ class TakeAEcho(WApplication):
     @node_from(from_name='传送')
     @operation_node(name='向前走')
     def move_forward(self) -> OperationRoundResult:
-        self.ctx.controller.move_w(press=True, press_time=0.7, release=True)
+        self.ctx.controller.move_w(press=True, press_time=1.2, release=True)
         return self.round_success()
 
     @node_from(from_name='向前走')
@@ -75,7 +75,10 @@ class TakeAEcho(WApplication):
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '等级区域')
         # result = self.round_by_ocr_and_click(screen, '推荐等级70', area, success_wait=1, retry_wait_round=2)
-        result1 = self.round_by_click_area('副本界面', '单人挑战', success_wait=3, retry_wait_round=1)
+        result1 = self.round_by_click_area('副本界面', '单人挑战', success_wait=1, retry_wait_round=1)
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('弹窗', '右选项')
+        self.round_by_ocr_and_click(screen,'确认', area, success_wait=3, retry_wait=3)
         if not result1.is_success:
             return self.round_retry()
         return result1

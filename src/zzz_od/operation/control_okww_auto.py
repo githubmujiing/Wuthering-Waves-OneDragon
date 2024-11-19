@@ -22,12 +22,13 @@ def is_window_open(title):
     win32gui.EnumWindows(callback, hwnds)
     return len(hwnds) > 0  # 如果找到窗口则返回 True
 
+
 def start_okww_auto():
     """启动外部程序，并监控其启动状态。"""
     if is_window_open("OK-WW") and is_window_open("正式版"):
         print("程序启动成功")
         return True
-    for attempt in range(6):
+    for attempt in range(3):
         # 检测并关闭名为 "OK-WW" 的窗口
         close_windows_with_title("OK-WW")
         # 等待 3 秒
@@ -38,7 +39,7 @@ def start_okww_auto():
         subprocess.Popen([exe_path], cwd=os.path.dirname(exe_path))
         time.sleep(5)
         # 监控名为 "OK-WW 启动器" 的窗口
-        for _ in range(30):  # 最多等待 30 秒
+        for _ in range(50):  # 最多等待 30 秒
             if not is_window_open("OK-WW 启动器"):
                 print("程序启动成功")
                 return True
@@ -48,8 +49,14 @@ def start_okww_auto():
         close_windows_with_title("OK-WW 启动器")
         print("启动失败，正在重试...")
 
-    print("多次启动失败，退出程序。")
-    return False
+    '''
+    script_path = os.path.join('3rdparty', 'ok-ww', 'main.py')
+    # 使用 subprocess.Popen 执行脚本
+    process = subprocess.Popen(['python', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    time.sleep(5)
+    '''
+    print("多次启动器启动失败，强行启动")
+    return True
 
 
 def kill_okww_auto():

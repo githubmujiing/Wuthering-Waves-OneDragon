@@ -27,7 +27,7 @@ class MonitorBottleByBoss(WOperation):
 
         count = 0
         start_time = datetime.now()
-        while count < 30:
+        while count < 50:
             current_time = datetime.now()
             if current_time - start_time >= timedelta(minutes=5):
                 print('超时')
@@ -35,7 +35,7 @@ class MonitorBottleByBoss(WOperation):
             screen = self.screenshot()
             area = self.ctx.screen_loader.get_area('战斗', 'boss名')
             area_fail = self.ctx.screen_loader.get_area('战斗', '领取后选择')
-            result = self.round_by_ocr(screen, self.boss, area=area, success_wait=0.5, retry_wait=0.5)
+            result = self.round_by_ocr(screen, self.boss, area=area, success_wait=0.2, retry_wait=0.2)
             result_fail = self.round_by_ocr_and_click(screen, '退出副本', area=area_fail, success_wait=1)
             if result_fail.is_success:
                 return self.round_success(status='全员死亡')
