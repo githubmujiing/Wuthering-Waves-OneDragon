@@ -92,7 +92,7 @@ class EngagementRewardApp(WApplication):
     @node_from(from_name='领取奖励')
     @operation_node(name='发送消息')
     def report_activity(self) -> OperationRoundResult:
-        account = self.ctx.current_instance_name
+        account = self.ctx.current_instance_idx
         report_activity(account, self.ctx.game_config.wechat_notification, self.liveness)
         return self.round_success()
 

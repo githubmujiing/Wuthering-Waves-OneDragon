@@ -68,3 +68,14 @@ area_list:
   template_sub_dir: normal_world
   template_id: task
   template_match_threshold: 0.7
+- area_name: 奖励
+  pc_rect:
+  - 351
+  - 415
+  - 418
+  - 487
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: normal_world
+  template_id: reward
+  template_match_threshold: 0.7

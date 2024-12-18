@@ -235,8 +235,8 @@ class OneDragonRunInterface(VerticalScrollInterface):
             if self.ctx.one_dragon_config.after_done == AfterDoneOpEnum.SHUTDOWN.value.value:
                 cmd_utils.shutdown_sys(60)
             elif self.ctx.one_dragon_config.after_done == AfterDoneOpEnum.CLOSE_GAME.value.value:
-                self.ctx.controller.close_game()
                 kill_okww_auto()
+                self.ctx.controller.close_game()
 
     def _on_app_state_changed(self, event) -> None:
         for app_card in self._app_run_cards:

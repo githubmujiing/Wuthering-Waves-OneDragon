@@ -79,3 +79,47 @@ area_list:
   template_sub_dir: ''
   template_id: ''
   template_match_threshold: 0.7
+- area_name: 双倍耗体力
+  pc_rect:
+  - 1188
+  - 662
+  - 1228
+  - 690
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 单倍耗体力
+  pc_rect:
+  - 518
+  - 662
+  - 556
+  - 690
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 补充体力确认
+  pc_rect:
+  - 1332
+  - 766
+  - 1332
+  - 766
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 关闭弹窗
+  pc_rect:
+  - 1404
+  - 316
+  - 1476
+  - 388
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: pop
+  template_id: close
+  template_match_threshold: 0.7

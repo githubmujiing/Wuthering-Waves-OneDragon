@@ -130,7 +130,7 @@ class ChargePlanApp(WApplication):
         charge_left = str_utils.get_positive_digits(ocr_result, None)
         if charge_left is None:
             return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
-        account = self.ctx.current_instance_name
+        account = self.ctx.current_instance_idx
         state_of_charge(account, self.ctx.game_config.wechat_notification, charge_left)
         return self.round_success()
 

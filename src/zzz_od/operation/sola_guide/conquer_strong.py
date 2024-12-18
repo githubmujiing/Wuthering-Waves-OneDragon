@@ -13,6 +13,7 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
+from zzz_od.operation.move_search import MoveSearch
 from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
 from zzz_od.operation.zzz_operation import WOperation
@@ -99,6 +100,9 @@ class ConquerStrong(WOperation):
     def tp_back(self) -> OperationRoundResult:
         time.sleep(2)
         self.round_by_click_area('大世界', '地图', success_wait=2)
+        self.round_by_click_area('地图传送', '放大', success_wait=1)
+        self.round_by_click_area('菜单', '返回', success_wait=2)
+        self.round_by_click_area('大世界', '地图', success_wait=2)
         self.round_by_click_area('地图传送', '缩小', success_wait=1)
         self.round_by_click_area('地图传送', '中间', success_wait=1)
         screen = self.screenshot()
@@ -129,7 +133,7 @@ class ConquerStrong(WOperation):
             self.ctx.controller.move_w(press=True, press_time=9, release=True)
         else:
             self.ctx.controller.move_w(press=True, press_time=11, release=True)
-        op = SearchInteract(self.ctx, '领取', 5)
+        op = MoveSearch(self.ctx, '领取')
         result = self.round_by_op_result(op.execute())
         if result.is_success:
             return self.round_success()
@@ -187,7 +191,7 @@ def __debug():
     ctx.start_running()
     op = ConquerStrong(ctx, ChargePlanItem(
         category_name='讨伐强敌',
-        mission_type_name='聚械机偶'
+        mission_type_name='云闪'
     ))
     op.execute()
 

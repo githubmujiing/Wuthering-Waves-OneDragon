@@ -13,7 +13,7 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
-from zzz_od.operation.search_interaction import SearchInteract
+from zzz_od.operation.move_search import MoveSearch
 from zzz_od.operation.switch_teams import SwitchTeams
 from zzz_od.operation.zzz_operation import WOperation
 
@@ -57,11 +57,11 @@ class NotoriousHunt(WOperation):
     @operation_node(name='向前走', is_start_node=True,)
     def move_forward(self) -> OperationRoundResult:
         if self.plan.mission_type_name == '战歌重奏·命定的纷争':
-            self.ctx.controller.move_w(press=True, press_time=1, release=True)
+            self.ctx.controller.move_w(press=True, press_time=0.8, release=True)
         elif self.plan.mission_type_name == '无冠者之像·心脏':
-            self.ctx.controller.move_w(press=True, press_time=1.2, release=True)
+            self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
         else:
-            self.ctx.controller.move_w(press=True, press_time=1.7, release=True)
+            self.ctx.controller.move_w(press=True, press_time=1.5, release=True)
         return self.round_success()
 
     @node_from(from_name='向前走')
@@ -175,7 +175,7 @@ class NotoriousHunt(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '领取', 8)
+        op = MoveSearch(self.ctx, '领取')
         result = self.round_by_op_result(op.execute())
         if not result.is_success:
             return self.round_retry()

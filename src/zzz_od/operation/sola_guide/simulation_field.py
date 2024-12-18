@@ -17,6 +17,7 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
+from zzz_od.operation.move_search import MoveSearch
 from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.switch_teams import SwitchTeams
 from zzz_od.operation.zzz_operation import WOperation
@@ -174,7 +175,7 @@ class SimulationField(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def search_interact(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '领取', 5)
+        op = MoveSearch(self.ctx, '领取')
         result = self.round_by_op_result(op.execute())
         if not result.is_success:
             return self.round_retry()

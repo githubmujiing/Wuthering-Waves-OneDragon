@@ -56,7 +56,7 @@ class TakeAEcho(WApplication):
     @node_from(from_name='传送')
     @operation_node(name='向前走')
     def move_forward(self) -> OperationRoundResult:
-        self.ctx.controller.move_w(press=True, press_time=1.2, release=True)
+        self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
         return self.round_success()
 
     @node_from(from_name='向前走')

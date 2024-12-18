@@ -759,3 +759,49 @@ class Operation(OperationBase):
             return self.round_retry(f'找不到 {target_cn}', wait=retry_wait, wait_round_time=retry_wait_round)
 
         return self.round_success(target_cn, wait=success_wait, wait_round_time=success_wait_round)
+
+    def round_find_area_position(self, screen: MatLike, screen_name: str, area_name: str,
+                           success_wait: Optional[float] = None, success_wait_round: Optional[float] = None,
+                           retry_wait: Optional[float] = None, retry_wait_round: Optional[float] = None) -> OperationRoundResult:
+        """
+        在整个屏幕上查找目标区域的模板匹配位置，并返回该位置的坐标。
+        :param screen: 屏幕截图
+        :param screen_name: 画面名称
+        :param area_name: 区域名称
+        :param success_wait: 成功后等待的秒数
+        :param success_wait_round: 成功后等待当前轮的运行时间到达这个时间时再结束 优先success_wait
+        :param retry_wait: 失败后等待的秒数
+        :param retry_wait_round: 失败后等待当前轮的运行时间到达这个时间时再结束 优先retry_wait
+        :return: 匹配结果及坐标信息
+        """
+        # 获取区域配置
+        area: ScreenArea = self.ctx.screen_loader.get_area(screen_name, area_name)
+        if area is None:
+            return self.round_fail(status=f'区域未配置 {area_name}')
+        # 获取整个屏幕截图并进行模板匹配
+        part = screen  # 使用整个屏幕进行匹配
+        find: bool = False
+        match_location: Optional[Point] = None
+        # 模板区域匹配
+        if area.is_template_area:
+            # 使用模板匹配查找目标区域
+            mrl = self.ctx.tm.match_template(part, area.template_sub_dir, area.template_id,
+                                             threshold=area.template_match_threshold)
+            if mrl.max is not None:
+                # 如果找到匹配的区域，计算最接近目标区域的位置
+                # 找到匹配区域的坐标
+                match_location = mrl.max.center  # 获取模板匹配的中心坐标
+                find = True
+        # 如果未找到目标区域，返回重试
+        if not find:
+            return self.round_retry(status=f'未找到 {area_name}', wait=retry_wait, wait_round_time=retry_wait_round)
+        # 如果找到区域，返回匹配到的坐标
+        if match_location:
+            # 将匹配坐标转化为屏幕坐标（如果区域有偏移）
+            if area is not None:
+                match_location = match_location + area.left_top
+            # 只传递 status 和等待时间，而不传递 location
+            return self.round_success(status=f'找到 {area_name} 区域，坐标：{match_location}',
+                                      wait=success_wait, wait_round_time=success_wait_round)
+        else:
+            return self.round_fail(status=f'未能识别 {area_name} 区域')

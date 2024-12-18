@@ -35,3 +35,36 @@ area_list:
   template_sub_dir: ''
   template_id: ''
   template_match_threshold: 0.7
+- area_name: 缩小
+  pc_rect:
+  - 1810
+  - 690
+  - 1810
+  - 690
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 缩放中间
+  pc_rect:
+  - 1811
+  - 539
+  - 1811
+  - 539
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 放大
+  pc_rect:
+  - 1810
+  - 369
+  - 1810
+  - 369
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

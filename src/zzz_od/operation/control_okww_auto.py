@@ -3,6 +3,7 @@ import subprocess
 import time
 import win32gui
 import win32con
+import pyautogui
 
 def close_windows_with_title(title):
     """关闭所有窗口标题中包含指定字符串的窗口。"""
@@ -37,9 +38,12 @@ def start_okww_auto():
         # exe_path = os.path.join('..', '..', '..', '3rdparty', 'ok-ww', 'ok-ww.exe')# 使用idea启动
         exe_path = os.path.join('3rdparty', 'ok-ww', 'ok-ww.exe')# 使用打包后的laucher
         subprocess.Popen([exe_path], cwd=os.path.dirname(exe_path))
-        time.sleep(5)
+        time.sleep(10)
+        pyautogui.moveTo(1025, 743)
+        pyautogui.click()
+        time.sleep(3)
         # 监控名为 "OK-WW 启动器" 的窗口
-        for _ in range(50):  # 最多等待 30 秒
+        for _ in range(50):  # 最多等待 50 秒
             if not is_window_open("OK-WW 启动器"):
                 print("程序启动成功")
                 return True

@@ -77,8 +77,9 @@ class BackToNormalWorld(WOperation):
             return self.round_retry(wait=1)
 
         # 都没成功就点返回
-        self.round_by_click_area('菜单', '返回', success_wait=1)
-        self.round_by_click_area('弹窗', '关闭', success_wait=1)
+        self.round_by_click_area('菜单', '返回', success_wait=2)
+        screen = self.screenshot()
+        self.round_by_find_and_click_area(screen, '弹窗', '关闭弹窗', success_wait=1)
         return self.round_retry(wait_round_time=1)
 
 

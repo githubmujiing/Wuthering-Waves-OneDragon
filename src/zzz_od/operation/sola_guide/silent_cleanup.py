@@ -79,7 +79,7 @@ class SilentCleanup(WOperation):
     def tp_back(self) -> OperationRoundResult:
         time.sleep(2)
         self.round_by_click_area('大世界', '地图', success_wait=2)
-        self.round_by_click_area('地图传送', '缩小', success_wait=1)
+        self.round_by_click_area('地图传送', '缩放中间', success_wait=1)
         self.round_by_click_area('地图传送', '中间', success_wait=1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
