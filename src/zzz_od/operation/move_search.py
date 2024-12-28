@@ -60,7 +60,7 @@ class MoveSearch(WOperation):
             self.ctx.controller.move_a(press=True, press_time=1.5)
         elif self.target_x > 1642:
             self.ctx.controller.move_d(press=True, press_time=1.5)
-        elif self.target_y > 1100 or self.target_y < 620:
+        elif self.target_y > 1000 or self.target_y < 620:
             self.ctx.controller.move_s(press=True, press_time=0.1, release=True)
             time.sleep(0.5)
             self.ctx.controller.lock(press=True, press_time=1, release=True)

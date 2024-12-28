@@ -99,23 +99,10 @@ class EngagementRewardApp(WApplication):
     @node_from(from_name='发送消息')
     @operation_node(name='完成后返回大世界')
     def back_afterwards(self) -> OperationRoundResult:
+        if self.liveness < 100:
+            return self.round_fail()
         op = BackToNormalWorld(self.ctx)
         return self.round_by_op_result(op.execute())
-    '''    
-    @node_from(from_name='领取奖励')
-    @operation_node(name='查看奖励结果')
-    def check_reward(self) -> OperationRoundResult:
-        screen = self.screenshot()
-        return self.round_by_find_and_click_area(screen, '索拉指南', '活跃度奖励-确认', success_wait=1, retry_wait=1)
-
-    @node_from(from_name='查看奖励结果', success=False)
-    @node_from(from_name='识别活跃度', status=STATUS_NO_REWARD)
-    @operation_node(name='完成后返回大世界')
-    def back_afterwards(self) -> OperationRoundResult:
-        op = BackToNormalWorld(self.ctx)
-        return self.round_by_op_result(op.execute())
-        
-        '''
 
 
 def __debug():

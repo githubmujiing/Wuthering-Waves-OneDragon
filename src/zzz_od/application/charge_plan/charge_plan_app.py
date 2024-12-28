@@ -118,7 +118,7 @@ class ChargePlanApp(WApplication):
         return self.round_by_op_result(op.execute())
 
     @node_from(from_name='返回大世界')
-    @operation_node(name='检查并发送体力')
+    @operation_node(name='检查并发送体力', node_max_retry_times=5)
     def report_charge(self) -> OperationRoundResult:
         BackToNormalWorld(self.ctx)
         time.sleep(2)

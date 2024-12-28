@@ -25,7 +25,7 @@ class KillNutao(WApplication):
         WApplication.__init__(
             self,
             ctx=ctx, app_id='kill_nutao',
-            op_name=gt('杀一次无归的谬误', 'ui'),
+            op_name=gt('杀一次朔雷之鳞', 'ui'),
             run_record=ctx.kill_nutao_run_record
         )
 
@@ -48,7 +48,7 @@ class KillNutao(WApplication):
         op = TransportBySolaGuide(self.ctx,
                                   "周期演算",
                                   '讨伐强敌',
-                                  "无归的谬误")
+                                  "朔雷之鳞")
         result = self.round_by_op_result(op.execute())
         if result.is_success:
             return result
@@ -60,7 +60,7 @@ class KillNutao(WApplication):
         time.sleep(2)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', 'boss名')
-        result = self.round_by_ocr(screen, '无归的谬误', area=area, success_wait=0.5)
+        result = self.round_by_ocr(screen, '朔雷之鳞', area=area, success_wait=0.5)
         if not result.is_success:
             return self.round_fail(status='需要往前')
         return result
@@ -71,11 +71,11 @@ class KillNutao(WApplication):
         self.ctx.controller.move_w(press=True, press_time=9, release=True)
         return self.round_success()
 
-    @node_from(from_name='是否可以战斗', status='无归的谬误')
+    @node_from(from_name='是否可以战斗', status='朔雷之鳞')
     @node_from(from_name='向前走')
     @operation_node(name='监控战斗结束')
     def monitor_battle(self) -> OperationRoundResult:
-        op = MonitorBottleByBoss(self.ctx, boss='无归的谬误')
+        op = MonitorBottleByBoss(self.ctx, boss='朔雷之鳞')
         return self.round_by_op_result(op.execute())
 
     @node_from(from_name='监控战斗结束')
@@ -86,32 +86,6 @@ class KillNutao(WApplication):
         self.round_by_op_result(op.execute())
         return self.round_success()
 
-
-    '''
-    @node_from(from_name='返回大世界')
-    @operation_node(name='关闭自动战斗')
-    def close_auto(self) -> OperationRoundResult:
-        kill_okww_auto()
-        time.sleep(2)
-        return self.round_success()
-    '''
-
-    '''
-    def _on_pause(self, e=None):
-        WOperation._on_pause(self, e)
-        # 尝试删除if self.auto_op is not None:
-        # 尝试删除self.auto_op.stop_running()
-
-    def _on_resume(self, e=None):
-        WOperation._on_resume(self, e)
-        # 尝试删除auto_battle_utils.resume_running(self.auto_op)
-
-    def after_operation_done(self, result: OperationResult):
-        WOperation.after_operation_done(self, result)
-        # 尝试删除if self.auto_op is not None:
-        # 尝试删除self.auto_op.dispose()
-        # 尝试删除self.auto_op = None
-    '''
 
 def __debug():
     ctx = WContext()

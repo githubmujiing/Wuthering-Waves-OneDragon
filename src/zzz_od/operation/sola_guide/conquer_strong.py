@@ -47,6 +47,7 @@ class ConquerStrong(WOperation):
         """
         self.charge_left: Optional[int] = None
         self.charge_need: Optional[int] = None
+        self.change_charge: Optional[int] = None
 
         # 尝试删除self.auto_op: Optional[AutoBattleOperator] = None
 
@@ -131,9 +132,11 @@ class ConquerStrong(WOperation):
             self.ctx.controller.move_w(press=True, press_time=6.5, release=True)
             self.ctx.controller.normal_attack(press=True, press_time=1, release=True)
             self.ctx.controller.move_w(press=True, press_time=9, release=True)
+        elif self.plan.mission_type_name == '辉萤军势':
+            self.ctx.controller.move_w(press=True, press_time=9, release=True)
         else:
             self.ctx.controller.move_w(press=True, press_time=11, release=True)
-        op = MoveSearch(self.ctx, '领取')
+        op = SearchInteract(self.ctx, '领取', circles=5)
         result = self.round_by_op_result(op.execute())
         if result.is_success:
             return self.round_success()
@@ -141,33 +144,67 @@ class ConquerStrong(WOperation):
             return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
 
     @node_from(from_name='寻找奖励交互')
+    @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
+    def check_charge_for_reward(self) -> OperationRoundResult:
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('副本界面', '领取时剩余体力')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.charge_left = str_utils.get_positive_digits(ocr_result, None)
+        print(f"剩余体力: {self.charge_left}")
+        if self.charge_left is None:
+            return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
+
+        area = self.ctx.screen_loader.get_area('副本界面', '结晶单质')
+        part = cv2_utils.crop_image_only(screen, area.rect)
+        ocr_result = self.ctx.ocr.run_ocr_single_line(part)
+        self.change_charge = str_utils.get_positive_digits(ocr_result, None)
+        print(f"结晶单质: {self.change_charge}")
+        if self.change_charge is None:
+            return self.round_retry(status='识别 %s 失败' % '结晶单质', wait=1)
+        return self.round_success()
+
+    @node_from(from_name='识别体力以便领取奖励')
     @operation_node(name='领取奖励再来一次或结束', node_max_retry_times=8)
     def reward(self) -> OperationRoundResult:
         time.sleep(2)
         screen = self.screenshot()
         area_c = self.ctx.screen_loader.get_area('战斗', '弹窗右选')
         result_c = self.round_by_ocr(screen, '确认', area_c)
-
-        area_f = self.ctx.screen_loader.get_area('战斗', '补充结晶波片')
-        result_f = self.round_by_ocr(screen, '补充结晶波片', area_f)
-
-        if result_c.is_success:
+        if not result_c.is_success:
+            return self.round_retry()
+        if self.charge_left >= 60:
             self.round_by_ocr_and_click(screen, '确认', area_c, success_wait=4)
             screen = self.screenshot()
             area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
             result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=4)
-
+            # 针对龟龟周本
+            if not result.is_success:
+                return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             print(f"计算后的已刷次数{self.plan.run_times}")
             print(f"计划次数{self.plan.plan_times}")
             if self.plan.plan_times <= self.plan.run_times:
                 return self.round_success(status=self.STATUS_CHARGE_ENOUGH)
-
             return result
-        elif result_f.is_success:
+        elif self.charge_left >= 40 and self.change_charge >= 20:
+            self.round_by_ocr_and_click(screen, '确认', area_c, success_wait=2)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_ocr_and_click(screen, '确认', area_c, success_wait=4)
+            screen = self.screenshot()
+            area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
+            result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=4)
+            # 针对龟龟周本
+            if not result.is_success:
+                return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
         else:
-            return self.round_retry()
+            return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
+
 
     def _on_pause(self, e=None):
         WOperation._on_pause(self, e)

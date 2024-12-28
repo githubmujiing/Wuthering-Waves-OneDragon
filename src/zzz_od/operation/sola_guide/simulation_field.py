@@ -96,14 +96,9 @@ class SimulationField(WOperation):
         if self.charge_need is None:
             return self.round_retry(status='识别 %s 失败' % '需要体力', wait=1)
 
-        if self.charge_need > self.charge_left:
+        if (self.charge_need/2) > self.charge_left:
             return self.round_success(SimulationField.STATUS_CHARGE_NOT_ENOUGH)
-        '''
-        self.can_run_times = self.charge_left // self.charge_need
-        max_need_run_times = self.plan.plan_times - self.plan.run_times
-        if self.can_run_times > max_need_run_times:
-            self.can_run_times = max_need_run_times
-        '''
+
         return self.round_success(SimulationField.STATUS_CHARGE_ENOUGH)
 
     @node_from(from_name='识别电量', status='体力充足')
@@ -150,6 +145,7 @@ class SimulationField(WOperation):
     @operation_node(name='向前走并开启战斗')
     def forward_fight(self) -> OperationRoundResult:
         self.ctx.controller.move_w(press=True, press_time=2.4, release=True)
+        time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
         result = self.round_by_ocr_and_click(screen, '启动', area)
@@ -175,7 +171,7 @@ class SimulationField(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def search_interact(self) -> OperationRoundResult:
         time.sleep(2)
-        op = MoveSearch(self.ctx, '领取')
+        op = SearchInteract(self.ctx, '领取')
         result = self.round_by_op_result(op.execute())
         if not result.is_success:
             return self.round_retry()
@@ -199,15 +195,19 @@ class SimulationField(WOperation):
         self.single_charge_consume = str_utils.get_positive_digits(ocr_result, None)
         print(f"单倍耗体力: {self.single_charge_consume}")
         if self.single_charge_consume is None:
-            return self.round_retry(status='识别 %s 失败' % '单倍耗体力', wait=1)
+            self.single_charge_consume = 40
+            print(f"单倍耗体力: {self.single_charge_consume}")
 
-        area = self.ctx.screen_loader.get_area('弹窗', '双倍耗体力')
+        self.double_charge_consume = self.single_charge_consume*2
+        print(f"双倍耗体力: {self.double_charge_consume}")
+
+        area = self.ctx.screen_loader.get_area('副本界面', '结晶单质')
         part = cv2_utils.crop_image_only(screen, area.rect)
         ocr_result = self.ctx.ocr.run_ocr_single_line(part)
-        self.double_charge_consume = str_utils.get_positive_digits(ocr_result, None)
-        print(f"双倍耗体力: {self.double_charge_consume}")
-        if self.double_charge_consume is None:
-            return self.round_retry(status='识别 %s 失败' % '双倍耗体力', wait=1)
+        self.change_charge = str_utils.get_positive_digits(ocr_result, None)
+        print(f"结晶单质: {self.change_charge}")
+        if self.change_charge is None:
+            return self.round_retry(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 
     @node_from(from_name='识别体力以便领取奖励')
@@ -215,15 +215,25 @@ class SimulationField(WOperation):
     def reward(self) -> OperationRoundResult:
         time.sleep(2)
         if self.charge_left >= self.double_charge_consume:
-            self.round_by_click_area('弹窗', '双倍耗体力')
+            self.round_by_click_area('弹窗', '双倍耗体力', success_wait=4)
             self.charge_left -= self.double_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
         elif self.charge_left >= self.single_charge_consume:
-            self.round_by_click_area('弹窗', '单倍耗体力')
+            self.round_by_click_area('弹窗', '单倍耗体力', success_wait=4)
             self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            return self.round_success()
+        elif self.charge_left >= 20 and self.change_charge >= 20:
+            self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_click_area('弹窗', '单倍耗体力',success_wait=4)
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            self.charge_left = 0
             return self.round_success()
         else:
             return self.round_success(SimulationField.STATUS_CHARGE_NOT_ENOUGH)
@@ -232,13 +242,14 @@ class SimulationField(WOperation):
     @operation_node(name='判断下一次')
     def check_next(self) -> OperationRoundResult:
         screen = self.screenshot()
-        if self.charge_left < self.single_charge_consume:
-            time.sleep(5)
+        if self.charge_left < (self.single_charge_consume/2):
             self.round_by_click_area('战斗', '退出副本', success_wait=5)
             return self.round_success(status=SimulationField.STATUS_CHARGE_NOT_ENOUGH)
         else:
             area = self.ctx.screen_loader.get_area('战斗', '重新挑战')
-            return self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=5, retry_wait_round=1)
+            self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=1, retry_wait_round=1)
+            self.round_by_click_area('弹窗', '右选项', success_wait=5)
+            return self.round_success(status='重新挑战')
 
     def _on_pause(self, e=None):
         WOperation._on_pause(self, e)

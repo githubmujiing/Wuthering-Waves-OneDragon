@@ -47,6 +47,7 @@ class SilentCleanup(WOperation):
         """
         self.charge_left: Optional[int] = None
         self.charge_need: Optional[int] = None
+        self.change_charge: Optional[int] = None
 
         # 尝试删除self.auto_op: Optional[AutoBattleOperator] = None
 
@@ -119,13 +120,16 @@ class SilentCleanup(WOperation):
         if self.single_charge_consume is None:
             return self.round_retry(status='识别 %s 失败' % '单倍耗体力', wait=1)
 
-        area = self.ctx.screen_loader.get_area('弹窗', '双倍耗体力')
+        self.double_charge_consume = self.single_charge_consume*2
+        print(f"双倍耗体力: {self.double_charge_consume}")
+
+        area = self.ctx.screen_loader.get_area('副本界面', '结晶单质')
         part = cv2_utils.crop_image_only(screen, area.rect)
         ocr_result = self.ctx.ocr.run_ocr_single_line(part)
-        self.double_charge_consume = str_utils.get_positive_digits(ocr_result, None)
-        print(f"双倍耗体力: {self.double_charge_consume}")
-        if self.double_charge_consume is None:
-            return self.round_retry(status='识别 %s 失败' % '双倍耗体力', wait=1)
+        self.change_charge = str_utils.get_positive_digits(ocr_result, None)
+        print(f"结晶单质: {self.change_charge}")
+        if self.change_charge is None:
+            return self.round_retry(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 
     @node_from(from_name='识别体力以便领取奖励')
@@ -143,6 +147,16 @@ class SilentCleanup(WOperation):
             self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
+        elif self.charge_left >= 40 and self.change_charge >= 20:
+            self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('战斗', '补充确定', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_click_area('弹窗', '大弹窗关闭', success_wait=1)
+            self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
+            self.ctx.charge_plan_config.add_plan_run_times(self.plan)
+            self.charge_left = 0
+            return self.round_success()
         else:
             return self.round_success(SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
 
@@ -154,7 +168,7 @@ class SilentCleanup(WOperation):
         result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=5, retry_wait_round=1)
         if not result.is_success:
             return self.round_retry()
-        if self.charge_left < self.single_charge_consume:
+        if self.charge_left < (self.single_charge_consume/2):
             return self.round_success(status=SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
         else:
             return self.round_success(status=SilentCleanup.STATUS_CHARGE_ENOUGH)

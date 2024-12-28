@@ -785,6 +785,7 @@ class Operation(OperationBase):
         # 模板区域匹配
         if area.is_template_area:
             # 使用模板匹配查找目标区域
+            print(f'阈值： {area.template_match_threshold}')
             mrl = self.ctx.tm.match_template(part, area.template_sub_dir, area.template_id,
                                              threshold=area.template_match_threshold)
             if mrl.max is not None:

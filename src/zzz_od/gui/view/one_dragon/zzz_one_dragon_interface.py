@@ -8,7 +8,7 @@ from zzz_od.gui.view.one_dragon.charge_plan_interface import ChargePlanInterface
 # 尝试删除from zzz_od.gui.view.one_dragon.coffee_plan_interface import CoffeePlanInterface
 from zzz_od.gui.view.one_dragon.notorious_hunt_interface import NotoriousHuntPlanInterface
 from zzz_od.gui.view.one_dragon.zzz_one_dragon_run_interface import ZOneDragonRunInterface
-from zzz_od.gui.view.one_dragon.zzz_one_dragon_setting_interface import ZOneDragonSettingInterface
+# 尝试删除from zzz_od.gui.view.one_dragon.zzz_one_dragon_setting_interface import ZOneDragonSettingInterface
 
 
 class ZOneDragonInterface(PivotNavigatorInterface):
@@ -30,4 +30,4 @@ class ZOneDragonInterface(PivotNavigatorInterface):
         self.add_sub_interface(ChargePlanInterface(self.ctx))
         self.add_sub_interface(NotoriousHuntPlanInterface(self.ctx))
         # 尝试删除self.add_sub_interface(CoffeePlanInterface(self.ctx))
-        self.add_sub_interface(ZOneDragonSettingInterface(self.ctx))
+        # 尝试删除self.add_sub_interface(ZOneDragonSettingInterface(self.ctx))

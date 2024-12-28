@@ -123,3 +123,14 @@ area_list:
   template_sub_dir: pop
   template_id: close
   template_match_threshold: 0.7
+- area_name: 大弹窗关闭
+  pc_rect:
+  - 1532
+  - 214
+  - 1532
+  - 214
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

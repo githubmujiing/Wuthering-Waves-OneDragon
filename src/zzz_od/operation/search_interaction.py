@@ -13,7 +13,7 @@ class SearchInteract(WOperation):
 
     lOOP_END: bool = False
 
-    def __init__(self, ctx: WContext, find_text: str = '启动', circles: int = 5):
+    def __init__(self, ctx: WContext, find_text: str = '启动', circles: int = 8):
         WOperation.__init__(self, ctx, op_name=gt('转圈寻找并交互', 'ui'))
         self.find_text = find_text
         self.circles = circles
