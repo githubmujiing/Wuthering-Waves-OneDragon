@@ -4,7 +4,7 @@ import zipfile
 
 from PySide6.QtWidgets import QMessageBox
 
-from zzz_od.operation.control_okww_auto import start_okww_auto
+from ww_od.operation.control_okww_auto import start_okww_auto
 
 
 class OkWWInstallCard:

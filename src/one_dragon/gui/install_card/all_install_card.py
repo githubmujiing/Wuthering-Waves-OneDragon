@@ -6,7 +6,7 @@ from one_dragon.gui.install_card.base_install_card import BaseInstallCard
 from one_dragon.utils import app_utils
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
-from zzz_od.operation.control_okww_auto import just_open
+from ww_od.operation.control_okww_auto import just_open
 
 
 class AllInstallCard(BaseInstallCard):

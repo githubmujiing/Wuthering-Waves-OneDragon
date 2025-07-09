@@ -18,7 +18,7 @@ from one_dragon.gui.view.context_event_signal import ContextEventSignal
 from one_dragon.utils import cmd_utils
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
-from zzz_od.operation.control_okww_auto import kill_okww_auto
+from ww_od.operation.control_okww_auto import kill_okww_auto
 
 
 class OneDragonRunInterface(VerticalScrollInterface):
