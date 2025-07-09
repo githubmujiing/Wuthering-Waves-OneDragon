@@ -101,7 +101,7 @@ class CodeInterface(VerticalScrollInterface):
             self,
             object_name='code_interface',
             parent=parent, content_widget=content_widget,
-            nav_text_cn='代码同步', nav_icon=FluentIcon.SYNC
+            nav_text_cn='代码同步暂不可用', nav_icon=FluentIcon.SYNC
         )
         self.ctx: OneDragonEnvContext = ctx
 

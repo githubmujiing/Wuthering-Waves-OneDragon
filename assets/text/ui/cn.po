@@ -4,14 +4,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 # ZZZ-OD
-msgid "ZenlessZoneZero"
+msgid "Wuthering-Waves"
 msgstr "鸣潮"
 
 # ZZZ-OD UI
-msgid "ZenlessZoneZero-OneDragon"
+msgid "Wuthering-Waves-OneDragon"
 msgstr "鸣潮 一条龙"
 
-msgid "ZenlessZoneZero-OneDragon-installer"
+msgid "Wuthering-Waves-OneDragon-installer"
 msgstr "鸣潮 一条龙 安装器"
 
 msgid "设置"

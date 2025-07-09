@@ -21,7 +21,7 @@ class RedemptionCodeApp(WApplication):
         WApplication.__init__(
             self,
             ctx=ctx, app_id='redemption_code',
-            op_name=gt('兑换码', 'ui'),
+            op_name=gt('兑换码，暂无用', 'ui'),
             run_record=ctx.redemption_code_record
         )
 

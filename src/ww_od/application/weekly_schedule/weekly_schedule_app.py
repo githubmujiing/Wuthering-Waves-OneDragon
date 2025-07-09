@@ -20,7 +20,7 @@ class WeeklyScheduleApp(WApplication):
         WApplication.__init__(
             self,
             ctx=ctx, app_id='weekly_schedule',
-            op_name=gt('每周行程', 'ui'),
+            op_name=gt('每周行程，无用', 'ui'),
             run_record=ctx.weekly_schedule_record,
             retry_in_od=True,  # 传送落地有可能会歪 重试
         )
