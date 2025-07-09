@@ -5,7 +5,7 @@ from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 
 
 class OpenGame(Operation):

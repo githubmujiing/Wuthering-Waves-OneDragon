@@ -15,12 +15,12 @@ from one_dragon.utils.log_utils import log
 from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from ww_od.auto_battle import auto_battle_utils
 # 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 from ww_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
 from ww_od.operation.move_search import MoveSearch
 from ww_od.operation.search_interaction import SearchInteract
 from ww_od.operation.switch_teams import SwitchTeams
-from ww_od.operation.zzz_operation import WOperation
+from ww_od.operation.ww_operation import WOperation
 import subprocess
 
 

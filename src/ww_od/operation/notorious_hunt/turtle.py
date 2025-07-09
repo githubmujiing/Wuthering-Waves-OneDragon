@@ -11,10 +11,10 @@ from one_dragon.utils.i18_utils import gt
 from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from ww_od.auto_battle import auto_battle_utils
 # 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 from ww_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
 from ww_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
-from ww_od.operation.zzz_operation import WOperation
+from ww_od.operation.ww_operation import WOperation
 
 
 class Turtle(WOperation):

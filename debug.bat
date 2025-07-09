@@ -46,7 +46,7 @@ echo -------------------------------
 echo 正在配置 Python 环境...
 echo -------------------------------
 
-set "MAINPATH=zzz_od\gui\app.py"
+set "MAINPATH=ww_od\gui\app.py"
 set "ENV_DIR=%~dp0.env"
 
 rem 调用环境配置脚本
@@ -187,7 +187,7 @@ echo 安装完成...
 goto :END
 
 :DEBUG
-set "MAINPATH=zzz_od\gui\app.py"
+set "MAINPATH=ww_od\gui\app.py"
 set "ENV_DIR=%~dp0.env"
 
 rem 调用环境配置脚本

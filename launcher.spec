@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['src/zzz_od/win_exe/full_launcher.py'],
+    ['src/ww_od/win_exe/full_launcher.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -36,5 +36,5 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     uac_admin=True,
-    icon=['assets\\ui\\zzz_logo.ico'],
+    icon=['assets\\ui\\ww_logo.ico'],
 )

@@ -16,7 +16,7 @@ echo 正在以管理员权限运行...
 echo -------------------------------
 
 
-set "MAINPATH=zzz_od\application\zzz_one_dragon_app.py"
+set "MAINPATH=ww_od\application\ww_one_dragon_app.py"
 
 REM 调用环境配置脚本
 call "%~dp0env.bat"

@@ -9,7 +9,7 @@ from one_dragon.gui.component.setting_card.multi_push_setting_card import MultiP
 # 尝试删除from ww_od.application.battle_assistant.auto_battle_config import get_auto_battle_op_config_list
 from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 from ww_od.application.notorious_hunt.notorious_hunt_config import NotoriousHuntLevelEnum
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 
 
 class ChargePlanCard(MultiPushSettingCard):

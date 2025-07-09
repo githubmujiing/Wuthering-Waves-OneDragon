@@ -10,13 +10,13 @@ try:
     from one_dragon.gui.view.code_interface import CodeInterface
     from one_dragon.gui.view.context_event_signal import ContextEventSignal
     from one_dragon.utils.i18_utils import gt
-    from ww_od.context.zzz_context import WContext
+    from ww_od.context.ww_context import WContext
     # 尝试删除from ww_od.gui.view.battle_assistant.battle_assistant_interface import BattleAssistantInterface
     from ww_od.gui.view.devtools.app_devtools_interface import AppDevtoolsInterface
     # 尝试删除from ww_od.gui.view.game_assistant.game_assistant import GameAssistantInterface
     # 尝试删除from ww_od.gui.view.hollow_zero.hollow_zero_interface import HollowZeroInterface
     from ww_od.gui.view.home_interface import HomeInterface
-    from ww_od.gui.view.one_dragon.zzz_one_dragon_interface import ZOneDragonInterface
+    from ww_od.gui.view.one_dragon.ww_one_dragon_interface import ZOneDragonInterface
     from ww_od.gui.view.setting.app_setting_interface import AppSettingInterface
 
     _init_error = None
@@ -32,7 +32,7 @@ try:
                 self,
                 win_title='%s %s' % (
                 gt(ctx.project_config.project_name, 'ui'), ctx.one_dragon_config.current_active_instance.name),
-                app_icon='zzz_logo.ico',
+                app_icon='ww_logo.ico',
                 parent=parent
             )
 

@@ -40,7 +40,7 @@ class OneDragonConfig(YamlConfig):
 
     def __init__(self):
         self.instance_list: List[OneDragonInstance] = []
-        YamlConfig.__init__(self, 'zzz_one_dragon', sample=False)
+        YamlConfig.__init__(self, 'ww_one_dragon', sample=False)
         self._init_instance_list()
 
     def _init_instance_list(self):

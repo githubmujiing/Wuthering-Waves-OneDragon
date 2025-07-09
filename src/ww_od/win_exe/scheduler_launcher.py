@@ -1,3 +1,3 @@
 if __name__ == '__main__':
     from one_dragon.devtools import python_launcher
-    python_launcher.run_python(["ww_od", "application", "zzz_one_dragon_app.py"], no_windows=False)
+    python_launcher.run_python(["ww_od", "application", "ww_one_dragon_app.py"], no_windows=False)

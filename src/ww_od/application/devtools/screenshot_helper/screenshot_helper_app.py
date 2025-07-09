@@ -8,10 +8,10 @@ from one_dragon.base.operation.operation_node import OperationNode
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils import debug_utils
 from one_dragon.utils.i18_utils import gt
-from ww_od.application.zzz_application import WApplication
+from ww_od.application.ww_application import WApplication
 # 尝试删除from ww_od.auto_battle import auto_battle_utils
 # 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 
 
 class ScreenshotHelperApp(WApplication):

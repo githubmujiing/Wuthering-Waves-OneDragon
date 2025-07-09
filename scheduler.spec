@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['src/zzz_od/win_exe/scheduler_launcher.py'],
+    ['src/ww_od/win_exe/scheduler_launcher.py'],
     pathex=[],
     binaries=[],
     datas=[],

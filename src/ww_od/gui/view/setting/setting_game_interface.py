@@ -13,7 +13,7 @@ from one_dragon.gui.component.setting_card.text_setting_card import TextSettingC
 from one_dragon.utils.i18_utils import gt
 from one_dragon.utils.log_utils import log
 from ww_od.config.game_config import GameRegionEnum, GamepadTypeEnum
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 
 
 class SettingGameInterface(VerticalScrollInterface):

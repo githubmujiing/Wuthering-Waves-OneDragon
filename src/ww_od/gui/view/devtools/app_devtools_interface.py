@@ -3,7 +3,7 @@ from qfluentwidgets import FluentIcon
 from one_dragon.gui.component.interface.pivot_navi_interface import PivotNavigatorInterface
 from one_dragon.gui.view.devtools.devtools_screen_manage_interface import DevtoolsScreenManageInterface
 from one_dragon.gui.view.devtools.devtools_template_helper_interface import DevtoolsTemplateHelperInterface
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 from ww_od.gui.view.devtools.devtools_screenshot_helper_interface import DevtoolsScreenshotHelperInterface
 
 

@@ -1,8 +1,8 @@
 import requests
 
 from datetime import datetime, timedelta
-from ww_od.context.zzz_context import WContext
-from ww_od.operation.zzz_operation import WOperation
+from ww_od.context.ww_context import WContext
+from ww_od.operation.ww_operation import WOperation
 from one_dragon.utils.i18_utils import gt
 
 

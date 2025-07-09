@@ -17,7 +17,7 @@ echo -------------------------------
 echo 正在以管理员权限运行...
 echo -------------------------------
 
-set "MAINPATH=zzz_od\gui\app.py"
+set "MAINPATH=ww_od\gui\app.py"
 set "ENV_DIR=%~dp0.env"
 
 REM 调用环境配置脚本

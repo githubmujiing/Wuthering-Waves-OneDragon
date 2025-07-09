@@ -7,8 +7,8 @@ from one_dragon.gui.component.setting_card.switch_setting_card import SwitchSett
 from one_dragon.gui.component.setting_card.text_setting_card import TextSettingCard
 from one_dragon.gui.view.app_run_interface import AppRunInterface
 from ww_od.application.devtools.screenshot_helper.screenshot_helper_app import ScreenshotHelperApp
-from ww_od.application.zzz_application import WApplication
-from ww_od.context.zzz_context import WContext
+from ww_od.application.ww_application import WApplication
+from ww_od.context.ww_context import WContext
 
 
 class DevtoolsScreenshotHelperInterface(AppRunInterface):

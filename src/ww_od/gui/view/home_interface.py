@@ -8,7 +8,7 @@ from one_dragon.gui.component.interface.vertical_scroll_interface import Vertica
 from one_dragon.gui.component.link_card import LinkCardView
 from one_dragon.utils import os_utils
 from one_dragon.utils.i18_utils import gt
-from ww_od.context.zzz_context import WContext
+from ww_od.context.ww_context import WContext
 
 # 常量定义
 CORNER_RADIUS = 20  # 圆角半径

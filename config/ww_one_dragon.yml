@@ -1,0 +1,23 @@
+instance_list:
+- idx: 1
+  name: '01'
+  active: false
+  active_in_od: true
+- idx: 2
+  name: '02'
+  active: false
+  active_in_od: true
+- idx: 3
+  name: '03'
+  active: true
+  active_in_od: true
+- idx: 4
+  name: '04'
+  active: false
+  active_in_od: true
+- idx: 5
+  name: 测试
+  active: false
+  active_in_od: false
+instance_run: 全部实例
+after_done: 无
