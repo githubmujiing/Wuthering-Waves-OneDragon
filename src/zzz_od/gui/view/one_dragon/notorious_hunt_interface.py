@@ -67,12 +67,14 @@ class ChargePlanCard(MultiPushSettingCard):
         self.mission_type_combo_box.clear()
         # print(f'config_list: {config_list}')
         if not config_list:  # 如果 config_list 为空
-            self.mission_type_combo_box.addItem(text='按顺序的鸟窗哥，无妄者，角，龟', userData=None) # 暂时先设置一下
+            self.mission_type_combo_box.addItem(text='按顺序的彼岸花怪，鸟窗哥，无妄者，角，龟', userData=None) # 暂时先设置一下
             self.mission_type_combo_box.setCurrentIndex(0)  # 设置当前选中项为第一项
 
         target_text: Optional[str] = None
         for config in config_list:
-            self.mission_type_combo_box.addItem(text=config.ui_text, userData=config.value)# 不知道为什么config.ui_text为空，无法正常显示
+            self.mission_type_combo_box.addItem(text=config.ui_text, userData=config.value)
+            # 不知道为什么config.ui_text为空，无法正常显示
+            # 已经解决，原因为compendium.py中的get_notorious_hunt_plan_mission_type_list的tap_name没设置好
             if config.value == self.plan.mission_type_name:
                 target_text = config.ui_text
 

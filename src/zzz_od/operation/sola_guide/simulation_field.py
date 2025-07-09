@@ -72,10 +72,16 @@ class SimulationField(WOperation):
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
         self.ctx.controller.interact(press=True, press_time=1, release=True)
         time.sleep(3)
+        '''煌陇模拟领域
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('大世界', '交互框')
+        self.ctx.controller.interact(press=True, press_time=1, release=True)
+        time.sleep(3)
         self.round_by_click_area('对话', '跳过', success_wait=2)
         self.ctx.controller.interact(press=True, press_time=4, release=True)
         self.round_by_click_area('对话', '跳过', success_wait=2)
         self.round_by_click_area('战斗', '弹窗右选', success_wait=4)
+        '''
         return self.round_success()
 
     @node_from(from_name='交互')
@@ -106,7 +112,7 @@ class SimulationField(WOperation):
     def Select_dungeon(self) -> OperationRoundResult:
         area = self.ctx.screen_loader.get_area('副本界面', '等级区域')
         screen = self.screenshot()
-        return self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area, success_wait=1)
+        return self.round_by_click_area('副本界面', self.plan.mission_type_name, success_wait=1)
 
     @node_from(from_name='选择副本名称')
     @operation_node(name='点击出战')
@@ -148,9 +154,9 @@ class SimulationField(WOperation):
         time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        result = self.round_by_ocr_and_click(screen, '启动', area)
+        result = self.round_by_ocr_and_click(screen, '开启', area)
         if not result.is_success:
-            op = SearchInteract(self.ctx, '启动')
+            op = SearchInteract(self.ctx, '开启')
             return self.round_by_op_result(op.execute())
         else:
             return self.round_success()
@@ -171,11 +177,22 @@ class SimulationField(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def search_interact(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '领取')
-        result = self.round_by_op_result(op.execute())
+        op1 = MoveSearch(self.ctx, '领取', move_time=10)
+        result = self.round_by_op_result(op1.execute())
         if not result.is_success:
-            return self.round_retry()
-        return result
+            op2 = SearchInteract(self.ctx, '领取', circles=3)
+            result = self.round_by_op_result(op2.execute())
+        if not result.is_success:
+            return self.round_retry(wait_round_time=1)
+        else:
+            time.sleep(2)
+            screen = self.screenshot()
+            area = self.ctx.screen_loader.get_area('弹窗', '标题')
+            result = self.round_by_ocr(screen, "领取奖励", area)
+            if not result.is_success:
+                self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
+                return self.round_retry(status='交互失误')
+            return self.round_success()
 
     @node_from(from_name='寻找奖励交互')
     @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
@@ -207,7 +224,7 @@ class SimulationField(WOperation):
         self.change_charge = str_utils.get_positive_digits(ocr_result, None)
         print(f"结晶单质: {self.change_charge}")
         if self.change_charge is None:
-            return self.round_retry(status='识别 %s 失败' % '结晶单质', wait=1)
+            return self.round_success(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 
     @node_from(from_name='识别体力以便领取奖励')
@@ -245,6 +262,9 @@ class SimulationField(WOperation):
         if self.charge_left < (self.single_charge_consume/2):
             self.round_by_click_area('战斗', '退出副本', success_wait=5)
             return self.round_success(status=SimulationField.STATUS_CHARGE_NOT_ENOUGH)
+        elif self.plan.plan_times <= self.plan.run_times:
+            self.round_by_click_area('战斗', '退出副本', success_wait=5)
+            return self.round_success()
         else:
             area = self.ctx.screen_loader.get_area('战斗', '重新挑战')
             self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=1, retry_wait_round=1)
@@ -277,8 +297,8 @@ def __debug():
     charge_plan = ChargePlanItem(
         tab_name='周期挑战',
         category_name='模拟领域',
-        mission_type_name='共鸣试剂',
-        auto_battle_config=ctx.battle_assistant_config.auto_battle_config,
+        mission_type_name='共鸣促剂',
+        #auto_battle_config=ctx.battle_assistant_config.auto_battle_config,
         run_times=0,
         plan_times=1
     )

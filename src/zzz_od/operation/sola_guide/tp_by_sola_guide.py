@@ -17,6 +17,9 @@ class TransportBySolaGuide(WOperation):
         """
         使用索拉指南传送 最后会等待加载完毕
         :param ctx:
+        tab_name: str:副本类型
+        category_name: str:副本名称
+        mission_type_name: str:
         """
         WOperation.__init__(
             self, ctx,

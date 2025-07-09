@@ -11,12 +11,14 @@ from zzz_od.operation.zzz_operation import WOperation
 
 class MoveSearch(WOperation):
 
-    def __init__(self, ctx: WContext, find_text: str = '领取'):
+    def __init__(self, ctx: WContext, find_text: str = '领取', move_time:int = 20):
         WOperation.__init__(self, ctx, op_name=gt('移动寻找并领取奖励', 'ui'))
         self.target_y = None
         self.target_x = None
         self.find_text = find_text
+        self.move_time = move_time
         self.fail_count = 0
+        self.move_count = 0
 
     @node_from(from_name='四处找找')
     @node_from(from_name='移动')
@@ -68,6 +70,9 @@ class MoveSearch(WOperation):
         else:
             self.ctx.controller.move_w(press=True, press_time=1.5)
         time.sleep(2)
+        self.move_count += 1
+        if self.move_count >= self.move_time:
+            return self.round_fail(status='移动超次数')
         return self.round_success()
 
     @node_from(from_name='识别奖励方位', status='无奖励无交互')

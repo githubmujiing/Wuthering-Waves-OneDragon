@@ -50,7 +50,7 @@ class BackToNormalWorld(WOperation):
         if result.is_success:
             self.round_by_click_area('副本大世界', '退出', success_wait=1)
             screen = self.screenshot()
-            area = self.ctx.screen_loader.get_area('副本大世界', '确认')
+            area = self.ctx.screen_loader.get_area('弹窗', '选项')
             self.round_by_ocr_and_click(screen, '确认', area=area)
             return self.round_retry(wait=1)
 

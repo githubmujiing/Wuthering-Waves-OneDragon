@@ -118,7 +118,7 @@ def __debug():
     ctx.init_by_config()
     ctx.ocr.init_model()
     ctx.start_running()
-    op = SolaGuideChooseMissionType(ctx, '贝币')
+    op = SolaGuideChooseMissionType(ctx, '流月之森')
     op.execute()
 
 

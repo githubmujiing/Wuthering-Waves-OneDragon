@@ -13,8 +13,10 @@ from zzz_od.application.zzz_application import WApplication
 from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.back_to_normal_world import BackToNormalWorld
+from zzz_od.operation.determine_silent_cleanup_type import determine_silent_cleanup_type
 from zzz_od.operation.report_message.report_message import state_of_charge
 from zzz_od.operation.sola_guide.coagulation_field import CoagulationField
+from zzz_od.operation.sola_guide.new_silent_cleanup import NewSilentCleanup
 from zzz_od.operation.sola_guide.simulation_field import SimulationField
 from zzz_od.operation.sola_guide.conquer_strong import ConquerStrong
 from zzz_od.operation.sola_guide.silent_cleanup import SilentCleanup
@@ -67,13 +69,13 @@ class ChargePlanApp(WApplication):
             return self.round_fail(ChargePlanApp.STATUS_NO_PLAN)
 
         self.next_plan = next_plan
-        op= SwitchTeams(self.ctx, self.next_plan)
+        op = SwitchTeams(self.ctx, self.next_plan)
         op.execute()
         op = TransportBySolaGuide(self.ctx,
                                   next_plan.tab_name,
                                   next_plan.category_name,
                                   next_plan.mission_type_name)
-        result =self.round_by_op_result(op.execute())
+        result = self.round_by_op_result(op.execute())
         if result.is_success:
             return result
         return self.round_retry()
@@ -92,7 +94,10 @@ class ChargePlanApp(WApplication):
     @node_from(from_name='识别副本分类', status='无音清剿')
     @operation_node(name='无音清剿')
     def silent_cleanup(self) -> OperationRoundResult:
-        op = SilentCleanup(self.ctx, self.next_plan)
+        if determine_silent_cleanup_type(self.next_plan.mission_type_name) == 'old':
+            op = SilentCleanup(self.ctx, self.next_plan)
+        else:
+            op = NewSilentCleanup(self.ctx, self.next_plan)
         return self.round_by_op_result(op.execute())
 
     @node_from(from_name='识别副本分类', status='讨伐强敌')
@@ -110,6 +115,7 @@ class ChargePlanApp(WApplication):
     @node_from(from_name='换队与传送', status=STATUS_ROUND_FINISHED)
     @node_from(from_name='模拟领域', status=SimulationField.STATUS_CHARGE_NOT_ENOUGH)
     @node_from(from_name='无音清剿', status=SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
+    @node_from(from_name='无音清剿', status=NewSilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
     @node_from(from_name='讨伐强敌', status=ConquerStrong.STATUS_CHARGE_NOT_ENOUGH)
     @node_from(from_name='凝素领域', status=CoagulationField.STATUS_CHARGE_NOT_ENOUGH)
     @operation_node(name='返回大世界', is_start_node=True)

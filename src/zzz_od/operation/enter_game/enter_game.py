@@ -28,13 +28,14 @@ class EnterGame(WOperation):
         area = self.ctx.screen_loader.get_area('打开游戏', '登录')
         result = self.round_by_ocr_and_click(screen, '登录', area)
         area_fail = self.ctx.screen_loader.get_area('弹窗', '整体')
+        '''该段代码处理游戏启动问题，但是不知为何异常重新启动。
         result_fail1 = self.round_by_ocr(screen, '重新启动', area_fail)
         if result_fail1.is_success:
             return self.round_success(status='重新启动', wait=1)
         result_fail2 = self.round_by_ocr(screen, '网络异常', area_fail)
         if result_fail2.is_success:
             return self.round_success(status='重新启动', wait=1)
-
+        '''
         if result.is_success:
             return self.round_retry(wait=1)
         return self.round_retry(wait=1)

@@ -3,6 +3,7 @@ from typing import Optional
 from one_dragon.base.operation.one_dragon_context import OneDragonContext
 from one_dragon.utils import i18_utils
 from zzz_od.application.kill_nutao.kill_nutao_run_recrd import KillNutaoRunRecord
+from zzz_od.application.synthesis.synthesis_run_record import SynthesisRunRecord
 
 
 class WContext(OneDragonContext):
@@ -116,6 +117,8 @@ class WContext(OneDragonContext):
         self.kill_nutao_run_record.check_and_update_status()
         self.email_run_record: EmailRunRecord = EmailRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.email_run_record.check_and_update_status()
+        self.synthesis_run_record: SynthesisRunRecord = SynthesisRunRecord(self.current_instance_idx, game_refresh_hour_offset)
+        self.synthesis_run_record.check_and_update_status()
         # 尝试删除self.random_play_run_record: RandomPlayRunRecord = RandomPlayRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         # 尝试删除self.random_play_run_record.check_and_update_status()
         # 尝试删除self.scratch_card_run_record: ScratchCardRunRecord = ScratchCardRunRecord(self.current_instance_idx, game_refresh_hour_offset)

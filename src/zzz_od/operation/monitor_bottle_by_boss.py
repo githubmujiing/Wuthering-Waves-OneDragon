@@ -57,7 +57,7 @@ def __debug_op():
     ctx = WContext()
     ctx.init_by_config()
     ctx.ocr.init_model()
-    op = MonitorBottleByBoss(ctx, boss='云闪之鳞')
+    op = MonitorBottleByBoss(ctx, boss='芙露徳莉斯')
     ctx.start_running()
     op.execute()
 

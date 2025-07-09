@@ -86,6 +86,14 @@ class KillNutao(WApplication):
         self.round_by_op_result(op.execute())
         return self.round_success()
 
+    @node_from(from_name='获得声骇如果有')
+    @operation_node(name='脱战')
+    def out_of_fight(self) -> OperationRoundResult:
+        op = TransportBySolaGuide(self.ctx,
+                                  '周期挑战',
+                                  '模拟领域',
+                                  '共鸣促剂')
+        return self.round_by_op_result(op.execute())
 
 def __debug():
     ctx = WContext()

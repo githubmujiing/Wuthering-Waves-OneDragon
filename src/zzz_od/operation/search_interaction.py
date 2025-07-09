@@ -25,8 +25,8 @@ class SearchInteract(WOperation):
         # 启动方法A的线程
         thread_a = threading.Thread(target=self.search, args=(stop_event,))
         thread_a.start()
-        screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
+        screen = self.screenshot()
         result = self.round_by_ocr_and_click(screen, self.find_text, area)
         while not result.is_success:
             screen = self.screenshot()
@@ -130,7 +130,7 @@ def __debug_op():
     ctx = WContext()
     ctx.init_by_config()
     ctx.ocr.init_model()
-    op = SearchInteract(ctx, '领取', 2)
+    op = SearchInteract(ctx, '奖励', 2)
     ctx.start_running()
     op.execute()
 

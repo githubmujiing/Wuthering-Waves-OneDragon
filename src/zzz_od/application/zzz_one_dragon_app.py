@@ -12,6 +12,7 @@ from zzz_od.application.kill_nutao.kill_nutao import KillNutao
 from zzz_od.application.notorious_hunt.notorious_hunt_app import NotoriousHuntApp
 # 尝试删除from zzz_od.application.random_play.random_play_app import RandomPlayApp
 from zzz_od.application.redemption_code.redemption_code_app import RedemptionCodeApp
+from zzz_od.application.synthesis.synthesis_app import SynthesisApp
 from zzz_od.application.take_a_echo.take_a_echo import TakeAEcho
 # 尝试删除from zzz_od.application.scratch_card.scratch_card_app import ScratchCardApp
 from zzz_od.application.weekly_schedule.weekly_schedule_app import WeeklyScheduleApp
@@ -40,6 +41,7 @@ class WOneDragonApp(OneDragonApp, WApplication):
             TakeAEcho(self.ctx),
             KillNutao(self.ctx),
             EmailApp(self.ctx),
+            SynthesisApp(self.ctx),
             # 尝试删除RandomPlayApp(self.ctx),
             # 尝试删除ScratchCardApp(self.ctx),
             # 尝试删除CoffeeApp(self.ctx),

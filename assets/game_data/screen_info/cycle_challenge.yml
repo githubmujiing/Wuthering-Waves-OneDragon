@@ -17,8 +17,8 @@ area_list:
   pc_rect:
   - 702
   - 186
-  - 1166
-  - 956
+  - 1164
+  - 848
   text: ''
   lcs_percent: 0.5
   template_sub_dir: ''

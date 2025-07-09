@@ -49,7 +49,7 @@ area_list:
 - area_name: 交互框
   pc_rect:
   - 1276
-  - 512
+  - 410
   - 1608
   - 744
   text: ''

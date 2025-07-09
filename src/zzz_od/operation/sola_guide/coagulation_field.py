@@ -68,7 +68,9 @@ class CoagulationField(WOperation):
     def interact_in(self) -> OperationRoundResult:
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        return self.round_by_ocr_and_click(screen, '凝素领域', area, success_wait=10)
+        self.ctx.controller.interact(press=True, press_time=1, release=True)
+        time.sleep(10)
+        return self.round_success()
 
     @node_from(from_name='交互')
     @operation_node(name='识别体力')
@@ -152,9 +154,9 @@ class CoagulationField(WOperation):
         time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        result = self.round_by_ocr_and_click(screen, '启动', area)
+        result = self.round_by_ocr_and_click(screen, '开启', area)
         if not result.is_success:
-            op = SearchInteract(self.ctx, '启动')
+            op = SearchInteract(self.ctx, '开启')
             return self.round_by_op_result(op.execute())
         else:
             return self.round_success()
@@ -175,11 +177,22 @@ class CoagulationField(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=3)
     def search_interact(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '领取')
-        result = self.round_by_op_result(op.execute())
+        op1 = MoveSearch(self.ctx, '领取', move_time=10)
+        result = self.round_by_op_result(op1.execute())
         if not result.is_success:
-            return self.round_retry()
-        return result
+            op2 = SearchInteract(self.ctx, '领取', circles=3)
+            result = self.round_by_op_result(op2.execute())
+        if not result.is_success:
+            return self.round_retry(wait_round_time=1)
+        else:
+            time.sleep(2)
+            screen = self.screenshot()
+            area = self.ctx.screen_loader.get_area('弹窗', '标题')
+            result = self.round_by_ocr(screen, "领取奖励", area)
+            if not result.is_success:
+                self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
+                return self.round_retry(status='交互失误')
+            return self.round_success()
 
     @node_from(from_name='寻找奖励交互')
     @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
@@ -191,7 +204,7 @@ class CoagulationField(WOperation):
         self.charge_left = str_utils.get_positive_digits(ocr_result, None)
         print(f"剩余体力: {self.charge_left}")
         if self.charge_left is None:
-            return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
+            return self.round_retry(status='重试，识别 %s 失败' % '剩余体力', wait=1)
 
         area = self.ctx.screen_loader.get_area('弹窗', '单倍耗体力')
         part = cv2_utils.crop_image_only(screen, area.rect)
@@ -211,7 +224,7 @@ class CoagulationField(WOperation):
         self.change_charge = str_utils.get_positive_digits(ocr_result, None)
         print(f"结晶单质: {self.change_charge}")
         if self.change_charge is None:
-            return self.round_retry(status='识别 %s 失败' % '结晶单质', wait=1)
+            return self.round_success(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 
     @node_from(from_name='识别体力以便领取奖励')
@@ -250,6 +263,9 @@ class CoagulationField(WOperation):
             time.sleep(5)
             self.round_by_click_area('战斗', '退出副本', success_wait=5)
             return self.round_success(status=CoagulationField.STATUS_CHARGE_NOT_ENOUGH)
+        elif self.plan.plan_times <= self.plan.run_times:
+            self.round_by_click_area('战斗', '退出副本', success_wait=5)
+            return self.round_success()
         else:
             area = self.ctx.screen_loader.get_area('战斗', '重新挑战')
             self.round_by_ocr_and_click(screen, '重新挑战', area, success_wait=1, retry_wait_round=1)

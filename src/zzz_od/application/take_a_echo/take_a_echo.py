@@ -10,6 +10,7 @@ from zzz_od.operation.back_to_normal_world import BackToNormalWorld
 from zzz_od.operation.control_okww_auto import start_okww_auto, kill_okww_auto
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
 from zzz_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
+from zzz_od.operation.move_search import MoveSearch
 from zzz_od.operation.open_menu import OpenMenu
 from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
@@ -48,7 +49,7 @@ class TakeAEcho(WApplication):
         op = TransportBySolaGuide(self.ctx,
                                   "周期演算",
                                   '战歌重奏',
-                                  "鸣钟之龟")
+                                  "昔日咏叹之钟·战歌重奏")
         result = self.round_by_op_result(op.execute())
         if result.is_success:
             return result
@@ -61,7 +62,7 @@ class TakeAEcho(WApplication):
         return self.round_success()
 
     @node_from(from_name='向前走')
-    @node_from(from_name='吸收声骇', success=False)
+    @node_from(from_name='重新挑战')
     @operation_node(name='等待boss刷新', node_max_retry_times=180)
     def wait_boss(self) -> OperationRoundResult:
         time.sleep(1)
@@ -127,6 +128,17 @@ class TakeAEcho(WApplication):
         op = SearchInteract(self.ctx, '吸收', 1)
         return self.round_by_op_result(op.execute())
 
+    @node_from(from_name='吸收声骇', success=False)
+    @operation_node(name='重新挑战')
+    def re_battle(self) -> OperationRoundResult:
+        time.sleep(2)
+        op = MoveSearch(self.ctx, '重新挑战', move_time=15)
+        result = self.round_by_op_result(op.execute())
+        if not result.is_success:
+            op = SearchInteract(self.ctx, '重新挑战', circles=3)
+            result = self.round_by_op_result(op.execute())
+        return self.round_success(status='重新挑战')
+
     '''
     @node_from(from_name='吸收声骇', success=False)
     @operation_node(name='再来一次')
@@ -142,11 +154,16 @@ class TakeAEcho(WApplication):
     @operation_node(name='返回大世界')
     def back_to_world(self) -> OperationRoundResult:
         time.sleep(1)
-        self.round_by_click_area('副本大世界', '退出', success_wait=2)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('副本大世界', '确认')
-        self.round_by_ocr_and_click(screen, '确认', area=area)
         op = BackToNormalWorld(self.ctx)
+        return self.round_by_op_result(op.execute())
+
+    @node_from(from_name='返回大世界')
+    @operation_node(name='脱战')
+    def out_of_fight(self) -> OperationRoundResult:
+        op = TransportBySolaGuide(self.ctx,
+                                  '周期挑战',
+                                  '模拟领域',
+                                  '共鸣促剂')
         return self.round_by_op_result(op.execute())
 
     '''

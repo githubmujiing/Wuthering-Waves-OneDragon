@@ -14,7 +14,6 @@ from zzz_od.operation.control_okww_auto import start_okww_auto, kill_okww_auto
 from zzz_od.operation.notorious_hunt.notorious_hunt import NotoriousHunt
 from zzz_od.operation.sola_guide.simulation_field import SimulationField
 from zzz_od.operation.sola_guide.conquer_strong import ConquerStrong
-from zzz_od.operation.sola_guide.silent_cleanup import SilentCleanup
 from zzz_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
 from zzz_od.operation.switch_teams import SwitchTeams
 
@@ -83,7 +82,7 @@ class NotoriousHuntApp(WApplication):
         op = NotoriousHunt(self.ctx, self.next_plan)
         return self.round_by_op_result(op.execute())
 
-    @node_from(from_name='识别副本分类', status='鸣钟之龟')
+    @node_from(from_name='识别副本分类', status='昔日咏叹之钟·战歌重奏')
     @operation_node(name='龟龟')
     def coagulation_field(self) -> OperationRoundResult:
         op = ConquerStrong(self.ctx, self.next_plan)

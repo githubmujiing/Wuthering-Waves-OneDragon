@@ -112,3 +112,36 @@ area_list:
   template_sub_dir: ''
   template_id: ''
   template_match_threshold: 0.7
+- area_name: 共鸣促剂
+  pc_rect:
+  - 164
+  - 186
+  - 164
+  - 186
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 能源核心
+  pc_rect:
+  - 166
+  - 274
+  - 166
+  - 274
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7
+- area_name: 贝币
+  pc_rect:
+  - 166
+  - 358
+  - 166
+  - 358
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

@@ -16,7 +16,8 @@ class CompendiumMission:
 
 class CompendiumMissionType:
 
-    def __init__(self, mission_type_name: str, mission_type_name_display: Optional[str] = None,
+    def __init__(self, mission_type_name: str,
+                 mission_type_name_display: Optional[str] = None,
                  mission_list: List = None):
         self.mission_type_name: str = mission_type_name
         self.mission_type_name_display: str = mission_type_name
@@ -233,7 +234,7 @@ class CompendiumService:
     def get_notorious_hunt_plan_mission_type_list(self, category_name: str) -> List[ConfigItem]:
         config_list: List[ConfigItem] = []
 
-        mission_type_list = self.get_mission_type_list_data('挑战', category_name)
+        mission_type_list = self.get_mission_type_list_data('战歌重奏', category_name)
         for mission_type_item in mission_type_list:
             config_list.append(ConfigItem(
                 label=mission_type_item.mission_type_name_display,

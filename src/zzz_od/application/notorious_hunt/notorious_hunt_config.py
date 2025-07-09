@@ -44,10 +44,12 @@ class NotoriousHuntConfig(YamlConfig):
         默认的周本计划
         """
         return [
-            ChargePlanItem('周期挑战', '战歌重奏', '无序边境·余烬', ''),
-            ChargePlanItem('周期挑战', '战歌重奏', '无冠者之像·心脏', ''),
-            ChargePlanItem('周期挑战', '战歌重奏', '战歌重奏·命定的纷争', ''),
-            ChargePlanItem('周期挑战', '战歌重奏', '鸣钟之龟', '')
+            ChargePlanItem('周期挑战', '战歌重奏', '命途断章之轮·战歌重奏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '彼世猩红之幕·战歌重奏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '无序边境之火·战歌重奏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '无冠巨像之心·战歌重奏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '时序命定之争·战歌重奏', ''),
+            ChargePlanItem('周期挑战', '战歌重奏', '昔日咏叹之钟·战歌重奏', ''),
         ]
 
     def save(self):

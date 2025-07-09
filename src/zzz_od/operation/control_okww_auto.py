@@ -26,11 +26,12 @@ def is_window_open(title):
 
 def start_okww_auto():
     """启动外部程序，并监控其启动状态。"""
-    if is_window_open("OK-WW") and is_window_open("正式版"):
+    if is_window_open("OK-WW") and is_window_open("v"):
         print("程序启动成功")
         return True
     for attempt in range(3):
         # 检测并关闭名为 "OK-WW" 的窗口
+        print('关闭ok-ww')
         close_windows_with_title("OK-WW")
         # 等待 3 秒
         time.sleep(3)

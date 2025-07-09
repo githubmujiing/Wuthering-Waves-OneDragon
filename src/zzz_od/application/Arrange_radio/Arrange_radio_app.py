@@ -56,6 +56,8 @@ class ArrangeRadioApp(WApplication):
     @node_from(from_name='点击内先约电台')
     @operation_node(name='点击一键领取')
     def click_level_claim(self) -> OperationRoundResult:
+        self.round_by_click_area('先约电台', '一键领取', success_wait=2, retry_wait=1)
+        self.round_by_click_area('先约电台', '一键领取', success_wait=2, retry_wait=1)
         return self.round_by_click_area('先约电台', '一键领取', success_wait=1, retry_wait=1)
 
     @node_from(from_name='点击一键领取')

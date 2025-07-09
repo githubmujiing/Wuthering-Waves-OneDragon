@@ -16,10 +16,11 @@ from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
 from zzz_od.operation.move_search import MoveSearch
 from zzz_od.operation.search_interaction import SearchInteract
+from zzz_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
 from zzz_od.operation.zzz_operation import WOperation
 
 
-class SilentCleanup(WOperation):
+class NewSilentCleanup(WOperation):
 
     STATUS_CHARGE_NOT_ENOUGH: ClassVar[str] = '体力不足'
     STATUS_CHARGE_ENOUGH: ClassVar[str] = '体力充足'
@@ -34,7 +35,7 @@ class SilentCleanup(WOperation):
         WOperation.__init__(
             self, ctx,
             op_name='%s %s' % (
-                gt('无音清剿'),
+                gt('新无音清剿'),
                 gt(plan.mission_type_name)
             )
         )
@@ -52,19 +53,27 @@ class SilentCleanup(WOperation):
 
         # 尝试删除self.auto_op: Optional[AutoBattleOperator] = None
 
-    @node_from(from_name='判断下一次', status='重新挑战')
     @operation_node(name='激活', is_start_node=True, node_max_retry_times=30)
     def wait_entry_load(self) -> OperationRoundResult:
         time.sleep(2)
-        self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        result = self.round_by_ocr_and_click(screen, '激活', area=area, success_wait=0.5, retry_wait_round=0.5)
-        if result.is_success:
+        if self.plan.mission_type_name == '黎乔利群岛无音区':
+            self.ctx.controller.move_a(press=True, press_time=0.5, release=True)
+            self.ctx.controller.move_w(press=True, press_time=9, release=True)
+            return self.round_success()
+        elif self.plan.mission_type_name == '槲生半岛无音区':
+            self.ctx.controller.move_d(press=True, press_time=1.2, release=True)
+            self.ctx.controller.move_w(press=True, press_time=12, release=True)
+            return self.round_success()
+        elif self.plan.mission_type_name == '悲叹墓岛无音区':
+            self.ctx.controller.move_a(press=True, press_time=2, release=True)
+            self.ctx.controller.move_w(press=True, press_time=3, release=True)
+            self.ctx.controller.move_a(press=True, press_time=8, release=True)
             return self.round_success()
         else:
-            return self.round_retry()
+            self.ctx.controller.move_w(press=True, press_time=9, release=True)
+            return self.round_success()
 
+    @node_from(from_name='判断下一次', status='重新挑战')
     @node_from(from_name='激活', success=True)
     @operation_node(name='监控战斗结束')
     def monitor_battle(self) -> OperationRoundResult:
@@ -79,51 +88,23 @@ class SilentCleanup(WOperation):
     @node_from(from_name='监控战斗结束')
     @operation_node(name='寻找奖励并交互', node_max_retry_times=3)
     def search_interact(self) -> OperationRoundResult:
-        time.sleep(2)
-        op1 = MoveSearch(self.ctx, '领取', move_time=15)
-        result = self.round_by_op_result(op1.execute())
-        if not result.is_success:
-            op2 =SearchInteract(self.ctx, '领取', circles=3)
-            result = self.round_by_op_result(op2.execute())
-        if not result.is_success:
-            return self.round_retry(wait_round_time=1)
-        else:
             time.sleep(2)
-            screen = self.screenshot()
-            area = self.ctx.screen_loader.get_area('弹窗', '标题')
-            result = self.round_by_ocr(screen, "领取奖励", area)
+            op1 = MoveSearch(self.ctx, '领取', move_time=10)
+            result = self.round_by_op_result(op1.execute())
             if not result.is_success:
-                self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
-                return self.round_retry(status='交互失误')
-            return self.round_success()
-        '''旧方案
-        self.round_by_click_area('大世界', '地图', success_wait=2)
-        self.round_by_click_area('地图传送', '缩放中间', success_wait=1)
-        self.round_by_click_area('菜单', '返回', success_wait=1)
-        self.round_by_click_area('大世界', '地图', success_wait=2)
-        self.round_by_click_area('地图传送', '缩放中间', success_wait=1)
-        self.round_by_click_area('地图传送', '中间', success_wait=1)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area=area, success_wait=1)
-        self.round_by_click_area('地图传送', '传送', success_wait=2)
-        #等待地图加载
-        screen = self.screenshot()
-        result = self.round_by_find_area(screen, '大世界', '多人游戏')
-        while not result.is_success:
-            screen = self.screenshot()
-            result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
-        if result.is_success:
-            self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
-            time.sleep(2)
-            screen = self.screenshot()
-            area = self.ctx.screen_loader.get_area('大世界', '交互框')
-            result = self.round_by_ocr_and_click(screen, '领取', area, success_wait=3)
+                op2 = SearchInteract(self.ctx, '领取', circles=3)
+                result = self.round_by_op_result(op2.execute())
             if not result.is_success:
-                op =SearchInteract(self.ctx, '领取', circles=3)
-                op.execute()
-            return self.round_success()
-        '''
+                return self.round_retry(wait_round_time=1)
+            else:
+                time.sleep(2)
+                screen = self.screenshot()
+                area = self.ctx.screen_loader.get_area('弹窗', '标题')
+                result = self.round_by_ocr(screen, "领取奖励", area)
+                if not result.is_success:
+                    self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
+                    return self.round_retry(status='交互失误')
+                return self.round_success()
 
     @node_from(from_name='寻找奖励并交互')
     @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
@@ -154,6 +135,7 @@ class SilentCleanup(WOperation):
         self.change_charge = str_utils.get_positive_digits(ocr_result, None)
         print(f"结晶单质: {self.change_charge}")
         if self.change_charge is None:
+            self.change_charge = 0
             return self.round_success(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 
@@ -183,7 +165,7 @@ class SilentCleanup(WOperation):
             self.charge_left = 0
             return self.round_success()
         else:
-            return self.round_success(SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
+            return self.round_success(NewSilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
 
     @node_from(from_name='领取奖励')
     @operation_node(name='判断下一次', node_max_retry_times=10)
@@ -194,11 +176,21 @@ class SilentCleanup(WOperation):
         if not result.is_success:
             return self.round_retry()
         if self.charge_left < (self.single_charge_consume/2):
-            return self.round_success(status=SilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
+            return self.round_success(status=NewSilentCleanup.STATUS_CHARGE_NOT_ENOUGH)
         elif self.plan.plan_times <= self.plan.run_times:
-            return self.round_success()
+            return self.round_success(status=NewSilentCleanup.STATUS_CHARGE_ENOUGH)
         else:
             return self.round_success(status='重新挑战')
+
+    @node_from(from_name='判断下一次', status='体力不足')
+    @operation_node(name='脱战')
+    def out_of_fight(self) -> OperationRoundResult:
+        op = TransportBySolaGuide(self.ctx,
+                                  '周期挑战',
+                                  '模拟领域',
+                                  '共鸣促剂')
+        self.round_by_op_result(op.execute())
+        return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
 
 
     def _on_pause(self, e=None):
@@ -215,15 +207,21 @@ class SilentCleanup(WOperation):
         # 尝试删除self.auto_op.dispose()
         # 尝试删除self.auto_op = None
 
+    def tp_by_sola_guide(self):
+        pass
+
 
 def __debug():
     ctx = WContext()
     ctx.init_by_config()
     ctx.ocr.init_model()
     ctx.start_running()
-    op = SilentCleanup(ctx, ChargePlanItem(
+    op = NewSilentCleanup(ctx, ChargePlanItem(
+        tab_name='周期挑战',
         category_name='无音清剿',
-        mission_type_name='虎口山脉无音区'
+        mission_type_name='黎乔利群岛无音区',
+        run_times=0,
+        plan_times=5,
     ))
     op.execute()
 

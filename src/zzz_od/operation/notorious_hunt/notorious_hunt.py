@@ -13,7 +13,9 @@ from zzz_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from zzz_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from zzz_od.context.zzz_context import WContext
 from zzz_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
+from zzz_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
 from zzz_od.operation.move_search import MoveSearch
+from zzz_od.operation.search_interaction import SearchInteract
 from zzz_od.operation.switch_teams import SwitchTeams
 from zzz_od.operation.zzz_operation import WOperation
 
@@ -56,12 +58,12 @@ class NotoriousHunt(WOperation):
 
     @operation_node(name='向前走', is_start_node=True,)
     def move_forward(self) -> OperationRoundResult:
-        if self.plan.mission_type_name == '战歌重奏·命定的纷争':
-            self.ctx.controller.move_w(press=True, press_time=0.8, release=True)
-        elif self.plan.mission_type_name == '无冠者之像·心脏':
-            self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
-        else:
+        if self.plan.mission_type_name == '无序边境之火·战歌重奏':
             self.ctx.controller.move_w(press=True, press_time=1.5, release=True)
+        elif self.plan.mission_type_name == '命途断章之轮·战歌重奏':
+            print('嘿嘿，大卡我来了！！！！！')
+        else:
+            self.ctx.controller.move_w(press=True, press_time=0.6, release=True)
         return self.round_success()
 
     @node_from(from_name='向前走')
@@ -157,12 +159,20 @@ class NotoriousHunt(WOperation):
             screen = self.screenshot()
             result = self.round_by_find_area(screen, '副本大世界', '退出',retry_wait=1)
         if result.is_success:
+            time.sleep(6)
             return self.round_success()
 
     @node_from(from_name='确认在副本')
     @operation_node(name='监控战斗结束')
     def monitor_battle(self) -> OperationRoundResult:
-        op = MonitorBottleBySuccess(self.ctx)
+        if self.plan.mission_type_name == '命途断章之轮·战歌重奏':
+            print(self.plan.mission_type_name)
+            op = MonitorBottleByBoss(self.ctx, boss='芙露徳莉斯')
+        elif self.plan.mission_type_name == '彼世猩红之幕·战歌重奏':
+            print(self.plan.mission_type_name)
+            op = MonitorBottleByBoss(self.ctx, boss='赫卡忒')
+        else:
+            op = MonitorBottleBySuccess(self.ctx)
         return self.round_by_op_result(op.execute())
 
     @node_from(from_name='监控战斗结束', status='全员死亡')
@@ -175,11 +185,22 @@ class NotoriousHunt(WOperation):
     @operation_node(name='寻找奖励交互', node_max_retry_times=5)
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
-        op = MoveSearch(self.ctx, '领取')
-        result = self.round_by_op_result(op.execute())
+        op1 = MoveSearch(self.ctx, '领取', move_time=10)
+        result = self.round_by_op_result(op1.execute())
         if not result.is_success:
-            return self.round_retry()
-        return result
+            op2 = SearchInteract(self.ctx, '领取', circles=3)
+            result = self.round_by_op_result(op2.execute())
+        if not result.is_success:
+            return self.round_retry(wait_round_time=1)
+        else:
+            time.sleep(2)
+            screen = self.screenshot()
+            area = self.ctx.screen_loader.get_area('弹窗', '标题')
+            result = self.round_by_ocr(screen, "领取奖励", area)
+            if not result.is_success:
+                self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
+                return self.round_retry()
+            return self.round_success()
 
     @node_from(from_name='寻找奖励交互')
     @operation_node(name='领取奖励')
@@ -229,7 +250,7 @@ def __debug():
     ctx.start_running()
     op = NotoriousHunt(ctx, ChargePlanItem(
         category_name='战歌重奏',
-        mission_type_name='无序边境·余烬'
+        mission_type_name='命途断章之轮·战歌重奏'
     ))
     op.execute()
 

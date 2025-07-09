@@ -143,7 +143,7 @@ def __debug():
     ctx.start_running()
     op = Turtle(ctx, ChargePlanItem(
         category_name='龟龟',
-        mission_type_name='鸣钟之龟'
+        mission_type_name='昔日咏叹之钟·战歌重奏'
     ))
     op.execute()
 
