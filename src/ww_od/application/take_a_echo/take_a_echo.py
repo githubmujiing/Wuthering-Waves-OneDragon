@@ -29,6 +29,7 @@ class TakeAEcho(WApplication):
             op_name=gt('获得一个龟龟声骇', 'ui'),
             run_record=ctx.take_a_echo_run_record
         )
+        self.Number_of_battles:int = 0
 
     def handle_init(self) -> None:
         """
@@ -72,48 +73,6 @@ class TakeAEcho(WApplication):
         if result.is_success:
             return self.round_success()
         return self.round_retry()
-    '''
-    @node_from(from_name='向前走')
-    @operation_node(name='交互')
-    def interact_in(self) -> OperationRoundResult:
-        #screen = self.screenshot()
-        #area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.ctx.controller.interact(press=True, press_time=1, release=True)
-        #self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area, success_wait=10)
-        return self.round_success()
-
-    @node_from(from_name='交互')
-    @operation_node(name='点击出战', node_max_retry_times=30)
-    def click_start(self) -> OperationRoundResult:
-        time.sleep(7)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('副本界面', '等级区域')
-        # result = self.round_by_ocr_and_click(screen, '推荐等级70', area, success_wait=1, retry_wait_round=2)
-        result1 = self.round_by_click_area('副本界面', '单人挑战', success_wait=1, retry_wait_round=1)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('弹窗', '右选项')
-        self.round_by_ocr_and_click(screen,'确认', area, success_wait=3, retry_wait=3)
-        if not result1.is_success:
-            return self.round_retry()
-        return result1
-
-    @node_from(from_name='点击出战')
-    @operation_node(name='编队')
-    def team(self) -> OperationRoundResult:
-        return self.round_by_click_area('编队', '出战', success_wait=1, retry_wait=1)
-
-    @node_from(from_name='再来一次')
-    @node_from(from_name='编队')
-    @operation_node(name='确认在副本')
-    def confirm_copy(self) -> OperationRoundResult:
-        screen = self.screenshot()
-        result = self.round_by_find_area(screen, '副本大世界', '退出')
-        while not result.is_success:
-            screen = self.screenshot()
-            result = self.round_by_find_area(screen, '副本大世界', '退出',retry_wait=1)
-        if result.is_success:
-            return self.round_success()
-    '''
 
     @node_from(from_name='等待boss刷新')
     @operation_node(name='监控战斗结束')
@@ -125,8 +84,13 @@ class TakeAEcho(WApplication):
     @operation_node(name='吸收声骇')
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
-        op = SearchInteract(self.ctx, '吸收', 1)
-        return self.round_by_op_result(op.execute())
+        self.Number_of_battles += 1
+        op = SearchInteract(self.ctx, '吸收', 3)
+        op.execute()
+        if self.Number_of_battles >= 2:
+            return self.round_success()
+        else:
+            return self.round_fail()
 
     @node_from(from_name='吸收声骇', success=False)
     @operation_node(name='重新挑战')
@@ -166,31 +130,6 @@ class TakeAEcho(WApplication):
                                   '共鸣促剂')
         return self.round_by_op_result(op.execute())
 
-    '''
-    @node_from(from_name='返回大世界')
-    @operation_node(name='关闭自动战斗')
-    def close_auto(self) -> OperationRoundResult:
-        kill_okww_auto()
-        time.sleep(2)
-        return self.round_success()
-    '''
-
-    '''
-    def _on_pause(self, e=None):
-        WOperation._on_pause(self, e)
-        # 尝试删除if self.auto_op is not None:
-        # 尝试删除self.auto_op.stop_running()
-
-    def _on_resume(self, e=None):
-        WOperation._on_resume(self, e)
-        # 尝试删除auto_battle_utils.resume_running(self.auto_op)
-
-    def after_operation_done(self, result: OperationResult):
-        WOperation.after_operation_done(self, result)
-        # 尝试删除if self.auto_op is not None:
-        # 尝试删除self.auto_op.dispose()
-        # 尝试删除self.auto_op = None
-    '''
 
 def __debug():
     ctx = WContext()

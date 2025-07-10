@@ -12,7 +12,7 @@ from ww_od.operation.ww_operation import WOperation
 class MoveSearch(WOperation):
 
     def __init__(self, ctx: WContext, find_text: str = '领取', move_time:int = 20):
-        WOperation.__init__(self, ctx, op_name=gt('移动寻找并领取奖励', 'ui'))
+        WOperation.__init__(self, ctx, op_name=gt('移动寻找并交互', 'ui'))
         self.target_y = None
         self.target_x = None
         self.find_text = find_text

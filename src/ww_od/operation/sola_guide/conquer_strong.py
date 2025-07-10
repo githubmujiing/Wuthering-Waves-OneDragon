@@ -150,6 +150,7 @@ class ConquerStrong(WOperation):
         self.change_charge = str_utils.get_positive_digits(ocr_result, None)
         print(f"结晶单质: {self.change_charge}")
         if self.change_charge is None:
+            self.change_charge = 0
             return self.round_success(status='识别 %s 失败' % '结晶单质', wait=1)
         return self.round_success()
 

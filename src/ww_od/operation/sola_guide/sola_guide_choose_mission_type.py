@@ -1,4 +1,5 @@
 import difflib
+import time
 from typing import Optional, List
 
 from one_dragon.base.geometry.point import Point
@@ -105,6 +106,14 @@ class SolaGuideChooseMissionType(WOperation):
             return self.round_retry(status='找不到 %s' % '前往', wait=1)
 
         click = self.ctx.controller.click(target_go_point)
+
+        #如果有弹窗
+        time.sleep(2)
+        screen = self.screenshot()
+        area = self.ctx.screen_loader.get_area('弹窗', '标题')
+        result = self.round_by_ocr(screen, '提示', area)
+        if result.is_success:
+            self.round_by_click_area('弹窗', '右选项', success_wait=1)
         return self.round_success(wait=3)
 
     @node_from(from_name='选择副本')
@@ -118,7 +127,7 @@ def __debug():
     ctx.init_by_config()
     ctx.ocr.init_model()
     ctx.start_running()
-    op = SolaGuideChooseMissionType(ctx, '流月之森')
+    op = SolaGuideChooseMissionType(ctx, '荣耀狮像')
     op.execute()
 
 

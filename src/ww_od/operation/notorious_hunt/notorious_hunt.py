@@ -135,12 +135,12 @@ class NotoriousHunt(WOperation):
         screen = self.screenshot()
         result1 = self.round_by_click_area('副本界面', '单人挑战', success_wait=2)
         # 防止前面电量识别错误
+        screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '结晶波片不足')
-        result2 = self.round_by_ocr(screen,'结晶波片不足', area)
+        result2 = self.round_by_ocr(screen, '结晶波片不足', area)
         if result2.is_success:
-            self.round_by_click_area('副本界面', '取消', success_wait=1)
+            self.round_by_click_area('弹窗', '左选项', success_wait=1)
             return self.round_success(status=NotoriousHunt.STATUS_CHARGE_NOT_ENOUGH)
-
         return result1
 
     @node_from(from_name='点击出战')

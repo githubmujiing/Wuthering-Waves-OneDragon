@@ -1,7 +1,7 @@
 <!-- markdownlint-restore -->
 <div align="center">
 
-<img src="./image/ellen.jpg" width="800">
+<img src="./image/ellen.jpg" width="800" alt="">
 
 # WutheringWaves - OneDragon
 
@@ -25,7 +25,7 @@
 
 - **自动战斗：** 使用第三方项目ok-ww的自动战斗
 - **日常清理：** 每日活跃度领取、领邮箱、先约电台、模拟领域、凝素领域、讨伐强敌、周本、合成台、获取声骇等全日常清理
-- **更多功能：** 定时启动、多账号切换、发企业微信完成信息
+- **省心功能：** 定时启动、多账号切换、发企业微信完成信息
 
 ## 后续计划添加功能
 
@@ -40,7 +40,7 @@
 ## 快速开始
 
 运行Installer.exe。安装所需程序，然后打开3rdparty/ok-ww，运行ok-ww.exe。
-确保初始化完成，在实时触发界面，只开启自动战斗。
+确保初始化完成，在实时触发界面，只开启自动战斗与自动拾取声骇。
 
 然后运行Launcher.exe。
 
