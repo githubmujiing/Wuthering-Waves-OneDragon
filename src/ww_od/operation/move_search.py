@@ -38,10 +38,17 @@ class MoveSearch(WOperation):
         screen = self.screenshot()
         find_result = self.round_find_area_position(screen, "大世界", '奖励')
         print(f'结果是 {find_result.status}')
-
         # 提取坐标
         start_index = find_result.status.find('(')  # 查找 '(' 的位置
         end_index = find_result.status.find(')')  # 查找 ')' 的位置
+        if start_index == -1 or end_index == -1:  # 推荐写法
+            screen = self.screenshot()
+            find_result = self.round_find_area_position(screen, "大世界", '奖励1')
+            print(f'第二次提取，结果是 {find_result.status}')
+            # 再提取一次坐标
+            start_index = find_result.status.find('(')  # 查找 '(' 的位置
+            end_index = find_result.status.find(')')  # 查找 ')' 的位置
+
         if start_index != -1 and end_index != -1:
             # 提取括号中的部分
             coordinates_str = find_result.status[start_index + 1:end_index]
@@ -58,11 +65,11 @@ class MoveSearch(WOperation):
     @node_from(from_name='识别奖励方位', success=True)
     @operation_node(name='移动')
     def move(self) -> OperationRoundResult:
-        if self.target_x < 986:
+        if self.target_x < 430:
             self.ctx.controller.move_a(press=True, press_time=1.5)
-        elif self.target_x > 1642:
+        elif self.target_x > 1480:
             self.ctx.controller.move_d(press=True, press_time=1.5)
-        elif self.target_y > 1000 or self.target_y < 620:
+        elif self.target_y > 700 or self.target_y < 276:
             self.ctx.controller.move_s(press=True, press_time=0.1, release=True)
             time.sleep(0.5)
             self.ctx.controller.lock(press=True, press_time=1, release=True)

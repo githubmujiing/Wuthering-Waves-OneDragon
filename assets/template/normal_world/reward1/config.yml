@@ -1,0 +1,8 @@
+sub_dir: normal_world
+template_id: reward1
+template_name: 奖励1
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 10, 10
+- 56, 57

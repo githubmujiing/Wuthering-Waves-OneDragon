@@ -1,0 +1,8 @@
+sub_dir: pop
+template_id: close
+template_name: 关闭弹窗
+template_shape: rectangle
+auto_mask: true
+point_list:
+- 1414, 326
+- 1466, 378

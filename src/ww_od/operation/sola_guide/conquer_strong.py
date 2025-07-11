@@ -68,6 +68,8 @@ class ConquerStrong(WOperation):
             self.round_by_click_area('调时间', '确定', success_wait=5)
             op = BackToNormalWorld(self.ctx)
             return self.round_by_op_result(op.execute())
+        else:
+            return self.round_success()
 
     @node_from(from_name='罗蕾莱调时间')
     @operation_node(name='向前走', is_start_node=True)

@@ -63,7 +63,12 @@ class SilentCleanup(WOperation):
         if result.is_success:
             return self.round_success()
         else:
-            return self.round_retry()
+            op = SearchInteract(self.ctx, '激活', circles=3)
+            result = self.round_by_op_result(op.execute())
+            if result.is_success:
+                return self.round_success()
+            else:
+                return self.round_retry()
 
     @node_from(from_name='激活', success=True)
     @operation_node(name='监控战斗结束')

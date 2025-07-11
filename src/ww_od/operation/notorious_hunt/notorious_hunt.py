@@ -71,6 +71,7 @@ class NotoriousHunt(WOperation):
     def interact_in(self) -> OperationRoundResult:
         #screen = self.screenshot()
         #area = self.ctx.screen_loader.get_area('大世界', '交互框')
+        time.sleep(2)
         self.ctx.controller.interact(press=True, press_time=1, release=True)
         #self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area, success_wait=10)
         return self.round_success()
