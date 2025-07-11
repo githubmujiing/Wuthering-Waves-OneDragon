@@ -85,7 +85,7 @@ class MoveSearch(WOperation):
     @node_from(from_name='识别奖励方位', status='无奖励无交互')
     @operation_node(name='四处找找')
     def random_move(self) -> OperationRoundResult:
-        if self.fail_count > 10:
+        if self.fail_count > 6:
             return self.round_fail()
         self.ctx.controller.lock(press=True, press_time=1, release=True)
         time.sleep(1)
@@ -100,6 +100,9 @@ class MoveSearch(WOperation):
             self.ctx.controller.move_s(press=True, press_time=0.5)
         time.sleep(2)
         self.fail_count += 1
+        self.move_count += 1
+        if self.move_count >= self.move_time:
+            return self.round_fail(status='移动超次数')
         return self.round_success()
 
 

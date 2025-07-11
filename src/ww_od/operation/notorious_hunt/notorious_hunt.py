@@ -183,7 +183,7 @@ class NotoriousHunt(WOperation):
 
     @node_from(from_name='领取奖励', success=False)
     @node_from(from_name='监控战斗结束')
-    @operation_node(name='寻找奖励交互', node_max_retry_times=5)
+    @operation_node(name='寻找奖励交互', node_max_retry_times=3)
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
         op1 = MoveSearch(self.ctx, '领取', move_time=10)
@@ -251,7 +251,7 @@ def __debug():
     ctx.start_running()
     op = NotoriousHunt(ctx, ChargePlanItem(
         category_name='战歌重奏',
-        mission_type_name='命途断章之轮·战歌重奏'
+        mission_type_name='时序命定之争·战歌重奏'
     ))
     op.execute()
 
