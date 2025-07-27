@@ -110,6 +110,11 @@ class NotoriousHunt(WOperation):
 
         return self.round_success(NotoriousHunt.STATUS_CHARGE_ENOUGH)
 
+    @node_from(from_name='识别体力', success=False)
+    @operation_node(name='识别体力失败')
+    def check_charge_fail(self) -> OperationRoundResult:
+        return self.round_success(status=NotoriousHunt.STATUS_CHARGE_ENOUGH)
+
     @node_from(from_name='识别体力',status='体力充足')
     @operation_node(name='识别获取次数')
     def check_runs(self) -> OperationRoundResult:

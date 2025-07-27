@@ -73,7 +73,7 @@ class CoagulationField(WOperation):
         return self.round_success()
 
     @node_from(from_name='交互')
-    @operation_node(name='识别体力')
+    @operation_node(name='识别体力', node_max_retry_times=30)
     def check_charge(self) -> OperationRoundResult:
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '剩余体力')
@@ -114,6 +114,11 @@ class CoagulationField(WOperation):
             success_wait=1, retry_wait_round=1
         )
     '''
+
+    @node_from(from_name='识别体力', success=False)
+    @operation_node(name='识别体力失败')
+    def check_charge_fail(self) -> OperationRoundResult:
+        return self.round_success(status=CoagulationField.STATUS_CHARGE_ENOUGH)
 
     @node_from(from_name='识别体力', status='体力充足')
     @operation_node(name='点击出战')

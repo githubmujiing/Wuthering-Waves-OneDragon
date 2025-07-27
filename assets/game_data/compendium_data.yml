@@ -33,6 +33,8 @@
           mission_type_name_display: "黎那汐塔配枪"
     - category_name: "讨伐强敌"
       mission_type_list:
+        - mission_type_name: "芬莱克"
+          mission_type_name_display: "芬莱克"
         - mission_type_name: "荣耀狮像"
           mission_type_name_display: "荣耀狮像"
         - mission_type_name: "叹息古龙"

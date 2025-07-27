@@ -182,6 +182,7 @@ class NewSilentCleanup(WOperation):
         else:
             return self.round_success(status='重新挑战')
 
+    @node_from(from_name='领取奖励', status='体力不足')
     @node_from(from_name='判断下一次', status='体力不足')
     @operation_node(name='脱战')
     def out_of_fight(self) -> OperationRoundResult:

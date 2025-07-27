@@ -61,11 +61,12 @@ class SimulationField(WOperation):
 
     @operation_node(name='向前走', is_start_node=True,)
     def move_forward(self) -> OperationRoundResult:
-        self.ctx.controller.move_w(press=True, press_time=1, release=True)
+        self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
+        time.sleep(1)
         return self.round_success()
 
     @node_from(from_name='向前走')
-    @node_from(from_name='识别电量', status='识别 剩余体力 失败')
+    @node_from(from_name='识别体力', status='识别 剩余体力 失败')
     @operation_node(name='交互')
     def interact_in(self) -> OperationRoundResult:
         screen = self.screenshot()
@@ -85,7 +86,7 @@ class SimulationField(WOperation):
         return self.round_success()
 
     @node_from(from_name='交互')
-    @operation_node(name='识别电量')
+    @operation_node(name='识别体力', node_max_retry_times=30)
     def check_charge(self) -> OperationRoundResult:
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '剩余体力')
@@ -107,7 +108,12 @@ class SimulationField(WOperation):
 
         return self.round_success(SimulationField.STATUS_CHARGE_ENOUGH)
 
-    @node_from(from_name='识别电量', status='体力充足')
+    @node_from(from_name='识别体力', success=False)
+    @operation_node(name='识别体力失败')
+    def check_charge_fail(self) -> OperationRoundResult:
+        return self.round_success(status=SimulationField.STATUS_CHARGE_ENOUGH)
+
+    @node_from(from_name='识别体力', status='体力充足')
     @operation_node(name='选择副本名称')
     def Select_dungeon(self) -> OperationRoundResult:
         area = self.ctx.screen_loader.get_area('副本界面', '等级区域')
@@ -120,12 +126,12 @@ class SimulationField(WOperation):
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '单人挑战')
         result1 = self.round_by_ocr_and_click(screen, '单人挑战', area, success_wait=1)
-        # 防止前面电量识别错误
+        # 大于二分之体力时
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('副本界面', '结晶波片不足')
         result2 = self.round_by_ocr(screen, '结晶波片不足', area)
         if result2.is_success:
-            self.round_by_click_area('弹窗', '左选项', success_wait=1)
+            self.round_by_click_area('弹窗', '右选项', success_wait=1)
             return self.round_success(status=SimulationField.STATUS_CHARGE_NOT_ENOUGH)
         return result1
 
