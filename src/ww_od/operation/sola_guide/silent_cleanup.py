@@ -13,6 +13,7 @@ from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from ww_od.auto_battle import auto_battle_utils
 # 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from ww_od.context.ww_context import WContext
+from ww_od.operation.back_to_normal_world import BackToNormalWorld
 from ww_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
 from ww_od.operation.move_search import MoveSearch
 from ww_od.operation.search_interaction import SearchInteract
@@ -101,34 +102,6 @@ class SilentCleanup(WOperation):
                 self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
                 return self.round_retry(status='交互失误')
             return self.round_success()
-        '''旧方案
-        self.round_by_click_area('大世界', '地图', success_wait=2)
-        self.round_by_click_area('地图传送', '缩放中间', success_wait=1)
-        self.round_by_click_area('菜单', '返回', success_wait=1)
-        self.round_by_click_area('大世界', '地图', success_wait=2)
-        self.round_by_click_area('地图传送', '缩放中间', success_wait=1)
-        self.round_by_click_area('地图传送', '中间', success_wait=1)
-        screen = self.screenshot()
-        area = self.ctx.screen_loader.get_area('大世界', '交互框')
-        self.round_by_ocr_and_click(screen, self.plan.mission_type_name, area=area, success_wait=1)
-        self.round_by_click_area('地图传送', '传送', success_wait=2)
-        #等待地图加载
-        screen = self.screenshot()
-        result = self.round_by_find_area(screen, '大世界', '多人游戏')
-        while not result.is_success:
-            screen = self.screenshot()
-            result = self.round_by_find_area(screen, '大世界', '多人游戏', retry_wait=1)
-        if result.is_success:
-            self.ctx.controller.move_w(press=True, press_time=0.5, release=True)
-            time.sleep(2)
-            screen = self.screenshot()
-            area = self.ctx.screen_loader.get_area('大世界', '交互框')
-            result = self.round_by_ocr_and_click(screen, '领取', area, success_wait=3)
-            if not result.is_success:
-                op =SearchInteract(self.ctx, '领取', circles=3)
-                op.execute()
-            return self.round_success()
-        '''
 
     @node_from(from_name='寻找奖励并交互')
     @operation_node(name='识别体力以便领取奖励', node_max_retry_times=10)
@@ -178,7 +151,7 @@ class SilentCleanup(WOperation):
             self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
-        elif self.charge_left >= 40 and self.change_charge >= 20:
+        elif self.charge_left >= self.single_charge_consume/2 and self.change_charge >= self.single_charge_consume:
             self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
@@ -194,6 +167,7 @@ class SilentCleanup(WOperation):
     @node_from(from_name='领取奖励')
     @operation_node(name='判断下一次', node_max_retry_times=10)
     def check_next(self) -> OperationRoundResult:
+        time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
         result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=5, retry_wait_round=1)
@@ -204,6 +178,8 @@ class SilentCleanup(WOperation):
         elif self.plan.plan_times <= self.plan.run_times:
             return self.round_success()
         else:
+            op = BackToNormalWorld(self.ctx)
+            self.round_by_op_result(op.execute())
             return self.round_success(status='重新挑战')
 
 

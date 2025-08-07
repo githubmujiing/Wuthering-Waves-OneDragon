@@ -54,6 +54,14 @@ class BackToNormalWorld(WOperation):
             self.round_by_ocr_and_click(screen, '确认', area=area)
             return self.round_retry(wait=1)
 
+        # 声骇奖励界面卡住的情况
+        area = self.ctx.screen_loader.get_area('大世界', '声骇奖励确定')
+        result = self.round_by_ocr(screen, '确定', area)
+        if result.is_success:
+            print('声骇奖励确定')
+            self.round_by_click_area('大世界', '声骇奖励确定', success_wait=1)
+            return self.round_retry(wait=1)
+
         # 判断顶号的情况，顶回来
         area = self.ctx.screen_loader.get_area('弹窗', '内容')
         result = self.round_by_ocr(screen, '账号在别处登录', area)

@@ -90,3 +90,14 @@ area_list:
   template_sub_dir: normal_world
   template_id: reward1
   template_match_threshold: 0.7
+- area_name: 声骇奖励确定
+  pc_rect:
+  - 806
+  - 884
+  - 1112
+  - 956
+  text: ''
+  lcs_percent: 0.5
+  template_sub_dir: ''
+  template_id: ''
+  template_match_threshold: 0.7

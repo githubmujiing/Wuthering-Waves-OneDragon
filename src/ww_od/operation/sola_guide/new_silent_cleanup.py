@@ -13,6 +13,7 @@ from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 # 尝试删除from ww_od.auto_battle import auto_battle_utils
 # 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from ww_od.context.ww_context import WContext
+from ww_od.operation.back_to_normal_world import BackToNormalWorld
 from ww_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
 from ww_od.operation.move_search import MoveSearch
 from ww_od.operation.search_interaction import SearchInteract
@@ -154,7 +155,7 @@ class NewSilentCleanup(WOperation):
             self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
-        elif self.charge_left >= 40 and self.change_charge >= 20:
+        elif self.charge_left >= self.single_charge_consume/2 and self.change_charge >= self.single_charge_consume:
             self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
@@ -170,6 +171,7 @@ class NewSilentCleanup(WOperation):
     @node_from(from_name='领取奖励')
     @operation_node(name='判断下一次', node_max_retry_times=10)
     def check_next(self) -> OperationRoundResult:
+        time.sleep(1)
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', '领取后选择')
         result = self.round_by_ocr_and_click(screen, '确定', area, success_wait=5, retry_wait_round=1)
@@ -180,6 +182,8 @@ class NewSilentCleanup(WOperation):
         elif self.plan.plan_times <= self.plan.run_times:
             return self.round_success(status=NewSilentCleanup.STATUS_CHARGE_ENOUGH)
         else:
+            op = BackToNormalWorld(self.ctx)
+            self.round_by_op_result(op.execute())
             return self.round_success(status='重新挑战')
 
     @node_from(from_name='领取奖励', status='体力不足')

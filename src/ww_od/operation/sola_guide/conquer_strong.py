@@ -90,6 +90,8 @@ class ConquerStrong(WOperation):
     @node_from(from_name='领取奖励再来一次或结束', status='重新挑战')
     @operation_node(name='等待boss加载', node_max_retry_times=300)
     def wait_entry_load(self) -> OperationRoundResult:
+        if self.plan.mission_type_name == '昔日咏叹之钟·战歌重奏':
+            self.plan.mission_type_name = '昔日咏叹'
         screen = self.screenshot()
         area = self.ctx.screen_loader.get_area('战斗', 'boss名')
         result = self.round_by_ocr(screen, self.plan.mission_type_name,
@@ -131,6 +133,9 @@ class ConquerStrong(WOperation):
             result = self.round_by_ocr(screen, "领取奖励", area)
             if not result.is_success:
                 self.round_by_click_area('弹窗', '关闭')    # 以防领取奖励标题识别失误。
+                if self.plan.mission_type_name == '昔日咏叹':
+                    print(f"副本名称: {self.plan.mission_type_name}")
+                    return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
                 return self.round_retry(status='交互失误')
             return self.round_success()
 
@@ -144,6 +149,9 @@ class ConquerStrong(WOperation):
         self.charge_left = str_utils.get_positive_digits(ocr_result, None)
         print(f"剩余体力: {self.charge_left}")
         if self.charge_left is None:
+            if self.plan.mission_type_name == '昔日咏叹':
+                print(f"副本名称: {self.plan.mission_type_name}")
+                return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
             return self.round_retry(status='识别 %s 失败' % '剩余体力', wait=1)
 
         area = self.ctx.screen_loader.get_area('副本界面', '结晶单质')
@@ -197,6 +205,7 @@ class ConquerStrong(WOperation):
         else:
             return self.round_success(status=self.STATUS_CHARGE_NOT_ENOUGH)
 
+    @node_from(from_name='识别体力以便领取奖励', status='体力不足')
     @node_from(from_name='领取奖励再来一次或结束', status='体力不足')
     @operation_node(name='脱战')
     def out_of_fight(self) -> OperationRoundResult:
@@ -230,7 +239,7 @@ def __debug():
     ctx.start_running()
     op = ConquerStrong(ctx, ChargePlanItem(
         category_name='讨伐强敌',
-        mission_type_name='罗蕾莱'
+        mission_type_name='昔日咏叹之钟·战歌重奏'
     ))
     op.execute()
 

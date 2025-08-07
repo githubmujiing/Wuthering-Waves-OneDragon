@@ -249,7 +249,7 @@ class SimulationField(WOperation):
             self.charge_left -= self.single_charge_consume
             self.ctx.charge_plan_config.add_plan_run_times(self.plan)
             return self.round_success()
-        elif self.charge_left >= 20 and self.change_charge >= 20:
+        elif self.charge_left >= self.single_charge_consume/2 and self.change_charge >= self.single_charge_consume:
             self.round_by_click_area('弹窗', '单倍耗体力',success_wait=2)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
             self.round_by_click_area('战斗', '补充确定', success_wait=1)
