@@ -1,5 +1,3 @@
-import os
-import subprocess
 import time
 from typing import ClassVar, Optional
 
@@ -17,11 +15,12 @@ from ww_od.operation.determine_silent_cleanup_type import determine_silent_clean
 from ww_od.operation.report_message.report_message import state_of_charge
 from ww_od.operation.sola_guide.coagulation_field import CoagulationField
 from ww_od.operation.sola_guide.new_silent_cleanup import NewSilentCleanup
+from ww_od.operation.sola_guide.organize_check_strength import OrganizeCheckStrength
 from ww_od.operation.sola_guide.simulation_field import SimulationField
 from ww_od.operation.sola_guide.conquer_strong import ConquerStrong
 from ww_od.operation.sola_guide.silent_cleanup import SilentCleanup
 from ww_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
-from ww_od.operation.control_okww_auto import start_okww_auto, kill_okww_auto
+from ww_od.operation.control_okww_auto import start_okww_auto
 from ww_od.operation.switch_teams import SwitchTeams
 
 
@@ -52,6 +51,7 @@ class ChargePlanApp(WApplication):
     @operation_node(name='启动自动战斗', is_start_node=True)
     def start_auto(self) -> OperationRoundResult:
         start_okww_auto()
+        self.round_by_click_area('菜单', '返回', success_wait=1)
         return self.round_success()
 
     @node_from(from_name='模拟领域')
@@ -141,12 +141,3 @@ class ChargePlanApp(WApplication):
         return self.round_success()
 
 
-
-    '''
-    @node_from(from_name='返回大世界')
-    @operation_node(name='关闭自动战斗')
-    def close_auto(self) -> OperationRoundResult:
-        kill_okww_auto()
-        time.sleep(2)
-        return self.round_success()
-    '''

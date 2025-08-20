@@ -6,14 +6,10 @@ from one_dragon.base.operation.operation_round_result import OperationRoundResul
 from one_dragon.utils.i18_utils import gt
 from ww_od.application.ww_application import WApplication
 from ww_od.context.ww_context import WContext
-from ww_od.operation.back_to_normal_world import BackToNormalWorld
-from ww_od.operation.control_okww_auto import start_okww_auto, kill_okww_auto
-from ww_od.operation.monitor_battle_by_success import MonitorBottleBySuccess
+from ww_od.operation.control_okww_auto import start_okww_auto
 from ww_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss
-from ww_od.operation.open_menu import OpenMenu
 from ww_od.operation.search_interaction import SearchInteract
 from ww_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
-from ww_od.operation.switch_teams import SwitchTeams
 
 
 class KillNutao(WApplication):
@@ -39,6 +35,7 @@ class KillNutao(WApplication):
     @operation_node(name='启动自动战斗', is_start_node=True)
     def start_auto(self) -> OperationRoundResult:
         start_okww_auto()
+        self.round_by_click_area('菜单', '返回', success_wait=2)
         return self.round_success()
 
     @node_from(from_name='监控战斗结束', status='全员死亡')

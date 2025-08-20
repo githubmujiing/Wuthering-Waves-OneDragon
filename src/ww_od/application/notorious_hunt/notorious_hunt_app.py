@@ -1,18 +1,15 @@
-import time
 from typing import ClassVar, Optional
 
 from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
-from one_dragon.utils import cv2_utils, str_utils
 from one_dragon.utils.i18_utils import gt
 from ww_od.application.ww_application import WApplication
 from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
 from ww_od.context.ww_context import WContext
 from ww_od.operation.back_to_normal_world import BackToNormalWorld
-from ww_od.operation.control_okww_auto import start_okww_auto, kill_okww_auto
+from ww_od.operation.control_okww_auto import start_okww_auto
 from ww_od.operation.notorious_hunt.notorious_hunt import NotoriousHunt
-from ww_od.operation.sola_guide.simulation_field import SimulationField
 from ww_od.operation.sola_guide.conquer_strong import ConquerStrong
 from ww_od.operation.sola_guide.tp_by_sola_guide import TransportBySolaGuide
 from ww_od.operation.switch_teams import SwitchTeams
@@ -44,6 +41,7 @@ class NotoriousHuntApp(WApplication):
     @operation_node(name='启动自动战斗', is_start_node=True)
     def start_auto(self) -> OperationRoundResult:
         start_okww_auto()
+        self.round_by_click_area('菜单', '返回', success_wait=1)
         return self.round_success()
 
     @node_from(from_name='副本boss')

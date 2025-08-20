@@ -3,18 +3,14 @@ from typing import List
 from one_dragon.base.operation.one_dragon_app import OneDragonApp
 from ww_od.application.charge_plan.charge_plan_app import ChargePlanApp
 from ww_od.application.Arrange_radio.Arrange_radio_app import ArrangeRadioApp
-# 尝试删除from ww_od.application.coffee.coffee_app import CoffeeApp
 from ww_od.application.email_app.email_app import EmailApp
 from ww_od.application.engagement_reward.engagement_reward_app import EngagementRewardApp
 from ww_od.application.kill_nutao.kill_nutao import KillNutao
-# 尝试删除from ww_od.application.hollow_zero.hollow_zero_app import HollowZeroApp
-# 尝试删除from ww_od.application.life_on_line.life_on_line_app import LifeOnLineApp
 from ww_od.application.notorious_hunt.notorious_hunt_app import NotoriousHuntApp
-# 尝试删除from ww_od.application.random_play.random_play_app import RandomPlayApp
+from ww_od.application.organize_check_strength.organize_check_strength import OrganizeCheckStrength
 from ww_od.application.redemption_code.redemption_code_app import RedemptionCodeApp
 from ww_od.application.synthesis.synthesis_app import SynthesisApp
 from ww_od.application.take_a_echo.take_a_echo import TakeAEcho
-# 尝试删除from ww_od.application.scratch_card.scratch_card_app import ScratchCardApp
 from ww_od.application.weekly_schedule.weekly_schedule_app import WeeklyScheduleApp
 from ww_od.application.ww_application import WApplication
 from ww_od.context.ww_context import WContext
@@ -42,15 +38,11 @@ class WOneDragonApp(OneDragonApp, WApplication):
             KillNutao(self.ctx),
             EmailApp(self.ctx),
             SynthesisApp(self.ctx),
-            # 尝试删除RandomPlayApp(self.ctx),
-            # 尝试删除ScratchCardApp(self.ctx),
-            # 尝试删除CoffeeApp(self.ctx),
+            OrganizeCheckStrength(self.ctx),
             NotoriousHuntApp(self.ctx),
             ChargePlanApp(self.ctx),
             EngagementRewardApp(self.ctx),
-            # 尝试删除HollowZeroApp(self.ctx),
             ArrangeRadioApp(self.ctx),
-            # 尝试删除LifeOnLineApp(self.ctx),
         ]
 
 

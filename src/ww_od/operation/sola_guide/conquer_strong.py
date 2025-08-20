@@ -9,8 +9,6 @@ from one_dragon.base.operation.operation_round_result import OperationRoundResul
 from one_dragon.utils import cv2_utils, str_utils
 from one_dragon.utils.i18_utils import gt
 from ww_od.application.charge_plan.charge_plan_config import ChargePlanItem
-# 尝试删除from ww_od.auto_battle import auto_battle_utils
-# 尝试删除from ww_od.auto_battle.auto_battle_operator import AutoBattleOperator
 from ww_od.context.ww_context import WContext
 from ww_od.operation.back_to_normal_world import BackToNormalWorld
 from ww_od.operation.monitor_bottle_by_boss import MonitorBottleByBoss

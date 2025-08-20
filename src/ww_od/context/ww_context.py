@@ -3,6 +3,7 @@ from typing import Optional
 from one_dragon.base.operation.one_dragon_context import OneDragonContext
 from one_dragon.utils import i18_utils
 from ww_od.application.kill_nutao.kill_nutao_run_recrd import KillNutaoRunRecord
+from ww_od.application.organize_check_strength.organize_check_strength_run_recrd import OrganizeCheckStrengthRunRecord
 from ww_od.application.synthesis.synthesis_run_record import SynthesisRunRecord
 
 
@@ -119,24 +120,16 @@ class WContext(OneDragonContext):
         self.email_run_record.check_and_update_status()
         self.synthesis_run_record: SynthesisRunRecord = SynthesisRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.synthesis_run_record.check_and_update_status()
-        # 尝试删除self.random_play_run_record: RandomPlayRunRecord = RandomPlayRunRecord(self.current_instance_idx, game_refresh_hour_offset)
-        # 尝试删除self.random_play_run_record.check_and_update_status()
-        # 尝试删除self.scratch_card_run_record: ScratchCardRunRecord = ScratchCardRunRecord(self.current_instance_idx, game_refresh_hour_offset)
-        # 尝试删除self.scratch_card_run_record.check_and_update_status()
+        self.organize_check_strength_run_record: OrganizeCheckStrengthRunRecord = OrganizeCheckStrengthRunRecord(self.current_instance_idx, game_refresh_hour_offset)
+        self.organize_check_strength_run_record.check_and_update_status()
         self.charge_plan_run_record: ChargePlanRunRecord = ChargePlanRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.charge_plan_run_record.check_and_update_status()
         self.engagement_reward_run_record: EngagementRewardRunRecord = EngagementRewardRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.engagement_reward_run_record.check_and_update_status()
         self.notorious_hunt_record: NotoriousHuntRunRecord = NotoriousHuntRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.notorious_hunt_record.check_and_update_status()
-        # 尝试删除self.hollow_zero_record: HollowZeroRunRecord = HollowZeroRunRecord(self.hollow_zero_config, self.current_instance_idx, game_refresh_hour_offset)
-        # 尝试删除self.hollow_zero_record.check_and_update_status()
-        # 尝试删除self.coffee_record: CoffeeRunRecord = CoffeeRunRecord(self.current_instance_idx, game_refresh_hour_offset)
-        # 尝试删除self.coffee_record.check_and_update_status()
         self.city_fund_record: ArrangeRadioRunRecord = ArrangeRadioRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.city_fund_record.check_and_update_status()
-        # 尝试删除self.life_on_line_record: LifeOnLineRunRecord = LifeOnLineRunRecord(self.life_on_line_config, self.current_instance_idx, game_refresh_hour_offset)
-        # 尝试删除self.life_on_line_record.check_and_update_status()
         self.redemption_code_record: RedemptionCodeRunRecord = RedemptionCodeRunRecord(self.current_instance_idx, game_refresh_hour_offset)
         self.redemption_code_record.check_and_update_status()
 

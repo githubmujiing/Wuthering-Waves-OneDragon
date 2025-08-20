@@ -1,17 +1,12 @@
 from typing import List
 
-# 尝试删除from one_dragon.base.geometry.point import Point
-# 尝试删除from one_dragon.base.operation.operation_edge import node_from
 from one_dragon.base.operation.operation_node import operation_node
 from one_dragon.base.operation.operation_round_result import OperationRoundResult
 from one_dragon.utils.i18_utils import gt
 from ww_od.application.ww_application import WApplication
 from ww_od.context.ww_context import WContext
-# 尝试删除from ww_od.operation.arcade.arcade_snake_suicide import ArcadeSnakeSuicide
 from ww_od.operation.back_to_normal_world import BackToNormalWorld
-# 尝试删除from ww_od.operation.sola_guide.sola_guide_choose_tab import SolaGuideChooseTab
 from ww_od.operation.sola_guide.opens_sola_guide import OpenSolaGuide
-# 尝试删除from ww_od.operation.eat_noodle import EatNoodle
 
 
 class WeeklyScheduleApp(WApplication):
