@@ -82,6 +82,8 @@ class TakeAEcho(WApplication):
     @operation_node(name='吸收声骇')
     def after_battle(self) -> OperationRoundResult:
         time.sleep(2)
+        op = BackToNormalWorld(self.ctx)
+        op.execute()
         self.Number_of_battles += 1
         op = SearchInteract(self.ctx, '吸收', 3)
         op.execute()

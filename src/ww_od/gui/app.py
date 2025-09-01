@@ -18,7 +18,6 @@ try:
 
     _init_error = None
 
-
     # 定义应用程序的主窗口类
     class AppWindow(FluentWindowBase):
 

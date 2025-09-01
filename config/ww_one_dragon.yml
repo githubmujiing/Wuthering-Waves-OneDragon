@@ -1,11 +1,11 @@
 instance_list:
 - idx: 1
   name: '01'
-  active: false
+  active: true
   active_in_od: true
 - idx: 2
   name: '02'
-  active: true
+  active: false
   active_in_od: true
 - idx: 3
   name: '03'
@@ -20,4 +20,4 @@ instance_list:
   active: false
   active_in_od: false
 instance_run: 全部实例
-after_done: 关机
+after_done: 无
